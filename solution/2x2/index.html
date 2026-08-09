@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Méthode débutant pour résoudre un Rubik’s Cube 2x2 étape par étape, avec des explications simples.">
+  <meta name="theme-color" content="#2f46b0">
+  <title>Solution Rubik’s Cube 2x2 débutant : méthode simple | CubeMaster</title>
+  <link rel="icon" href="../../assets/logo/Logo-cubemaster.ico" sizes="32x32">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css?v=12">
+  <script src="../../script.js" defer></script>
+  <script src="../../assets/vendor/three.min.js" defer></script>
+  <script src="../../cube-player.js?v=10" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../../index.html" aria-label="CubeMaster, accueil">
+        <picture>
+          <source srcset="../../assets/logo/Logo-cubemaster.webp" type="image/webp">
+          <img src="../../assets/logo/Logo-cubemaster.png" alt="" width="800" height="800">
+        </picture>
+        <span>Cube<span>Master</span></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">
+        <span class="sr-only">Ouvrir le menu</span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+      <nav class="main-nav" id="main-navigation" aria-label="Navigation principale">
+        <div class="nav-group">
+          <a class="is-active" aria-current="page" href="../../solutions/index.html">Solutions</a>
+          <div class="subnav" aria-label="Pages solutions">
+            <a href="../../solution/2x2/index.html">Cube 2x2</a>
+            <a href="../../solution/3x3-debutant/index.html">Cube 3x3 débutant</a>
+            <a href="../../solution/3x3-avancee/index.html">Cube 3x3 avancée</a>
+            <a href="../../solution/4x4/index.html">Cube 4x4</a>
+            <a href="../../solution/5x5/index.html">Cube 5x5</a>
+            <a href="../../solution/pyramix/index.html">Pyramix</a>
+            <a href="../../solution/megaminx/index.html">Mégaminx</a>
+            <a href="../../solution/gearcube/index.html">Gear Cube</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <a href="../../nettoyage/index.html">Nettoyage</a>
+        </div>
+        <div class="nav-group">
+          <a href="../../composition/index.html">Composition</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="page-header">
+      <div class="container">
+        <div class="breadcrumb"><a href="../../index.html">Accueil</a><span>/</span><a href="../../solutions/index.html">Solutions</a><span>/</span><span>2x2 débutant</span></div>
+        <p class="eyebrow"><span></span> Méthode débutant</p>
+        <h1>Résoudre un Rubik’s Cube 2x2 simplement.</h1>
+        <p class="page-intro">Une méthode débutant courte pour résoudre un Rubik’s Cube 2x2 : faire la face blanche, former la face jaune, puis aligner les derniers coins.</p>
+        <ul class="guide-meta">
+          <li>Niveau : débutant</li>
+          <li>Objectif : première résolution</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container guide-layout">
+        <aside class="guide-toc">
+          <h2>Sommaire</h2>
+          <a href="#notation">Avant de commencer</a>
+          <a href="#face-blanche">1. Face blanche</a>
+          <a href="#derniere-couche">2. Dernière couche</a>
+          <a href="#coins-jaunes">3. Coins jaunes</a>
+          <a href="#cas-particulier">Cas particulier</a>
+        </aside>
+
+        <div class="guide-content">
+          <article class="guide-card notation-guide" id="notation">
+            <h2>Avant de commencer</h2>
+            <p class="notation-intro">Un mouvement indique toujours <strong>quelle face tourner</strong> et <strong>dans quel sens</strong>. Voici les repères utilisés dans toute la méthode.</p>
+
+            <svg class="notation-defs" width="0" height="0" aria-hidden="true" focusable="false">
+              <defs>
+                <symbol id="notation-cube-2x2" viewBox="0 0 160 164">
+                  <polygon class="notation-sticker" style="fill: var(--notation-top-1, var(--notation-top, var(--notation-muted)))" points="80,18 111,34 80,50 49,34"></polygon>
+                  <polygon class="notation-sticker" style="fill: var(--notation-top-2, var(--notation-top, var(--notation-muted)))" points="111,34 142,50 111,66 80,50"></polygon>
+                  <polygon class="notation-sticker" style="fill: var(--notation-top-3, var(--notation-top, var(--notation-muted)))" points="49,34 80,50 49,66 18,50"></polygon>
+                  <polygon class="notation-sticker" style="fill: var(--notation-top-4, var(--notation-top, var(--notation-muted)))" points="80,50 111,66 80,82 49,66"></polygon>
+                  <polygon class="notation-sticker" style="fill: var(--notation-front-1, var(--notation-front, var(--notation-muted)))" points="18,50 49,66 49,98 18,82"></polygon>
+                  <polygon class="notation-sticker" style="fill: var(--notation-front-2, var(--notation-front, var(--notation-muted)))" points="49,66 80,82 80,114 49,98"></polygon>
+                  <polygon class="notation-sticker" style="fill: var(--notation-front-3, var(--notation-front, var(--notation-muted)))" points="18,82 49,98 49,130 18,114"></polygon>
+                  <polygon class="notation-sticker" style="fill: var(--notation-front-4, var(--notation-front, var(--notation-muted)))" points="49,98 80,114 80,146 49,130"></polygon>
+                  <polygon class="notation-sticker" style="fill: var(--notation-right-1, var(--notation-right, var(--notation-muted)))" points="80,82 111,66 111,98 80,114"></polygon>
+                  <polygon class="notation-sticker" style="fill: var(--notation-right-2, var(--notation-right, var(--notation-muted)))" points="111,66 142,50 142,82 111,98"></polygon>
+                  <polygon class="notation-sticker" style="fill: var(--notation-right-3, var(--notation-right, var(--notation-muted)))" points="80,114 111,98 111,130 80,146"></polygon>
+                  <polygon class="notation-sticker" style="fill: var(--notation-right-4, var(--notation-right, var(--notation-muted)))" points="111,98 142,82 142,114 111,130"></polygon>
+                </symbol>
+              </defs>
+            </svg>
+
+            <section class="notation-block" aria-labelledby="cube-terms-title">
+              <div class="notation-block-heading">
+                <div>
+                  <p class="notation-kicker">Le vocabulaire</p>
+                  <h3 id="cube-terms-title">Les termes utilisés</h3>
+                </div>
+                <p>Sur un 2x2, toutes les pièces sont des coins : il n’y a ni centre ni arête.</p>
+              </div>
+              <div class="notation-terms-grid">
+                <div class="notation-term">
+                  <svg class="notation-cube notation-term-square" viewBox="0 0 160 164" role="img" aria-label="Un carré coloré mis en évidence sur le cube"><use href="#notation-cube-2x2"></use></svg>
+                  <div><h4>Carré</h4><p>Une zone colorée visible sur une pièce.</p></div>
+                </div>
+                <div class="notation-term">
+                  <svg class="notation-cube notation-term-corner" viewBox="0 0 160 164" role="img" aria-label="Un coin composé de trois carrés mis en évidence"><use href="#notation-cube-2x2"></use></svg>
+                  <div><h4>Coin</h4><p>Une pièce composée de trois carrés de couleurs différentes.</p></div>
+                </div>
+                <div class="notation-term">
+                  <svg class="notation-cube notation-term-face" viewBox="0 0 160 164" role="img" aria-label="Une face complète de quatre carrés mise en évidence"><use href="#notation-cube-2x2"></use></svg>
+                  <div><h4>Face</h4><p>Les quatre carrés visibles sur un même côté du cube.</p></div>
+                </div>
+                <div class="notation-term">
+                  <svg class="notation-cube notation-term-layer" viewBox="0 0 160 164" role="img" aria-label="La couche du haut mise en évidence"><use href="#notation-cube-2x2"></use></svg>
+                  <div><h4>Couche</h4><p>Un groupe de quatre coins qui tourne ensemble.</p></div>
+                </div>
+              </div>
+            </section>
+
+            <section class="notation-block notation-faces" aria-labelledby="cube-faces-title">
+              <div class="notation-block-heading">
+                <div>
+                  <p class="notation-kicker">La position</p>
+                  <h3 id="cube-faces-title">Les six faces du cube</h3>
+                </div>
+                <p>Chaque lettre vient du nom anglais. Le cube garde toujours le même angle : le vert montre toute la couche entraînée par le mouvement.</p>
+              </div>
+              <div class="notation-faces-grid">
+                <div class="notation-face-item">
+                  <svg class="notation-cube notation-face-r" viewBox="0 0 160 164" role="img" aria-label="Couche droite mise en évidence"><use href="#notation-cube-2x2"></use></svg>
+                  <div><strong><span>R</span> Right</strong><p>Face droite</p></div>
+                </div>
+                <div class="notation-face-item">
+                  <svg class="notation-cube notation-face-l" viewBox="0 0 160 164" role="img" aria-label="Couche gauche mise en évidence"><use href="#notation-cube-2x2"></use></svg>
+                  <div><strong><span>L</span> Left</strong><p>Face gauche</p></div>
+                </div>
+                <div class="notation-face-item">
+                  <svg class="notation-cube notation-face-f" viewBox="0 0 160 164" role="img" aria-label="Couche avant mise en évidence"><use href="#notation-cube-2x2"></use></svg>
+                  <div><strong><span>F</span> Front</strong><p>Face avant</p></div>
+                </div>
+                <div class="notation-face-item">
+                  <svg class="notation-cube notation-face-b" viewBox="0 0 160 164" role="img" aria-label="Couche arrière mise en évidence"><use href="#notation-cube-2x2"></use></svg>
+                  <div><strong><span>B</span> Back</strong><p>Face arrière</p></div>
+                </div>
+                <div class="notation-face-item">
+                  <svg class="notation-cube notation-face-u" viewBox="0 0 160 164" role="img" aria-label="Couche du dessus mise en évidence"><use href="#notation-cube-2x2"></use></svg>
+                  <div><strong><span>U</span> Up</strong><p>Face du dessus</p></div>
+                </div>
+                <div class="notation-face-item">
+                  <svg class="notation-cube notation-face-d" viewBox="0 0 160 164" role="img" aria-label="Couche du dessous mise en évidence"><use href="#notation-cube-2x2"></use></svg>
+                  <div><strong><span>D</span> Down</strong><p>Face du dessous</p></div>
+                </div>
+              </div>
+            </section>
+
+            <section class="notation-block notation-rotation" aria-labelledby="cube-rotation-title">
+              <div class="notation-block-heading">
+                <div>
+                  <p class="notation-kicker">La rotation</p>
+                  <h3 id="cube-rotation-title">Lire un mouvement</h3>
+                </div>
+                <p>Regarde directement la face que tu vas tourner : le sens est toujours défini depuis ce point de vue.</p>
+              </div>
+              <div class="notation-rotation-grid">
+                <div class="notation-turn">
+                  <div class="notation-turn-visual">
+                    <svg class="notation-cube notation-face-r" viewBox="0 0 160 164" aria-hidden="true"><use href="#notation-cube-2x2"></use></svg>
+                    <span class="notation-turn-arrow" aria-hidden="true">↻</span>
+                  </div>
+                  <div class="notation-turn-copy"><strong class="notation-move-code">R</strong><h4>Face droite</h4><p>Sens horaire</p></div>
+                </div>
+                <div class="notation-turn">
+                  <div class="notation-turn-visual">
+                    <svg class="notation-cube notation-face-r" viewBox="0 0 160 164" aria-hidden="true"><use href="#notation-cube-2x2"></use></svg>
+                    <span class="notation-turn-arrow" aria-hidden="true">↺</span>
+                  </div>
+                  <div class="notation-turn-copy"><strong class="notation-move-code">R'</strong><h4>Face droite</h4><p>Sens antihoraire</p></div>
+                </div>
+                <div class="notation-turn">
+                  <div class="notation-turn-visual">
+                    <svg class="notation-cube notation-face-l" viewBox="0 0 160 164" aria-hidden="true"><use href="#notation-cube-2x2"></use></svg>
+                    <span class="notation-turn-arrow" aria-hidden="true">↻</span>
+                  </div>
+                  <div class="notation-turn-copy"><strong class="notation-move-code">L</strong><h4>Face gauche</h4><p>Sens horaire</p></div>
+                </div>
+                <div class="notation-turn">
+                  <div class="notation-turn-visual">
+                    <svg class="notation-cube notation-face-l" viewBox="0 0 160 164" aria-hidden="true"><use href="#notation-cube-2x2"></use></svg>
+                    <span class="notation-turn-arrow" aria-hidden="true">↺</span>
+                  </div>
+                  <div class="notation-turn-copy"><strong class="notation-move-code">L'</strong><h4>Face gauche</h4><p>Sens antihoraire</p></div>
+                </div>
+                <div class="notation-turn">
+                  <div class="notation-turn-visual">
+                    <svg class="notation-cube notation-face-f" viewBox="0 0 160 164" aria-hidden="true"><use href="#notation-cube-2x2"></use></svg>
+                    <span class="notation-turn-arrow" aria-hidden="true">↻</span>
+                  </div>
+                  <div class="notation-turn-copy"><strong class="notation-move-code">F</strong><h4>Face avant</h4><p>Sens horaire</p></div>
+                </div>
+                <div class="notation-turn">
+                  <div class="notation-turn-visual">
+                    <svg class="notation-cube notation-face-f" viewBox="0 0 160 164" aria-hidden="true"><use href="#notation-cube-2x2"></use></svg>
+                    <span class="notation-turn-arrow" aria-hidden="true">↺</span>
+                  </div>
+                  <div class="notation-turn-copy"><strong class="notation-move-code">F'</strong><h4>Face avant</h4><p>Sens antihoraire</p></div>
+                </div>
+                <div class="notation-turn">
+                  <div class="notation-turn-visual">
+                    <svg class="notation-cube notation-face-b" viewBox="0 0 160 164" aria-hidden="true"><use href="#notation-cube-2x2"></use></svg>
+                    <span class="notation-turn-arrow" aria-hidden="true">↻</span>
+                  </div>
+                  <div class="notation-turn-copy"><strong class="notation-move-code">B</strong><h4>Face arrière</h4><p>Sens horaire</p></div>
+                </div>
+                <div class="notation-turn">
+                  <div class="notation-turn-visual">
+                    <svg class="notation-cube notation-face-b" viewBox="0 0 160 164" aria-hidden="true"><use href="#notation-cube-2x2"></use></svg>
+                    <span class="notation-turn-arrow" aria-hidden="true">↺</span>
+                  </div>
+                  <div class="notation-turn-copy"><strong class="notation-move-code">B'</strong><h4>Face arrière</h4><p>Sens antihoraire</p></div>
+                </div>
+                <div class="notation-turn">
+                  <div class="notation-turn-visual">
+                    <svg class="notation-cube notation-face-u" viewBox="0 0 160 164" aria-hidden="true"><use href="#notation-cube-2x2"></use></svg>
+                    <span class="notation-turn-arrow" aria-hidden="true">↻</span>
+                  </div>
+                  <div class="notation-turn-copy"><strong class="notation-move-code">U</strong><h4>Face du dessus</h4><p>Sens horaire</p></div>
+                </div>
+                <div class="notation-turn">
+                  <div class="notation-turn-visual">
+                    <svg class="notation-cube notation-face-u" viewBox="0 0 160 164" aria-hidden="true"><use href="#notation-cube-2x2"></use></svg>
+                    <span class="notation-turn-arrow" aria-hidden="true">↺</span>
+                  </div>
+                  <div class="notation-turn-copy"><strong class="notation-move-code">U'</strong><h4>Face du dessus</h4><p>Sens antihoraire</p></div>
+                </div>
+                <div class="notation-turn">
+                  <div class="notation-turn-visual">
+                    <svg class="notation-cube notation-face-d" viewBox="0 0 160 164" aria-hidden="true"><use href="#notation-cube-2x2"></use></svg>
+                    <span class="notation-turn-arrow" aria-hidden="true">↻</span>
+                  </div>
+                  <div class="notation-turn-copy"><strong class="notation-move-code">D</strong><h4>Face du dessous</h4><p>Sens horaire</p></div>
+                </div>
+                <div class="notation-turn">
+                  <div class="notation-turn-visual">
+                    <svg class="notation-cube notation-face-d" viewBox="0 0 160 164" aria-hidden="true"><use href="#notation-cube-2x2"></use></svg>
+                    <span class="notation-turn-arrow" aria-hidden="true">↺</span>
+                  </div>
+                  <div class="notation-turn-copy"><strong class="notation-move-code">D'</strong><h4>Face du dessous</h4><p>Sens antihoraire</p></div>
+                </div>
+              </div>
+              <div class="notation-direction-note">
+                <p><strong>« Vers la droite »</strong> signifie sens horaire <span>(dans le sens des aiguilles d’une montre).</span></p>
+                <p><strong>« Vers la gauche »</strong> signifie sens antihoraire <span>(dans le sens inverse des aiguilles d’une montre).</span></p>
+                <p><strong>Le chiffre 2</strong> indique un demi-tour <span>(180°, le sens n’a pas d’importance).</span></p>
+              </div>
+            </section>
+
+            <p class="tip-box">La prise du cube change entre les étapes. Avant chaque algorithme, vérifie la position indiquée des faces blanche et jaune.</p>
+          </article>
+
+          <article class="guide-card" id="face-blanche">
+            <div class="white-step-heading">
+              <p class="white-step-kicker">Étape 1 · 4 coins à placer</p>
+              <h2>Faire la face blanche</h2>
+              <p class="white-step-lead"><strong>Objectif :</strong> réunir les quatre carrés blancs tout en gardant les couleurs latérales alignées.</p>
+              <p class="white-step-context">Vérifie également que les couleurs des côtés correspondent aux couleurs des faces voisines.</p>
+            </div>
+
+            <section class="white-corner-lesson" aria-labelledby="white-corner-title">
+              <header class="white-corner-header">
+                <div>
+                  <p class="white-corner-eyebrow">La méthode du coin au-dessus</p>
+                  <h3 id="white-corner-title">Suis un coin, puis répète le geste.</h3>
+                  <p>Dans l’exemple, on suit le coin <strong>blanc–rouge–vert</strong>. Ses trois couleurs restent ensemble pendant tout le déplacement.</p>
+                </div>
+                <div class="corner-color-key" aria-label="Couleurs du coin suivi : blanc, rouge et vert">
+                  <span><i class="color-swatch color-swatch-white"></i>Blanc</span>
+                  <span><i class="color-swatch color-swatch-red"></i>Rouge</span>
+                  <span><i class="color-swatch color-swatch-green"></i>Vert</span>
+                </div>
+              </header>
+
+              <div class="white-corner-basics" aria-label="Cas possibles avant de commencer">
+                <p class="white-corner-basics-title">Cas possibles</p>
+                <p><strong>Un coin est déjà bien placé :</strong> laisse-le où il est.</p>
+                <p><strong>Un coin est en haut :</strong> place-le au-dessus de son emplacement et fais l’algorithme jusqu’à ce qu’il soit bien placé.</p>
+              </div>
+
+              <ol class="corner-sequence">
+                <li class="corner-stage">
+                  <div class="corner-stage-copy">
+                    <span class="corner-stage-number">1</span>
+                    <h4>Repère le coin</h4>
+                    <p>Trouve un carré blanc et place-le au-dessus de son emplacement.</p>
+                  </div>
+                  <svg class="corner-cube" viewBox="0 0 160 164" role="img" aria-label="Coin blanc, rouge et vert mis en évidence sur le cube">
+                    <g class="corner-cube-face cube-face-top-svg">
+                      <polygon class="cube-sticker cube-fill-yellow is-muted" points="80,18 111,34 80,50 49,34"></polygon>
+                      <polygon class="cube-sticker cube-fill-orange is-muted" points="111,34 142,50 111,66 80,50"></polygon>
+                      <polygon class="cube-sticker cube-fill-blue is-muted" points="49,34 80,50 49,66 18,50"></polygon>
+                      <polygon class="cube-sticker cube-fill-white is-corner-focus" points="80,50 111,66 80,82 49,66"></polygon>
+                    </g>
+                    <g class="corner-cube-face cube-face-front-svg">
+                      <polygon class="cube-sticker cube-fill-orange is-muted" points="18,50 49,66 49,98 18,82"></polygon>
+                      <polygon class="cube-sticker cube-fill-red is-corner-focus" points="49,66 80,82 80,114 49,98"></polygon>
+                      <polygon class="cube-sticker cube-fill-blue is-muted" points="18,82 49,98 49,130 18,114"></polygon>
+                      <polygon class="cube-sticker cube-fill-neutral is-muted" points="49,98 80,114 80,146 49,130"></polygon>
+                    </g>
+                    <g class="corner-cube-face cube-face-right-svg">
+                      <polygon class="cube-sticker cube-fill-green is-corner-focus" points="80,82 111,66 111,98 80,114"></polygon>
+                      <polygon class="cube-sticker cube-fill-red is-muted" points="111,66 142,50 142,82 111,98"></polygon>
+                      <polygon class="cube-sticker cube-fill-neutral is-muted" points="80,114 111,98 111,130 80,146"></polygon>
+                      <polygon class="cube-sticker cube-fill-orange is-muted" points="111,98 142,82 142,114 111,130"></polygon>
+                    </g>
+                  </svg>
+                  <p class="corner-stage-note"><span class="focus-dot"></span>Le coin à suivre</p>
+                  <span class="corner-step-arrow" aria-hidden="true">→</span>
+                </li>
+
+                <li class="corner-stage">
+                  <div class="corner-stage-copy">
+                    <span class="corner-stage-number">2</span>
+                    <h4>Déplacer le coin haut vers le bas</h4>
+                    <p>Fais maintenant l’algorithme suivant : R U R' U' et répète jusqu’à ce que le coin soit orienté vers le bas.</p>
+                  </div>
+                  <svg class="corner-cube" viewBox="0 0 160 164" role="img" aria-label="Coin blanc, rouge et vert aligné au-dessus de son emplacement">
+                    <g class="corner-cube-face cube-face-top-svg">
+                      <polygon class="cube-sticker cube-fill-yellow is-muted" points="80,18 111,34 80,50 49,34"></polygon>
+                      <polygon class="cube-sticker cube-fill-blue is-muted" points="111,34 142,50 111,66 80,50"></polygon>
+                      <polygon class="cube-sticker cube-fill-orange is-muted" points="49,34 80,50 49,66 18,50"></polygon>
+                      <polygon class="cube-sticker cube-fill-white is-corner-focus" points="80,50 111,66 80,82 49,66"></polygon>
+                    </g>
+                    <g class="corner-cube-face cube-face-front-svg">
+                      <polygon class="cube-sticker cube-fill-blue is-muted" points="18,50 49,66 49,98 18,82"></polygon>
+                      <polygon class="cube-sticker cube-fill-green is-corner-focus" points="49,66 80,82 80,114 49,98"></polygon>
+                      <polygon class="cube-sticker cube-fill-neutral is-muted" points="18,82 49,98 49,130 18,114"></polygon>
+                      <polygon class="cube-sticker cube-fill-red is-slot-focus" points="49,98 80,114 80,146 49,130"></polygon>
+                    </g>
+                    <g class="corner-cube-face cube-face-right-svg">
+                      <polygon class="cube-sticker cube-fill-red is-corner-focus" points="80,82 111,66 111,98 80,114"></polygon>
+                      <polygon class="cube-sticker cube-fill-orange is-muted" points="111,66 142,50 142,82 111,98"></polygon>
+                      <polygon class="cube-sticker cube-fill-green is-slot-focus" points="80,114 111,98 111,130 80,146"></polygon>
+                      <polygon class="cube-sticker cube-fill-red is-muted" points="111,98 142,82 142,114 111,130"></polygon>
+                    </g>
+                    <line class="cube-slot-edge" x1="111" y1="98" x2="111" y2="130"></line>
+                    <path class="corner-motion-arrow-underlay" d="M 82 59 C 146 62, 155 119, 119 149"></path>
+                    <path class="corner-motion-arrow" d="M 82 59 C 146 62, 155 119, 119 149"></path>
+                    <polyline class="corner-motion-arrow-head" points="126,136 119,149 133,146"></polyline>
+                  </svg>
+                  <p class="corner-stage-note"><span class="slot-dot"></span>Emplacement d’arrivée après la répétition de l’algorithme</p>
+                </li>
+
+                <li class="corner-stage">
+                  <div class="corner-stage-copy">
+                    <span class="corner-stage-number">3</span>
+                    <h4>Refais cet algorithme pour les autres coins</h4>
+                    <p>Trouve d’autres coins sur la face du haut et oriente-les vers leurs emplacements. Si un coin est bloqué dans la face blanche, sors-le avec R U R' U'. Les coins placés pour former la face blanche doivent aussi constituer le bas des autres faces colorées : veille donc à toujours placer chaque coin au-dessus du bon emplacement.</p>
+                  </div>
+                  <svg class="corner-cube corner-cube-moves" viewBox="0 0 160 164" role="img" aria-label="Faces du haut U et de droite R mises en évidence">
+                    <g class="corner-cube-face cube-face-top-svg">
+                      <polygon class="cube-sticker cube-fill-yellow" points="80,18 111,34 80,50 49,34"></polygon>
+                      <polygon class="cube-sticker cube-fill-blue" points="111,34 142,50 111,66 80,50"></polygon>
+                      <polygon class="cube-sticker cube-fill-orange" points="49,34 80,50 49,66 18,50"></polygon>
+                      <polygon class="cube-sticker cube-fill-yellow" points="80,50 111,66 80,82 49,66"></polygon>
+                    </g>
+                    <g class="corner-cube-face cube-face-front-svg">
+                      <polygon class="cube-sticker cube-fill-blue is-muted" points="18,50 49,66 49,98 18,82"></polygon>
+                      <polygon class="cube-sticker cube-fill-red is-muted" points="49,66 80,82 80,114 49,98"></polygon>
+                      <polygon class="cube-sticker cube-fill-orange is-muted" points="18,82 49,98 49,130 18,114"></polygon>
+                      <polygon class="cube-sticker cube-fill-red is-muted" points="49,98 80,114 80,146 49,130"></polygon>
+                    </g>
+                    <g class="corner-cube-face cube-face-right-svg">
+                      <polygon class="cube-sticker cube-fill-green" points="80,82 111,66 111,98 80,114"></polygon>
+                      <polygon class="cube-sticker cube-fill-orange" points="111,66 142,50 142,82 111,98"></polygon>
+                      <polygon class="cube-sticker cube-fill-green" points="80,114 111,98 111,130 80,146"></polygon>
+                      <polygon class="cube-sticker cube-fill-red" points="111,98 142,82 142,114 111,130"></polygon>
+                    </g>
+                    <polygon class="cube-face-highlight cube-face-highlight-u" points="80,18 142,50 80,82 18,50"></polygon>
+                    <polygon class="cube-face-highlight cube-face-highlight-r" points="142,50 142,114 80,146 80,82"></polygon>
+                    <g class="cube-face-letter cube-face-letter-u"><circle cx="80" cy="20" r="12"></circle><text x="80" y="24">U</text></g>
+                    <g class="cube-face-letter cube-face-letter-r"><circle cx="145" cy="84" r="12"></circle><text x="145" y="88">R</text></g>
+                  </svg>
+                  <p class="corner-stage-note"><span class="move-dot"></span>Seules les faces U et R bougent</p>
+                  <span class="corner-step-arrow" aria-hidden="true">→</span>
+                </li>
+
+                <li class="corner-stage corner-stage-complete">
+                  <div class="corner-stage-copy">
+                    <span class="corner-stage-number">4</span>
+                    <h4>Contemple la face blanche</h4>
+                    <p>Retourne ton cube : ta face est normalement faite.</p>
+                    <div class="cube-flip-cue" aria-label="Retourner le cube à 180 degrés"><span aria-hidden="true">↷</span><strong>180°</strong></div>
+                  </div>
+                  <svg class="corner-cube corner-cube-result" viewBox="0 0 160 164" role="img" aria-label="Face blanche terminée avec le premier rang des faces rouge et verte aligné">
+                    <g class="corner-cube-face cube-face-top-svg">
+                      <polygon class="cube-sticker cube-fill-white" points="80,18 111,34 80,50 49,34"></polygon>
+                      <polygon class="cube-sticker cube-fill-white" points="111,34 142,50 111,66 80,50"></polygon>
+                      <polygon class="cube-sticker cube-fill-white" points="49,34 80,50 49,66 18,50"></polygon>
+                      <polygon class="cube-sticker cube-fill-white" points="80,50 111,66 80,82 49,66"></polygon>
+                    </g>
+                    <g class="corner-cube-face cube-face-front-svg">
+                      <polygon class="cube-sticker cube-fill-red" points="18,50 49,66 49,98 18,82"></polygon>
+                      <polygon class="cube-sticker cube-fill-red" points="49,66 80,82 80,114 49,98"></polygon>
+                      <polygon class="cube-sticker cube-fill-orange" points="18,82 49,98 49,130 18,114"></polygon>
+                      <polygon class="cube-sticker cube-fill-blue" points="49,98 80,114 80,146 49,130"></polygon>
+                    </g>
+                    <g class="corner-cube-face cube-face-right-svg">
+                      <polygon class="cube-sticker cube-fill-blue" points="80,82 111,66 111,98 80,114"></polygon>
+                      <polygon class="cube-sticker cube-fill-blue" points="111,66 142,50 142,82 111,98"></polygon>
+                      <polygon class="cube-sticker cube-fill-yellow" points="80,114 111,98 111,130 80,146"></polygon>
+                      <polygon class="cube-sticker cube-fill-yellow" points="111,98 142,82 142,114 111,130"></polygon>
+                    </g>
+                  </svg>
+                  <p class="corner-stage-note corner-stage-success"><span aria-hidden="true">✓</span>Face blanche terminée</p>
+                </li>
+              </ol>
+
+              <div class="corner-algorithm" aria-label="Algorithme R U R prime U prime">
+                <div class="corner-algorithm-intro">
+                  <span>Le geste à répéter</span>
+                  <strong>Jusqu’à insertion</strong>
+                </div>
+                <div class="corner-moves">
+                  <span class="corner-move corner-move-r"><b>R</b><small>droite ↑</small></span>
+                  <span class="corner-move-arrow" aria-hidden="true">→</span>
+                  <span class="corner-move corner-move-u"><b>U</b><small>haut →</small></span>
+                  <span class="corner-move-arrow" aria-hidden="true">→</span>
+                  <span class="corner-move corner-move-r"><b>R'</b><small>droite ↓</small></span>
+                  <span class="corner-move-arrow" aria-hidden="true">→</span>
+                  <span class="corner-move corner-move-u"><b>U'</b><small>haut ←</small></span>
+                </div>
+                <p>Arrête dès que le carré blanc passe sur la face du dessous.</p>
+              </div>
+
+              <section class="white-step-video" id="mouvement-3d" aria-labelledby="white-step-video-title">
+                <div class="white-step-video-heading">
+                  <p>Animation de l’étape 1</p>
+                  <h3 id="white-step-video-title">Termine la face blanche, puis retourne le cube.</h3>
+                  <span>Le dernier coin descend, la première couche se termine, puis le cube prend exactement la position de départ de l’étape 2.</span>
+                </div>
+                <div class="cube-player" data-cube-player data-player-mode="first-layer" data-size="2" data-algorithm="R U R' U'" data-repetitions="3">
+                  <div class="cube-player-stage" data-cube-stage aria-label="Animation 3D de la fin de la face blanche puis du retournement du cube vers l’étape 2">
+                    <div class="cube-player-hud" aria-live="polite">
+                      <span data-cube-phase>Coin au-dessus de son emplacement</span>
+                      <strong data-cube-repeat>Prêt à démarrer</strong>
+                    </div>
+                    <div class="cube-player-key" aria-label="Coin suivi : blanc, rouge et vert">
+                      <span>Coin suivi</span>
+                      <i class="color-swatch color-swatch-white"></i>
+                      <i class="color-swatch color-swatch-red"></i>
+                      <i class="color-swatch color-swatch-green"></i>
+                    </div>
+                  </div>
+                  <div class="cube-player-controls">
+                    <button class="cube-player-toggle" type="button" data-cube-toggle aria-label="Lire l’animation" title="Lire l’animation"><span data-cube-toggle-icon aria-hidden="true">▶</span></button>
+                    <div class="cube-player-status" aria-live="polite">
+                      <div class="cube-player-status-line"><span>Mouvement</span><strong class="cube-player-move" data-cube-current-move>R U R' U' ×3</strong></div>
+                      <div class="cube-player-progress" aria-hidden="true"><span data-cube-progress></span></div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <div class="white-step-finish">
+                <div>
+                  <strong>Contrôle final avant l’étape 2.</strong>
+                  <p>Les quatre blancs forment la face et, sur chaque côté, les deux carrés du premier rang ont la même couleur.</p>
+                  <p class="white-step-reminder">Pour commencer l’étape 2, retourne le cube : face blanche en haut, face jaune en bas.</p>
+                </div>
+                <div class="corner-count" aria-label="Quatre coins blancs à placer">
+                  <span>1</span><span>2</span><span>3</span><span>4</span>
+                </div>
+              </div>
+            </section>
+          </article>
+
+          <article class="guide-card" id="derniere-couche">
+            <div class="white-step-heading">
+              <p class="white-step-kicker">Étape 2 · 4 coins jaunes à orienter</p>
+              <h2>Former la face jaune</h2>
+              <p class="white-step-lead"><strong>Objectif :</strong> orienter chaque carré jaune vers la face du dessous, un coin après l’autre.</p>
+              <p class="white-step-context">Retourne d’abord le cube : la face blanche est en haut et la face jaune est en bas. Garde ensuite cette prise jusqu’au dernier coin.</p>
+            </div>
+
+            <section class="white-corner-lesson cube-step-lesson yellow-layer-lesson" aria-labelledby="last-layer-position-title">
+              <header class="white-corner-header">
+                <div>
+                  <p class="white-corner-eyebrow">La méthode coin par coin</p>
+                  <h3 id="last-layer-position-title">Oriente un jaune, puis tourne seulement le bas.</h3>
+                  <p>Place le coin à traiter <strong>en bas, devant et à droite</strong>. Répète <strong>R U R' U'</strong> jusqu’à ce que son carré jaune regarde vers le dessous.</p>
+                </div>
+                <div class="corner-color-key yellow-orientation-key" aria-label="Position du cube pendant l’étape 2">
+                  <span><i class="color-swatch color-swatch-white"></i>Blanc en haut</span>
+                  <span><i class="color-swatch color-swatch-yellow"></i>Jaune en bas</span>
+                </div>
+              </header>
+
+              <div class="white-corner-basics" aria-label="Règles pour former la face jaune">
+                <p class="white-corner-basics-title">À ne pas oublier</p>
+                <p><strong>Pendant l’algorithme :</strong> ne change pas ta prise, même si le cube paraît se mélanger.</p>
+                <p><strong>Quand un jaune est orienté :</strong> tourne seulement D' pour amener le coin suivant.</p>
+                <p><strong>Après le quatrième coin :</strong> fais le dernier D', puis retourne le cube à 180°.</p>
+              </div>
+
+              <ol class="yellow-orientation-sequence">
+                <li class="yellow-orientation-stage">
+                  <div class="yellow-orientation-copy"><span class="corner-stage-number">1</span><div><h4>Oriente le premier coin</h4><p>Le jaune est visible sur le côté. Répète l’algorithme suivant : R U R' U' jusqu’à ce qu’il soit vers le dessous.</p></div></div>
+                  <div class="yellow-orientation-pair">
+                    <figure><svg class="notation-cube step-cube yellow-progress-cube step-yellow-state-start" viewBox="0 0 160 164" role="img" aria-label="Face blanche en haut et premier carré jaune visible sur le côté"><use href="#notation-cube-2x2"></use><polygon class="step-corner-outline" points="49,98 80,114 80,146 49,130"></polygon><polygon class="step-corner-outline" points="80,114 111,98 111,130 80,146"></polygon></svg><figcaption>Jaune sur le côté</figcaption></figure>
+                    <span class="yellow-pair-arrow" aria-hidden="true">→</span>
+                    <figure><svg class="notation-cube step-cube yellow-progress-cube step-yellow-state-coin-1" viewBox="0 0 160 164" role="img" aria-label="Premier carré jaune orienté vers le dessous"><use href="#notation-cube-2x2"></use><polygon class="step-corner-outline" points="49,98 80,114 80,146 49,130"></polygon><polygon class="step-corner-outline" points="80,114 111,98 111,130 80,146"></polygon></svg><figcaption>Jaune vers le bas</figcaption></figure>
+                  </div>
+                </li>
+
+                <li class="yellow-orientation-stage">
+                  <div class="yellow-orientation-copy"><span class="corner-stage-number">2</span><div><h4>Tourne la face du bas</h4><p>Tourne la face jaune vers la gauche pour avoir un coin avec un carré jaune en dessous de l’emplacement où tu as commencé l’algorithme pour placer le premier coin, puis fais le même algorithme : R U R' U' jusqu’à ce qu’il soit bien placé.</p></div></div>
+                  <div class="yellow-orientation-pair">
+                    <figure><svg class="notation-cube step-cube yellow-progress-cube step-yellow-state-next-2" viewBox="0 0 160 164" role="img" aria-label="Deuxième coin jaune amené en bas devant à droite"><use href="#notation-cube-2x2"></use><polygon class="step-corner-outline" points="49,98 80,114 80,146 49,130"></polygon><polygon class="step-corner-outline" points="80,114 111,98 111,130 80,146"></polygon></svg><figcaption>D' : coin suivant</figcaption></figure>
+                    <span class="yellow-pair-arrow" aria-hidden="true">→</span>
+                    <figure><svg class="notation-cube step-cube yellow-progress-cube step-yellow-state-coin-2" viewBox="0 0 160 164" role="img" aria-label="Deuxième carré jaune orienté vers le dessous"><use href="#notation-cube-2x2"></use><polygon class="step-corner-outline" points="49,98 80,114 80,146 49,130"></polygon><polygon class="step-corner-outline" points="80,114 111,98 111,130 80,146"></polygon></svg><figcaption>Deuxième jaune placé</figcaption></figure>
+                  </div>
+                </li>
+
+                <li class="yellow-orientation-stage">
+                  <div class="yellow-orientation-copy"><span class="corner-stage-number">3</span><div><h4>Poursuis avec le troisième</h4><p>Tourne encore la face jaune vers la gauche pour avoir un nouveau coin avec un carré jaune et fais le même algorithme : R U R' U' jusqu’à ce qu’il soit bien placé.</p></div></div>
+                  <div class="yellow-orientation-pair">
+                    <figure><svg class="notation-cube step-cube yellow-progress-cube step-yellow-state-next-3" viewBox="0 0 160 164" role="img" aria-label="Troisième coin jaune amené en position"><use href="#notation-cube-2x2"></use><polygon class="step-corner-outline" points="49,98 80,114 80,146 49,130"></polygon><polygon class="step-corner-outline" points="80,114 111,98 111,130 80,146"></polygon></svg><figcaption>D' : troisième coin</figcaption></figure>
+                    <span class="yellow-pair-arrow" aria-hidden="true">→</span>
+                    <figure><svg class="notation-cube step-cube yellow-progress-cube step-yellow-state-coin-3" viewBox="0 0 160 164" role="img" aria-label="Troisième carré jaune orienté vers le dessous"><use href="#notation-cube-2x2"></use><polygon class="step-corner-outline" points="49,98 80,114 80,146 49,130"></polygon><polygon class="step-corner-outline" points="80,114 111,98 111,130 80,146"></polygon></svg><figcaption>Troisième jaune placé</figcaption></figure>
+                  </div>
+                </li>
+
+                <li class="yellow-orientation-stage">
+                  <div class="yellow-orientation-copy"><span class="corner-stage-number">4</span><div><h4>Termine le quatrième coin</h4><p>Tourne une dernière fois la face jaune vers la gauche pour avoir le dernier coin avec un carré jaune et fais le même algorithme : R U R' U' jusqu’à ce qu’il soit bien placé.</p></div></div>
+                  <div class="yellow-orientation-pair">
+                    <figure><svg class="notation-cube step-cube yellow-progress-cube step-yellow-state-next-4" viewBox="0 0 160 164" role="img" aria-label="Quatrième coin jaune amené en position"><use href="#notation-cube-2x2"></use><polygon class="step-corner-outline" points="49,98 80,114 80,146 49,130"></polygon><polygon class="step-corner-outline" points="80,114 111,98 111,130 80,146"></polygon></svg><figcaption>D' : dernier coin</figcaption></figure>
+                    <span class="yellow-pair-arrow" aria-hidden="true">→</span>
+                    <figure><svg class="notation-cube step-cube yellow-progress-cube step-yellow-state-coin-4" viewBox="0 0 160 164" role="img" aria-label="Quatrième carré jaune orienté vers le dessous"><use href="#notation-cube-2x2"></use><polygon class="step-corner-outline" points="49,98 80,114 80,146 49,130"></polygon><polygon class="step-corner-outline" points="80,114 111,98 111,130 80,146"></polygon></svg><figcaption>Quatrième jaune placé</figcaption></figure>
+                  </div>
+                </li>
+
+                <li class="yellow-orientation-stage yellow-orientation-stage-final">
+                  <div class="yellow-orientation-copy"><span class="corner-stage-number">5</span><div><h4>Réaligne et retourne le cube</h4><p>Fais le dernier D', puis retourne le cube à 180°. La face jaune est maintenant complète.</p></div></div>
+                  <div class="yellow-orientation-pair yellow-orientation-final-pair">
+                    <figure><svg class="notation-cube step-cube yellow-progress-cube step-yellow-state-aligned" viewBox="0 0 160 164" role="img" aria-label="Face blanche restaurée en haut et face jaune complète en dessous"><use href="#notation-cube-2x2"></use></svg><figcaption>Dernier D'</figcaption></figure>
+                    <span class="cube-flip-inline" aria-label="Retourner le cube à 180 degrés"><span aria-hidden="true">↷</span><strong>180°</strong></span>
+                    <figure><svg class="notation-cube step-cube yellow-progress-cube step-cube-last-case" viewBox="0 0 160 164" role="img" aria-label="Face jaune en haut, face bleue résolue à gauche et carré vert en haut à droite de la face rouge"><use href="#notation-cube-2x2"></use><polygon class="step-corner-outline" points="111,66 142,50 142,82 111,98"></polygon></svg><figcaption>Cas transmis à l’étape 3</figcaption></figure>
+                  </div>
+                  <div class="yellow-direct-result"><svg class="notation-cube step-cube step-cube-solved" viewBox="0 0 160 164" aria-hidden="true"><use href="#notation-cube-2x2"></use></svg><p><strong>Les côtés sont déjà alignés ?</strong> Ton cube est résolu. Sinon, garde le jaune en haut et passe à l’étape 3.</p></div>
+                </li>
+              </ol>
+
+              <div class="corner-algorithm corner-algorithm-step-two" aria-label="Algorithme R U R prime U prime, puis mouvement D prime">
+                <div class="corner-algorithm-intro"><span>Pour chaque coin</span><strong>Jusqu’au jaune en bas</strong></div>
+                <div class="corner-moves">
+                  <span class="corner-move corner-move-r"><b>R</b><small>droite ↑</small></span><span class="corner-move-arrow" aria-hidden="true">→</span>
+                  <span class="corner-move corner-move-u"><b>U</b><small>haut →</small></span><span class="corner-move-arrow" aria-hidden="true">→</span>
+                  <span class="corner-move corner-move-r"><b>R'</b><small>droite ↓</small></span><span class="corner-move-arrow" aria-hidden="true">→</span>
+                  <span class="corner-move corner-move-u"><b>U'</b><small>haut ←</small></span>
+                </div>
+                <p>Quand le jaune regarde vers le bas, fais D' une fois pour amener le coin suivant, puis recommence.</p>
+              </div>
+
+              <section class="white-step-video" id="mouvement-3d-etape-2" aria-labelledby="step-2-video-title">
+                <div class="white-step-video-heading">
+                  <p>Animation de l’étape 2</p>
+                  <h3 id="step-2-video-title">Suis les quatre coins jusqu’à la face jaune.</h3>
+                  <span>Le contour bleu revient en bas, devant et à droite après chaque D'. La fin de la vidéo correspond exactement au premier schéma de l’étape 3.</span>
+                </div>
+                <div class="cube-player" data-cube-player data-player-mode="yellow-orient" data-algorithm="R U R' U'">
+                  <div class="cube-player-stage" data-cube-stage aria-label="Animation 3D de l’orientation des quatre coins jaunes avec R U R' U' et D'">
+                    <div class="cube-player-hud" aria-live="polite"><span data-cube-phase>Face blanche en haut</span><strong data-cube-repeat>Prêt à démarrer</strong></div>
+                    <div class="cube-player-key" aria-label="Les coins suivis possèdent tous un carré jaune"><span>Les coins suivis possèdent tous un carré jaune.</span></div>
+                  </div>
+                  <div class="cube-player-controls">
+                    <button class="cube-player-toggle" type="button" data-cube-toggle aria-label="Lire l’animation" title="Lire l’animation"><span data-cube-toggle-icon aria-hidden="true">▶</span></button>
+                    <div class="cube-player-status" aria-live="polite"><div class="cube-player-status-line"><span>Mouvement</span><strong class="cube-player-move" data-cube-current-move>R U R' U' · 4 coins</strong></div><div class="cube-player-progress" aria-hidden="true"><span data-cube-progress></span></div></div>
+                  </div>
+                </div>
+              </section>
+
+              <div class="white-step-finish">
+                <div><strong>Contrôle final avant l’étape 3.</strong><p>La face jaune est complète. Si les couleurs latérales ne forment pas encore quatre faces unies, place la face bleue résolue à gauche.</p><p class="white-step-reminder">Face jaune en haut, face blanche en bas : ne change plus cette prise.</p></div>
+                <div class="corner-count" aria-label="Quatre coins jaunes orientés"><span>✓</span><span>✓</span><span>✓</span><span>✓</span></div>
+              </div>
+            </section>
+          </article>
+
+          <article class="guide-card" id="coins-jaunes">
+            <div class="white-step-heading">
+              <p class="white-step-kicker">Étape 3 · Le dernier échange</p>
+              <h2>Aligner les derniers coins</h2>
+              <p class="white-step-lead"><strong>Objectif :</strong> conserver les faces jaune et blanche tout en échangeant les deux coins qui empêchent les côtés de s’aligner.</p>
+              <p class="white-step-context">Le cube peut déjà être résolu après l’étape 2. Sinon, il ne reste que cet algorithme à terminer entièrement.</p>
+            </div>
+
+            <section class="white-corner-lesson cube-step-lesson last-swap-lesson" aria-labelledby="yellow-corner-title">
+              <header class="white-corner-header">
+                <div>
+                  <p class="white-corner-eyebrow">Le cas final</p>
+                  <h3 id="yellow-corner-title">Bleu à gauche, carré vert devant à droite.</h3>
+                  <p>Garde la face jaune en haut et place la face bleue résolue à gauche. Sur la face rouge devant toi, le carré du coin supérieur droit est vert.</p>
+                </div>
+                <div class="corner-color-key yellow-orientation-key" aria-label="Repères de l’étape 3">
+                  <span><i class="color-swatch color-swatch-yellow"></i>Jaune en haut</span>
+                  <span><i class="color-swatch color-swatch-blue"></i>Bleu à gauche</span>
+                  <span><i class="color-swatch color-swatch-red"></i>Rouge devant</span>
+                </div>
+              </header>
+
+              <div class="white-corner-basics" aria-label="Règles pour le dernier algorithme">
+                <p class="white-corner-warning"><strong>Attention :</strong> on nomme la face bleue uniquement car c’est elle qui est résolue. Dans ton cas, il s’agit de la face qui est déjà résolue (sauf les faces jaune et blanche) !</p>
+                <p class="white-corner-basics-title">Avant de partir</p>
+                <p><strong>Ne tourne pas le cube :</strong> conserve le bleu à gauche et le rouge devant.</p>
+                <p><strong>Va jusqu’au dernier F' :</strong> le cube paraît se mélanger au milieu, c’est normal.</p>
+                <p><strong>Contrôle le résultat :</strong> jaune en haut, blanc en bas et quatre côtés unis.</p>
+              </div>
+
+              <ol class="corner-sequence corner-sequence-two">
+                <li class="corner-stage">
+                  <div class="corner-stage-copy"><span class="corner-stage-number">1</span><h4>Place le cas devant toi</h4><p>La face bleue est complète à gauche. Le carré vert entouré en bleu occupe le coin supérieur droit de la face rouge.</p></div>
+                  <svg class="notation-cube corner-cube step-cube step-cube-last-case" viewBox="0 0 160 164" role="img" aria-label="Face jaune complète en haut, face bleue résolue à gauche et carré vert en haut à droite de la face rouge"><use href="#notation-cube-2x2"></use><polygon class="step-corner-outline" points="111,66 142,50 142,82 111,98"></polygon></svg>
+                  <p class="corner-stage-note"><span class="slot-dot"></span>Le carré vert à suivre</p><span class="corner-step-arrow" aria-hidden="true">→</span>
+                </li>
+                <li class="corner-stage corner-stage-complete">
+                  <div class="corner-stage-copy"><span class="corner-stage-number">2</span><h4>Termine l’algorithme</h4><p>Après le dernier F', les deux coins ont échangé leur place : les six faces sont maintenant unies.</p></div>
+                  <svg class="notation-cube corner-cube step-cube step-cube-solved-blue-left" viewBox="0 0 160 164" role="img" aria-label="Rubik’s Cube 2x2 résolu avec la face jaune en haut, bleue à gauche et rouge devant"><use href="#notation-cube-2x2"></use></svg>
+                  <p class="corner-stage-note corner-stage-success"><span aria-hidden="true">✓</span>Cube résolu</p>
+                </li>
+              </ol>
+
+              <div class="corner-algorithm corner-algorithm-long final-corner-algorithm" aria-label="Algorithme R U R prime U prime R prime F R deux U prime R prime U prime R U R prime F prime">
+                <div class="corner-algorithm-intro"><span>Le dernier échange</span><strong>Algorithme complet</strong></div>
+                <div class="corner-moves corner-moves-long">
+                  <span class="corner-move corner-move-r"><b>R</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-u"><b>U</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-r"><b>R'</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-u"><b>U'</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-r"><b>R'</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-f"><b>F</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-r"><b>R2</b></span>
+                  <span class="corner-move-break">puis</span>
+                  <span class="corner-move corner-move-u"><b>U'</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-r"><b>R'</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-u"><b>U'</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-r"><b>R</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-u"><b>U</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-r"><b>R'</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-f"><b>F'</b></span>
+                </div>
+                <p>R2 signifie un demi-tour de la face droite. Ne t’arrête pas avant le dernier F'.</p>
+              </div>
+
+              <section class="white-step-video" id="mouvement-3d-etape-3" aria-labelledby="step-3-video-title">
+                <div class="white-step-video-heading"><p>Animation de l’étape 3</p><h3 id="step-3-video-title">Échange les deux derniers coins.</h3><span>Le départ reprend exactement la fin de l’animation précédente : bleu à gauche, rouge devant et carré vert entouré.</span></div>
+                <div class="cube-player" data-cube-player data-player-mode="last-swap" data-algorithm="R U R' U' R' F R2 U' R' U' R U R' F'">
+                  <div class="cube-player-stage" data-cube-stage aria-label="Animation 3D de l’algorithme final qui échange les deux derniers coins"><div class="cube-player-hud" aria-live="polite"><span data-cube-phase>Face bleue résolue à gauche</span><strong data-cube-repeat>Prêt à démarrer</strong></div><div class="cube-player-key" aria-label="Coin suivi : carré vert, carré rouge et carré jaune"><span>Coin suivi</span><i class="color-swatch color-swatch-green"></i><i class="color-swatch color-swatch-red"></i><i class="color-swatch color-swatch-yellow"></i></div></div>
+                  <div class="cube-player-controls"><button class="cube-player-toggle" type="button" data-cube-toggle aria-label="Lire l’animation" title="Lire l’animation"><span data-cube-toggle-icon aria-hidden="true">▶</span></button><div class="cube-player-status" aria-live="polite"><div class="cube-player-status-line"><span>Mouvement</span><strong class="cube-player-move" data-cube-current-move>R U R' U' R' F R2 U' R' U' R U R' F'</strong></div><div class="cube-player-progress" aria-hidden="true"><span data-cube-progress></span></div></div></div>
+                </div>
+              </section>
+
+              <div class="white-step-finish step-finish-solved"><div><strong>Résolution terminée.</strong><p>La face jaune est complète et les quatre faces latérales affichent chacune une seule couleur.</p><p class="white-step-reminder">Le Rubik’s Cube 2x2 est maintenant résolu.</p></div><div class="corner-count" aria-label="Quatre côtés alignés"><span>✓</span><span>✓</span><span>✓</span><span>✓</span></div></div>
+            </section>
+          </article>
+
+          <article class="guide-card special-case-guide" id="cas-particulier">
+            <div class="white-step-heading"><h2>Cas particulier</h2><p class="white-step-lead">Dans ce cas particulier, vous n’avez pas besoin de résoudre tout le cube. Cela fonctionne uniquement si vous avez cette configuration ; sinon, cela ne marchera pas.</p><p class="white-step-context">Il faut juste répéter R U R' U', puis tourner la face à la fin.</p></div>
+            <section class="white-corner-lesson" aria-label="Démonstration du cas particulier">
+              <section class="white-step-video special-case-video" aria-label="Animation du cas particulier">
+                <div class="cube-player" data-cube-player data-player-mode="quick-finish" data-algorithm="R U R' U'" data-repetitions="3">
+                  <div class="cube-player-stage" data-cube-stage aria-label="Animation 3D du cas particulier résolu avec trois répétitions de R U R' U' puis U'"><div class="cube-player-hud" aria-live="polite"><span data-cube-phase>Coin au-dessus de son emplacement</span><strong data-cube-repeat>Prêt à démarrer</strong></div><div class="cube-player-key" aria-label="Coin suivi : blanc, rouge et vert"><span>Coin suivi</span><i class="color-swatch color-swatch-white"></i><i class="color-swatch color-swatch-red"></i><i class="color-swatch color-swatch-green"></i></div></div>
+                  <div class="cube-player-controls"><button class="cube-player-toggle" type="button" data-cube-toggle aria-label="Lire l’animation" title="Lire l’animation"><span data-cube-toggle-icon aria-hidden="true">▶</span></button><div class="cube-player-status" aria-live="polite"><div class="cube-player-status-line"><span>Mouvement</span><strong class="cube-player-move" data-cube-current-move>R U R' U' ×3 · U'</strong></div><div class="cube-player-progress" aria-hidden="true"><span data-cube-progress></span></div></div></div>
+                </div>
+              </section>
+              <div class="white-step-finish step-finish-solved"><div><strong>Cas terminé.</strong><p>Après U', les quatre côtés se réalignent : le cube est entièrement résolu.</p></div><div class="corner-count" aria-label="Cube résolu"><span>✓</span><span>✓</span><span>✓</span><span>✓</span></div></div>
+            </section>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <a class="brand brand-footer" href="../../index.html" aria-label="CubeMaster, accueil">
+          <picture>
+            <source srcset="../../assets/logo/Logo-cubemaster.webp" type="image/webp">
+            <img src="../../assets/logo/Logo-cubemaster.png" alt="" width="800" height="800" loading="lazy">
+          </picture>
+          <span>Cube<span>Master</span></span>
+        </a>
+        <p>Des guides simples pour comprendre et maîtriser les cubes, à ton rythme.</p>
+      </div>
+      <div class="footer-column">
+        <h2>Solutions</h2>
+        <a href="../../solution/2x2/index.html">Cube 2x2</a>
+        <a href="../../solution/3x3-debutant/index.html">Cube 3x3 débutant</a>
+            <a href="../../solution/3x3-avancee/index.html">Cube 3x3 avancée</a>
+        <a href="../../solution/4x4/index.html">Cube 4x4</a>
+        <a href="../../solution/5x5/index.html">Cube 5x5</a>
+      </div>
+      <div class="footer-column">
+        <h2>Nettoyage</h2>
+        <a href="../../nettoyage/2x2/index.html">Cube 2x2</a>
+        <a href="../../nettoyage/3x3/index.html">Cube 3x3</a>
+        <a href="../../nettoyage/pyramix/index.html">Pyramix</a>
+      </div>
+      <div class="footer-column">
+        <h2><a href="../../blog/index.html">Blog</a></h2>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="current-year">2026</span> CubeMaster</p>
+      <p>Apprendre, tourner, recommencer.</p>
+    </div>
+  </footer>
+</body>
+</html>

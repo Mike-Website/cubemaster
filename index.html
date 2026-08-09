@@ -18,7 +18,7 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="/" aria-label="CubeMaster, accueil">
+      <a class="brand" href="index.html" aria-label="CubeMaster, accueil">
         <picture>
           <source srcset="assets/logo/Logo-cubemaster.webp" type="image/webp">
           <img src="assets/logo/Logo-cubemaster.png" alt="" width="800" height="800">
@@ -34,10 +34,25 @@
       </button>
 
       <nav class="main-nav" id="main-navigation" aria-label="Navigation principale">
-        <a class="is-active" href="/" aria-current="page">Accueil</a>
-        <a href="#solutions">Solutions</a>
-        <a href="#nettoyage">Nettoyage</a>
-        <a href="#composition">Composition</a>
+        <div class="nav-group">
+          <a href="solutions/index.html">Solutions</a>
+          <div class="subnav" aria-label="Pages solutions">
+            <a href="solution/2x2/index.html">Cube 2x2</a>
+            <a href="solution/3x3-debutant/index.html">Cube 3x3 débutant</a>
+            <a href="solution/3x3-avancee/index.html">Cube 3x3 avancée</a>
+            <a href="solution/4x4/index.html">Cube 4x4</a>
+            <a href="solution/5x5/index.html">Cube 5x5</a>
+            <a href="solution/pyramix/index.html">Pyramix</a>
+            <a href="solution/megaminx/index.html">Mégaminx</a>
+            <a href="solution/gearcube/index.html">Gear Cube</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <a href="nettoyage/index.html">Nettoyage</a>
+        </div>
+        <div class="nav-group">
+          <a href="composition/index.html">Composition</a>
+        </div>
       </nav>
     </div>
   </header>
@@ -47,14 +62,13 @@
       <div class="container hero-grid">
         <div class="hero-copy">
           <p class="eyebrow"><span></span> Apprendre, comprendre, réussir</p>
-          <h1>Le cube devient <strong>simple.</strong></h1>
-          <p class="hero-intro">Des méthodes claires, étape par étape, pour résoudre tes puzzles, bien les entretenir et découvrir ce qu’ils cachent à l’intérieur.</p>
+          <h1>Le Rubik’s Cube devient <strong>simple.</strong></h1>
+          <p class="hero-intro">Des méthodes claires, étape par étape, pour résoudre tes cubes, bien les entretenir et découvrir ce qu’ils cachent à l’intérieur.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="/solution/3x3-debutant/">
+            <a class="button button-primary" href="solution/3x3-debutant/index.html">
               Commencer avec le 3x3
               <span aria-hidden="true">→</span>
             </a>
-            <a class="text-link" href="#parcours">Explorer les guides <span aria-hidden="true">↓</span></a>
           </div>
           <ul class="hero-benefits" aria-label="Les avantages de CubeMaster">
             <li><span aria-hidden="true">✓</span> Pour débuter</li>
@@ -104,9 +118,9 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow"><span></span> Ton parcours</p>
-            <h2>Tout pour maîtriser ton cube</h2>
+            <h2>Tout pour maîtriser ton Rubik’s Cube</h2>
           </div>
-          <p>Que tu veuilles réussir ta première résolution ou comprendre chaque pièce, commence par le guide qui te ressemble.</p>
+          <p>Que tu veuilles réussir ta première résolution ou comprendre chaque pièce, commence par les étapes qui te conviennent.</p>
         </div>
 
         <div class="pathway-grid">
@@ -118,7 +132,7 @@
             </div>
             <p class="card-number">01</p>
             <h3>Résoudre</h3>
-            <p>Suis des méthodes faciles à mémoriser, expliquées mouvement après mouvement.</p>
+            <p>Suis les méthodes et les algorithmes faciles à mémoriser, expliquées mouvement après mouvement.</p>
             <a href="#solutions" aria-label="Découvrir toutes les solutions">Voir les solutions <span aria-hidden="true">→</span></a>
           </article>
 
@@ -126,7 +140,7 @@
             <div class="pathway-icon icon-drop" aria-hidden="true"></div>
             <p class="card-number">02</p>
             <h3>Nettoyer</h3>
-            <p>Démonte, nettoie et remonte ton puzzle sans l’abîmer pour lui rendre sa fluidité.</p>
+            <p>Démonte, nettoie et remonte ton cube sans l’abîmer pour lui rendre sa fluidité.</p>
             <a href="#nettoyage" aria-label="Découvrir les guides de nettoyage">Prendre soin du cube <span aria-hidden="true">→</span></a>
           </article>
 
@@ -150,42 +164,47 @@
             <p class="eyebrow"><span></span> Guides de résolution</p>
             <h2>Choisis ton défi</h2>
           </div>
-          <p>Une méthode adaptée à chaque puzzle. Pas besoin d’être rapide : il suffit de commencer.</p>
+          <p>Une méthode adaptée à chaque cube. Pas besoin d’être rapide : il suffit de commencer.</p>
         </div>
 
         <div class="puzzle-grid">
-          <a class="puzzle-card featured" href="/solution/3x3-debutant/">
+          <a class="puzzle-card featured" href="solution/3x3-debutant/index.html">
             <span class="level">Idéal pour débuter</span>
             <span class="puzzle-name">3×3</span>
             <span class="puzzle-label">La méthode débutant</span>
             <span class="card-arrow" aria-hidden="true">→</span>
           </a>
-          <a class="puzzle-card" href="/solution/2x2/">
+          <a class="puzzle-card" href="solution/2x2/index.html">
             <span class="puzzle-name">2×2</span>
             <span class="puzzle-label">Petit et accessible</span>
             <span class="card-arrow" aria-hidden="true">→</span>
           </a>
-          <a class="puzzle-card" href="/solution/4x4/">
+          <a class="puzzle-card" href="solution/3x3-avancee/index.html">
+            <span class="puzzle-name">3×3+</span>
+            <span class="puzzle-label">Méthode avancée</span>
+            <span class="card-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="puzzle-card" href="solution/4x4/index.html">
             <span class="puzzle-name">4×4</span>
             <span class="puzzle-label">Un nouveau niveau</span>
             <span class="card-arrow" aria-hidden="true">→</span>
           </a>
-          <a class="puzzle-card" href="/solution/5x5/">
+          <a class="puzzle-card" href="solution/5x5/index.html">
             <span class="puzzle-name">5×5</span>
             <span class="puzzle-label">Le grand format</span>
             <span class="card-arrow" aria-hidden="true">→</span>
           </a>
-          <a class="puzzle-card puzzle-word" href="/solution/pyramix/">
+          <a class="puzzle-card puzzle-word" href="solution/pyramix/index.html">
             <span class="puzzle-name">Pyramix</span>
             <span class="puzzle-label">Change de forme</span>
             <span class="card-arrow" aria-hidden="true">→</span>
           </a>
-          <a class="puzzle-card puzzle-word" href="/solution/megaminx/">
+          <a class="puzzle-card puzzle-word" href="solution/megaminx/index.html">
             <span class="puzzle-name">Mégaminx</span>
             <span class="puzzle-label">Douze faces à explorer</span>
             <span class="card-arrow" aria-hidden="true">→</span>
           </a>
-          <a class="puzzle-card puzzle-word" href="/solution/gearcube/">
+          <a class="puzzle-card puzzle-word" href="solution/gearcube/index.html">
             <span class="puzzle-name">Gear Cube</span>
             <span class="puzzle-label">Des engrenages étonnants</span>
             <span class="card-arrow" aria-hidden="true">→</span>
@@ -211,16 +230,16 @@
         <div class="feature-copy">
           <p class="eyebrow"><span></span> Nettoyage &amp; entretien</p>
           <h2>Redonne de la fluidité à ton cube.</h2>
-          <p>Poussière, saletés, mouvements moins agréables ? Apprends les bons gestes pour entretenir ton puzzle en toute sécurité.</p>
+          <p>Poussière, saletés, mouvements moins agréables ? Apprends les bons gestes pour entretenir ton cube en toute sécurité.</p>
           <ul class="check-list">
             <li><span>1</span> Démonter sans forcer</li>
             <li><span>2</span> Nettoyer chaque pièce</li>
             <li><span>3</span> Remonter dans le bon ordre</li>
           </ul>
           <div class="feature-links">
-            <a class="button button-dark" href="/nettoyage/3x3/">Nettoyer un cube 3x3 <span aria-hidden="true">→</span></a>
-            <a class="text-link" href="/nettoyage/2x2/">Guide 2x2</a>
-            <a class="text-link" href="/nettoyage/4x4/">Guide 4x4</a>
+            <a class="button button-dark" href="nettoyage/3x3/index.html">Nettoyer un cube 3x3 <span aria-hidden="true">→</span></a>
+            <a class="text-link" href="nettoyage/2x2/index.html">Nettoyer le cube 2x2</a>
+            <a class="text-link" href="nettoyage/4x4/index.html">Nettoyer le cube 4x4</a>
           </div>
         </div>
       </div>
@@ -231,15 +250,16 @@
         <div class="feature-copy">
           <p class="eyebrow"><span></span> Composition &amp; mécanisme</p>
           <h2>Découvre ce qu’il y a vraiment à l’intérieur.</h2>
-          <p>Centres, arêtes, coins et mécanisme central : chaque élément a un rôle précis. Comprends-les pour mieux maîtriser ton puzzle.</p>
-          <div class="parts" aria-label="Principales pièces d’un cube">
+          <p>Centres, arêtes, coins et mécanisme central : chaque élément a un rôle précis. Comprends-les pour mieux maîtriser ton cube.</p>
+          <div class="parts" aria-label="Principales pièces d’un cube 3x3">
             <span><strong>6</strong> centres</span>
             <span><strong>12</strong> arêtes</span>
             <span><strong>8</strong> coins</span>
           </div>
+          <p class="parts-note">Pour un cube 3x3 classique.</p>
           <div class="feature-links">
-            <a class="button button-primary" href="/composition/3x3/">Explorer le cube 3x3 <span aria-hidden="true">→</span></a>
-            <a class="text-link" href="/composition/gearcube/">Voir le Gear Cube</a>
+            <a class="button button-primary" href="composition/3x3/index.html">Explorer le cube 3x3 <span aria-hidden="true">→</span></a>
+            <a class="text-link" href="composition/gearcube/index.html">Voir le Gear Cube</a>
           </div>
         </div>
 
@@ -260,13 +280,38 @@
       </div>
     </section>
 
-    <section class="cta">
-      <div class="container cta-inner">
-        <div>
-          <p class="eyebrow"><span></span> Prêt à te lancer ?</p>
-          <h2>Ton premier cube résolu commence ici.</h2>
+    <section class="home-faq section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span></span> FAQ</p>
+            <h2>Questions fréquentes sur le Rubik’s Cube</h2>
+          </div>
+          <p>Les réponses rapides pour bien commencer, éviter les blocages classiques et progresser sans se décourager.</p>
         </div>
-        <a class="button button-white" href="/solution/3x3-debutant/">Suivre la méthode 3x3 <span aria-hidden="true">→</span></a>
+
+        <div class="faq-grid">
+          <article class="faq-item">
+            <h3>Quel Rubik’s Cube choisir pour débuter ?</h3>
+            <p>Le cube 3x3 reste le meilleur point de départ : il permet d’apprendre les bases et de comprendre les méthodes utilisées ensuite sur d’autres cubes.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Combien de temps faut-il pour résoudre un 3x3 ?</h3>
+            <p>Pour une première résolution, prends ton temps. Une fois les étapes comprises, beaucoup de débutants arrivent à terminer le cube en quelques minutes.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Faut-il apprendre beaucoup d’algorithmes ?</h3>
+            <p>Non. La méthode débutant utilise peu d’algorithmes. Le plus important est de bien tenir le cube et de répéter les mouvements dans le bon sens.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Pourquoi mon cube se mélange pendant un algorithme ?</h3>
+            <p>C’est normal sur certains mouvements. Continue jusqu’à la fin de l’algorithme avant de juger le résultat.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Quand faut-il nettoyer son cube ?</h3>
+            <p>Quand il devient moins fluide, accroche ou fait du bruit. Un nettoyage doux permet souvent de retrouver de meilleures sensations.</p>
+          </article>
+        </div>
       </div>
     </section>
   </main>
@@ -274,7 +319,7 @@
   <footer class="site-footer">
     <div class="container footer-main">
       <div class="footer-brand">
-        <a class="brand brand-footer" href="/" aria-label="CubeMaster, accueil">
+        <a class="brand brand-footer" href="index.html" aria-label="CubeMaster, accueil">
           <picture>
             <source srcset="assets/logo/Logo-cubemaster.webp" type="image/webp">
             <img src="assets/logo/Logo-cubemaster.png" alt="" width="800" height="800" loading="lazy">
@@ -286,24 +331,22 @@
 
       <div class="footer-column">
         <h2>Solutions</h2>
-        <a href="/solution/2x2/">Cube 2x2</a>
-        <a href="/solution/3x3-debutant/">Cube 3x3 débutant</a>
-        <a href="/solution/4x4/">Cube 4x4</a>
-        <a href="/solution/5x5/">Cube 5x5</a>
+        <a href="solution/2x2/index.html">Cube 2x2</a>
+        <a href="solution/3x3-debutant/index.html">Cube 3x3 débutant</a>
+            <a href="solution/3x3-avancee/index.html">Cube 3x3 avancée</a>
+        <a href="solution/4x4/index.html">Cube 4x4</a>
+        <a href="solution/5x5/index.html">Cube 5x5</a>
       </div>
 
       <div class="footer-column">
-        <h2>Autres puzzles</h2>
-        <a href="/solution/pyramix/">Pyramix</a>
-        <a href="/solution/megaminx/">Mégaminx</a>
-        <a href="/solution/gearcube/">Gear Cube</a>
+        <h2>Autres cubes</h2>
+        <a href="solution/pyramix/index.html">Pyramix</a>
+        <a href="solution/megaminx/index.html">Mégaminx</a>
+        <a href="solution/gearcube/index.html">Gear Cube</a>
       </div>
 
       <div class="footer-column">
-        <h2>Découvrir</h2>
-        <a href="#nettoyage">Nettoyage</a>
-        <a href="#composition">Composition</a>
-        <a href="#parcours">Tous les guides</a>
+        <h2><a href="blog/index.html">Blog</a></h2>
       </div>
     </div>
     <div class="container footer-bottom">

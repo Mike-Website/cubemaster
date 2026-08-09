@@ -258,7 +258,98 @@ Chaque page doit prévoir :
 - `Nettoyer un cube 3x3 : démontage et entretien | CubeMaster`
 - `Composition d'un cube 3x3 : pièces et mécanisme | CubeMaster`
 
-## 12. Première version à produire
+## 12. Standard pédagogique validé pour les résolutions
+
+La section **Étape 1 - Faire la face blanche** de la page
+`/solution/2x2/` est la référence visuelle et pédagogique à suivre pour les
+prochaines étapes du 2x2 et pour les autres résolutions, notamment le 3x3.
+
+### Structure d'une étape
+
+- présenter un objectif court avant les schémas ;
+- employer une grille de deux schémas par ligne sur ordinateur et une colonne sur mobile ;
+- donner à chaque schéma un numéro, un titre d'action, une instruction courte, un visuel et une légende ;
+- utiliser les flèches uniquement lorsqu'elles représentent réellement le passage au schéma suivant ;
+- conserver des textes lisibles, sans débordement, avec des visuels proches des explications ;
+- afficher clairement les retournements du cube, par exemple dans un repère `180°` dédié.
+
+### Traitement des cubes et des couleurs
+
+- représenter tous les cubes avec le même angle isométrique ;
+- utiliser des carrés colorés séparés par des traits noirs bien visibles ;
+- baisser l'intensité des carrés qui ne participent pas à l'action ;
+- mettre en évidence le coin, la face ou la couche réellement manipulée ;
+- encadrer en bleu l'emplacement d'arrivée lorsque celui-ci doit être repéré ;
+- conserver les trois couleurs d'un même coin pendant tout son déplacement ;
+- vérifier que chaque état représenté est physiquement possible et que les couleurs des côtés correspondent aux faces voisines ;
+- vérifier la continuité entre le schéma de départ, l'algorithme, le résultat et un éventuel retournement du cube.
+
+### Règles pédagogiques
+
+- employer le mot **carré** plutôt que **sticker** dans les explications destinées aux débutants ;
+- indiquer la position de la face de référence lorsqu'elle doit rester en dessous ou au-dessus ;
+- écrire l'algorithme exact près de l'action à effectuer ;
+- expliquer les lettres et le sens des mouvements avant la première résolution ;
+- montrer les faces et les couches manipulées avec des flèches directionnelles explicites ;
+- adapter les schémas au puzzle concerné : le modèle graphique est commun, mais les pièces, les algorithmes et les états doivent être vérifiés pour chaque résolution.
+
+### Base 3D validée
+
+- utiliser `cube-player.js` et la version locale de Three.js pour les animations ;
+- construire le puzzle avec un groupe par pièce et faire tourner une couche autour de l'axe central du cube ;
+- ne jamais déplacer verticalement une couche pendant un mouvement : seul son angle change ;
+- conserver la même configuration entre le dernier schéma d'une étape, sa vidéo et le premier schéma de l'étape suivante ;
+- employer des couleurs vives, des séparations noires et un contour bleu pour la pièce suivie ;
+- faire apparaître le contour suivi en fondu au départ et le conserver sur l'état final lorsqu'il sert de repère ;
+- ne pas lancer les vidéos automatiquement ; un seul bouton gère lecture, pause, reprise et relance ;
+- garder le mouvement courant et la progression lisibles à proximité du cube ;
+- présenter les faces cachées par un mouvement de caméra lorsque leur contrôle est utile, sans modifier l'état du cube ;
+- afficher `R2` dans l'algorithme, mais l'animer comme deux mouvements `R` distincts séparés par une pause ;
+- valider par le code l'état initial et l'état final de chaque animation avant de la réutiliser.
+
+### Algorithmes 2x2 validés
+
+**Étape 1 - Face blanche**
+
+- garder la face blanche en dessous pendant le placement des quatre coins ;
+- placer le coin à traiter au-dessus de son emplacement ;
+- répéter `R U R' U'` jusqu'à ce que le coin soit orienté vers le bas ;
+- si un coin est bloqué dans la face blanche, utiliser le même algorithme pour le sortir ;
+- vérifier simultanément les couleurs latérales afin de former le premier rang des faces voisines ;
+- retourner le cube à `180°` à la fin : blanc en haut, jaune en bas.
+
+**Étape 2 - Face jaune**
+
+- garder la face blanche en haut et la face jaune en bas ;
+- placer le coin à orienter en bas, devant et à droite ;
+- répéter `R U R' U'` jusqu'à ce que son carré jaune regarde vers le dessous ;
+- tourner uniquement la face du bas avec `D'` pour amener le coin jaune suivant au même emplacement ;
+- répéter l'opération pour les quatre coins, puis effectuer le dernier `D'` d'alignement ;
+- retourner le cube à `180°` : jaune en haut, blanc en bas ;
+- la séquence `[2, 4, 2, 4]` utilisée dans la vidéo est un cas démonstratif, pas une règle universelle du nombre de répétitions.
+
+**Étape 3 - Dernier échange**
+
+- garder la face jaune en haut et la face blanche en bas ;
+- placer à gauche une face latérale déjà résolue ; le bleu n'est que la couleur de l'exemple ;
+- exécuter entièrement `R U R' U' R' F R2 U' R' U' R U R' F'` ;
+- ne pas interrompre l'algorithme avant le dernier `F'` ;
+- le résultat attendu est un cube entièrement résolu.
+
+**Cas particulier**
+
+- uniquement lorsque la configuration correspond au cas montré, répéter `R U R' U'` jusqu'à l'insertion du coin ;
+- réaligner ensuite la dernière face avec le mouvement final indiqué par la configuration ;
+- dans la démonstration validée, la séquence est `R U R' U'` répétée trois fois, puis `U'`.
+
+### Référence technique
+
+- structure HTML : `solution/2x2/index.html`, section `#face-blanche` ;
+- moteur 3D : `cube-player.js`, avec les modes `first-layer`, `yellow-orient`, `last-swap` et `quick-finish` ;
+- styles partagés : `style.css`, règles `.white-step-*`, `.white-corner-*`, `.corner-*` et `.cube-player-*` ;
+- avant toute duplication, contrôler la cohérence des couleurs, l'ordre des mouvements, les traits SVG superposés et le rendu responsive.
+
+## 13. Première version à produire
 
 Pour la première version, créer uniquement la page d'accueil.
 
@@ -273,7 +364,7 @@ La page d'accueil doit présenter :
 
 Ne pas encore créer toutes les pages secondaires. Les liens peuvent pointer vers les futures URLs.
 
-## 13. Brief Codex prêt à l'emploi
+## 14. Brief Codex prêt à l'emploi
 
 ```text
 Tu travailles sur le repo cubemaster.

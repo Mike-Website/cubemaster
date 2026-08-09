@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vue pédagogique du projet CubeMaster : contenus, outils, pipeline de publication et prochaines étapes.">
+  <meta name="theme-color" content="#2f46b0">
+  <title>Pipeline projet CubeMaster</title>
+  <link rel="icon" href="assets/logo/Logo-cubemaster.ico" sizes="32x32">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #10131a;
+      --muted: #5d6575;
+      --line: #dfe4ee;
+      --paper: #f7f9fc;
+      --white: #ffffff;
+      --blue: #2f46b0;
+      --blue-dark: #1e2e83;
+      --green: #2aae34;
+      --yellow: #ffd84d;
+      --red: #f24d3d;
+      --shadow: 0 22px 60px rgba(16, 19, 26, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, rgba(47, 70, 176, 0.06) 1px, transparent 1px),
+        linear-gradient(rgba(47, 70, 176, 0.06) 1px, transparent 1px),
+        var(--paper);
+      background-size: 36px 36px;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      min-height: 100vh;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(16, 19, 26, 0.09);
+      background: rgba(247, 249, 252, 0.9);
+      backdrop-filter: blur(16px);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      font-family: "Space Grotesk", Inter, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 0.91rem;
+      font-weight: 700;
+    }
+
+    .nav a {
+      padding: 8px 10px;
+      border-radius: 7px;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      color: var(--blue);
+      background: rgba(47, 70, 176, 0.08);
+      outline: none;
+    }
+
+    .hero {
+      padding: 70px 0 46px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 14px;
+      color: var(--blue);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 14px;
+      height: 14px;
+      background: conic-gradient(var(--blue) 0 25%, var(--green) 0 50%, var(--yellow) 0 75%, var(--red) 0);
+      border: 2px solid var(--ink);
+      border-radius: 3px;
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Space Grotesk", Inter, sans-serif;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 780px;
+      margin: 0;
+      font-size: clamp(2.7rem, 8vw, 5.8rem);
+    }
+
+    h1 strong {
+      color: var(--blue);
+    }
+
+    .lead {
+      max-width: 660px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.04rem, 2vw, 1.2rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 12px 18px;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: var(--blue);
+      color: var(--white);
+      box-shadow: 5px 5px 0 var(--ink);
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translate(2px, 2px);
+      box-shadow: 3px 3px 0 var(--ink);
+      outline: none;
+    }
+
+    .button.secondary {
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .status-card {
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .status-head {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .status-head span {
+      min-height: 74px;
+      border-right: 2px solid var(--ink);
+    }
+
+    .status-head span:nth-child(1) {
+      background: var(--blue);
+    }
+
+    .status-head span:nth-child(2) {
+      background: var(--green);
+    }
+
+    .status-head span:nth-child(3) {
+      border-right: 0;
+      background: var(--yellow);
+    }
+
+    .status-body {
+      padding: 24px;
+    }
+
+    .status-body h2 {
+      margin: 0 0 14px;
+      font-size: 1.7rem;
+    }
+
+    .signal-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .signal-list li {
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: 10px;
+      align-items: start;
+      color: var(--muted);
+    }
+
+    .signal-list strong {
+      color: var(--ink);
+    }
+
+    .badge {
+      display: inline-grid;
+      place-items: center;
+      min-width: 30px;
+      height: 30px;
+      border: 2px solid var(--ink);
+      border-radius: 7px;
+      background: var(--green);
+      color: var(--white);
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+
+    .section {
+      padding: 46px 0;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 24px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+    }
+
+    .section-title p {
+      max-width: 430px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .recap-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .recap-card,
+    .tool-card,
+    .note-card {
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: 4px 4px 0 rgba(16, 19, 26, 0.92);
+    }
+
+    .recap-card {
+      min-height: 178px;
+      padding: 18px;
+    }
+
+    .recap-card .number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      margin-bottom: 18px;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: var(--yellow);
+      font-weight: 800;
+    }
+
+    .recap-card h3,
+    .tool-card h3,
+    .note-card h3 {
+      margin: 0 0 9px;
+      font-size: 1.18rem;
+    }
+
+    .recap-card p,
+    .tool-card p,
+    .note-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .pipeline {
+      position: relative;
+      display: grid;
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 82px minmax(0, 1fr) 190px;
+      gap: 18px;
+      align-items: stretch;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: 5px 5px 0 var(--ink);
+      overflow: hidden;
+    }
+
+    .step-icon {
+      display: grid;
+      place-items: center;
+      min-height: 112px;
+      border-right: 2px solid var(--ink);
+      color: var(--white);
+      font-family: "Space Grotesk", Inter, sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+    }
+
+    .step:nth-child(1) .step-icon,
+    .step:nth-child(5) .step-icon {
+      background: var(--blue);
+    }
+
+    .step:nth-child(2) .step-icon,
+    .step:nth-child(6) .step-icon {
+      background: var(--green);
+    }
+
+    .step:nth-child(3) .step-icon {
+      background: var(--yellow);
+      color: var(--ink);
+    }
+
+    .step:nth-child(4) .step-icon {
+      background: var(--red);
+    }
+
+    .step-content {
+      padding: 18px 0;
+    }
+
+    .step-content h3 {
+      margin: 0 0 8px;
+      font-size: 1.34rem;
+    }
+
+    .step-content p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .step-meta {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px;
+      border-left: 2px solid var(--line);
+      background: #fbfcff;
+    }
+
+    .tag {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      min-height: 26px;
+      padding: 4px 8px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--white);
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .tool-card {
+      padding: 18px;
+    }
+
+    .tool-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .tool-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border: 2px solid var(--ink);
+      border-radius: 8px;
+      font-family: "Space Grotesk", Inter, sans-serif;
+      font-weight: 800;
+    }
+
+    .tool-card:nth-child(1) .tool-mark,
+    .tool-card:nth-child(4) .tool-mark {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .tool-card:nth-child(2) .tool-mark,
+    .tool-card:nth-child(5) .tool-mark {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .tool-card:nth-child(3) .tool-mark,
+    .tool-card:nth-child(6) .tool-mark {
+      background: var(--yellow);
+    }
+
+    .state {
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .board {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .note-card {
+      padding: 22px;
+    }
+
+    .note-card ul {
+      display: grid;
+      gap: 10px;
+      margin: 14px 0 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .note-card li::marker {
+      color: var(--blue);
+    }
+
+    .footer {
+      margin-top: 34px;
+      padding: 28px 0 46px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .board {
+        grid-template-columns: 1fr;
+      }
+
+      .recap-grid,
+      .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .step {
+        grid-template-columns: 70px 1fr;
+      }
+
+      .step-meta {
+        grid-column: 1 / -1;
+        border-top: 2px solid var(--line);
+        border-left: 0;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .topbar-inner,
+      .section-title,
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 2px;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      .recap-grid,
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .step {
+        grid-template-columns: 1fr;
+      }
+
+      .step-icon {
+        min-height: 58px;
+        border-right: 0;
+        border-bottom: 2px solid var(--ink);
+      }
+
+      .step-content {
+        padding: 18px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="index.html" aria-label="Retour à l'accueil CubeMaster">
+          <img src="assets/logo/Logo-cubemaster.png" alt="">
+          <span>CubeMaster</span>
+        </a>
+        <nav class="nav" aria-label="Navigation de la page pipeline">
+          <a href="#recap">Récap</a>
+          <a href="#pipeline">Pipeline</a>
+          <a href="#outils">Outils</a>
+          <a href="#suite">Suite</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <p class="eyebrow">Document vivant</p>
+            <h1>Le projet <strong>CubeMaster</strong>, expliqué simplement.</h1>
+            <p class="lead">Cette page sert de carte du projet : ce que l’on construit, où vivent les contenus, comment on valide les fichiers HTML en local, puis ce qui partira ensuite vers GitHub, Netlify et la V1 en ligne.</p>
+            <div class="hero-actions">
+              <a class="button" href="#pipeline">Voir le pipeline</a>
+              <a class="button secondary" href="specs-cubemaster.md">Lire la spec</a>
+            </div>
+          </div>
+
+          <aside class="status-card" aria-labelledby="etat-projet">
+            <div class="status-head" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="status-body">
+              <h2 id="etat-projet">État actuel</h2>
+              <ul class="signal-list">
+                <li><span class="badge">OK</span><span><strong>Positionnement :</strong> site pédagogique français autour des cubes.</span></li>
+                <li><span class="badge">OK</span><span><strong>Structure :</strong> accueil, solutions, nettoyage, composition.</span></li>
+                <li><span class="badge">OK</span><span><strong>Technique :</strong> validation actuelle en fichiers HTML locaux dans le dossier CubeMaster.</span></li>
+                <li><span class="badge">GO</span><span><strong>Priorité :</strong> connecter le Drive, utiliser le Keyword Mapping, finaliser 2x2 et 3x3 en français.</span></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="recap">
+        <div class="container">
+          <div class="section-title">
+            <div>
+              <p class="eyebrow">Récap rapide</p>
+              <h2>Notre avancement</h2>
+            </div>
+            <p>La base est posée et l’ordre de travail V1 est maintenant clarifié avant la mise en ligne.</p>
+          </div>
+
+          <div class="recap-grid">
+            <article class="recap-card">
+              <span class="number">1</span>
+              <h3>Concept cadré</h3>
+              <p>CubeMaster aide les débutants à résoudre, nettoyer et comprendre leurs cubes.</p>
+            </article>
+            <article class="recap-card">
+              <span class="number">2</span>
+              <h3>Mapping prioritaire</h3>
+              <p>Le menu doit suivre le Keyword Mapping CubeMaster, stocké dans Google Sheets, qui référence toutes les pages.</p>
+            </article>
+            <article class="recap-card">
+              <span class="number">3</span>
+              <h3>Pages V1 ciblées</h3>
+              <p>On finalise d’abord les méthodes débutant 2x2 et 3x3, uniquement sur les versions françaises.</p>
+            </article>
+            <article class="recap-card">
+              <span class="number">4</span>
+              <h3>Reste du site cadré</h3>
+              <p>Les autres pages seront présentes mais affichées comme en cours de construction avec un cube qui se résout.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="pipeline">
+        <div class="container">
+          <div class="section-title">
+            <div>
+              <p class="eyebrow">Du contenu au site live</p>
+              <h2>Le pipeline</h2>
+            </div>
+            <p>Voici l’ordre validé pour la phase actuelle. On reste en local tant que les contenus et le menu ne sont pas approuvés.</p>
+          </div>
+
+          <div class="pipeline">
+            <article class="step">
+              <div class="step-icon">01</div>
+              <div class="step-content">
+                <h3>Connecter le dossier Drive</h3>
+                <p>On relie le dossier Drive où vivent les fichiers sources : contenus, documents de travail, ressources et éventuels tableaux de suivi.</p>
+              </div>
+              <div class="step-meta">
+                <span class="tag">Source</span>
+                <span class="tag">À connecter</span>
+              </div>
+            </article>
+
+            <article class="step">
+              <div class="step-icon">02</div>
+              <div class="step-content">
+                <h3>Lire le Keyword Mapping</h3>
+                <p>Le Google Sheets Keyword Mapping CubeMaster devient la référence pour créer le menu, les libellés et la liste des pages à produire.</p>
+              </div>
+              <div class="step-meta">
+                <span class="tag">Google Sheets</span>
+                <span class="tag">Menu</span>
+              </div>
+            </article>
+
+            <article class="step">
+              <div class="step-icon">03</div>
+              <div class="step-content">
+                <h3>Travailler en HTML local</h3>
+                <p>Pour l’instant, on crée et valide les fichiers HTML directement dans le dossier local CubeMaster, sans publication automatique.</p>
+              </div>
+              <div class="step-meta">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JS</span>
+              </div>
+            </article>
+
+            <article class="step">
+              <div class="step-icon">04</div>
+              <div class="step-content">
+                <h3>Créer le menu complet</h3>
+                <p>Le menu est construit à partir du mapping : il doit permettre de comprendre toutes les familles de pages, même si certaines ne sont pas encore finalisées.</p>
+              </div>
+              <div class="step-meta">
+                <span class="tag">Navigation</span>
+                <span class="tag">V1 locale</span>
+              </div>
+            </article>
+
+            <article class="step">
+              <div class="step-icon">05</div>
+              <div class="step-content">
+                <h3>Finaliser 2 pages françaises</h3>
+                <p>On crée les deux pages complètes de la V1 : méthode débutant 2x2 et méthode débutant 3x3. Les versions étrangères ne sont pas prises en compte maintenant.</p>
+              </div>
+              <div class="step-meta">
+                <span class="tag">2x2 FR</span>
+                <span class="tag">3x3 FR</span>
+              </div>
+            </article>
+
+            <article class="step">
+              <div class="step-icon">06</div>
+              <div class="step-content">
+                <h3>Afficher les autres pages en attente</h3>
+                <p>Les autres pages sont créées comme pages “en cours de construction”, avec une animation de cube qui se résout pour garder une expérience propre.</p>
+              </div>
+              <div class="step-meta">
+                <span class="tag">Placeholder</span>
+                <span class="tag">Animation</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="outils">
+        <div class="container">
+          <div class="section-title">
+            <div>
+              <p class="eyebrow">Boîte à outils</p>
+              <h2>Qui sert à quoi ?</h2>
+            </div>
+            <p>Une lecture simple des plateformes et fichiers, sans jargon inutile, avec leur rôle dans la V1.</p>
+          </div>
+
+          <div class="tools-grid">
+            <article class="tool-card">
+              <div class="tool-top"><span class="tool-mark">D</span><span class="state">Contenus</span></div>
+              <h3>Google Drive</h3>
+              <p>Lieu de départ pour les fichiers sources : contenus français, documents de travail, ressources et fichiers à intégrer.</p>
+            </article>
+            <article class="tool-card">
+              <div class="tool-top"><span class="tool-mark">K</span><span class="state">Référence</span></div>
+              <h3>Keyword Mapping</h3>
+              <p>Google Sheets qui liste les pages, mots-clés et priorités. Il guide la création du menu et des URLs.</p>
+            </article>
+            <article class="tool-card">
+              <div class="tool-top"><span class="tool-mark">H</span><span class="state">Validation</span></div>
+              <h3>Fichiers HTML</h3>
+              <p>Format de travail actuel pour vérifier les pages localement avant images, GitHub et mise en ligne.</p>
+            </article>
+            <article class="tool-card">
+              <div class="tool-top"><span class="tool-mark">G</span><span class="state">Après validation</span></div>
+              <h3>GitHub</h3>
+              <p>La mémoire du projet. On l’utilisera quand la V1 locale sera validée pour préparer la mise en ligne.</p>
+            </article>
+            <article class="tool-card">
+              <div class="tool-top"><span class="tool-mark">N</span><span class="state">Après validation</span></div>
+              <h3>Netlify</h3>
+              <p>La plateforme pressentie pour publier la V1 en ligne une fois le contenu local approuvé.</p>
+            </article>
+            <article class="tool-card">
+              <div class="tool-top"><span class="tool-mark">I</span><span class="state">Étape suivante</span></div>
+              <h3>Images</h3>
+              <p>Création et intégration des visuels après validation des pages et du parcours, pour éviter de produire trop tôt.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="suite">
+        <div class="container">
+          <div class="section-title">
+            <div>
+              <p class="eyebrow">Validation avant suite</p>
+              <h2>Ce que l’on valide maintenant</h2>
+            </div>
+            <p>Cette liste fixe la frontière : tant que ces éléments ne sont pas bons en local, on ne passe pas aux images ni à la V1 en ligne.</p>
+          </div>
+
+          <div class="board">
+            <article class="note-card">
+              <h3>Phase actuelle</h3>
+              <ul>
+                <li>Dossier Drive connecté et fichiers sources accessibles.</li>
+                <li>Menu créé depuis le Keyword Mapping CubeMaster.</li>
+                <li>Pages méthode débutant 2x2 et 3x3 finalisées en français.</li>
+                <li>Autres pages présentes en mode “en cours de construction”.</li>
+              </ul>
+            </article>
+
+            <article class="note-card">
+              <h3>Phase suivante</h3>
+              <p>Une fois la phase actuelle validée, on passe à la production V1 en ligne.</p>
+              <ul>
+                <li>Création et intégration des images.</li>
+                <li>Connexion GitHub et sauvegarde de la V1.</li>
+                <li>Connexion Netlify et publication du site live.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <span>CubeMaster · Pipeline projet</span>
+        <span>Dernière mise à jour : août 2026</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

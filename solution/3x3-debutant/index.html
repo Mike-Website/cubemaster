@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Méthode débutant pour résoudre un Rubik’s Cube 3x3 étape par étape, avec des explications simples.">
+  <meta name="theme-color" content="#2f46b0">
+  <title>Solution Rubik’s Cube 3x3 débutant : méthode simple | CubeMaster</title>
+  <link rel="icon" href="../../assets/logo/Logo-cubemaster.ico" sizes="32x32">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../../index.html" aria-label="CubeMaster, accueil">
+        <picture>
+          <source srcset="../../assets/logo/Logo-cubemaster.webp" type="image/webp">
+          <img src="../../assets/logo/Logo-cubemaster.png" alt="" width="800" height="800">
+        </picture>
+        <span>Cube<span>Master</span></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">
+        <span class="sr-only">Ouvrir le menu</span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+      <nav class="main-nav" id="main-navigation" aria-label="Navigation principale">
+        <div class="nav-group">
+          <a class="is-active" aria-current="page" href="../../solutions/index.html">Solutions</a>
+          <div class="subnav" aria-label="Pages solutions">
+            <a href="../../solution/2x2/index.html">Cube 2x2</a>
+            <a href="../../solution/3x3-debutant/index.html">Cube 3x3 débutant</a>
+            <a href="../../solution/3x3-avancee/index.html">Cube 3x3 avancée</a>
+            <a href="../../solution/4x4/index.html">Cube 4x4</a>
+            <a href="../../solution/5x5/index.html">Cube 5x5</a>
+            <a href="../../solution/pyramix/index.html">Pyramix</a>
+            <a href="../../solution/megaminx/index.html">Mégaminx</a>
+            <a href="../../solution/gearcube/index.html">Gear Cube</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <a href="../../nettoyage/index.html">Nettoyage</a>
+        </div>
+        <div class="nav-group">
+          <a href="../../composition/index.html">Composition</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="page-header">
+      <div class="container">
+        <div class="breadcrumb"><a href="../../index.html">Accueil</a><span>/</span><a href="../../solutions/index.html">Solutions</a><span>/</span><span>3x3 débutant</span></div>
+        <p class="eyebrow"><span></span> Méthode débutant</p>
+        <h1>Résoudre un Rubik’s Cube 3x3 étape par étape.</h1>
+        <p class="page-intro">Cette méthode débutant avance en six étapes : croix blanche, coins blancs, deuxième étage, croix jaune, face jaune, puis finition du Rubik’s Cube.</p>
+        <ul class="guide-meta">
+          <li>Niveau : débutant</li>
+          <li>Objectif : première résolution</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container guide-layout">
+        <aside class="guide-toc">
+          <h2>Sommaire</h2>
+          <a href="#notation">Notation</a>
+          <a href="#croix">1. Croix blanche</a>
+          <a href="#coins-blancs">2. Coins blancs</a>
+          <a href="#deuxieme-etage">3. Deuxième étage</a>
+          <a href="#face-jaune">4. Croix jaune</a>
+          <a href="#finition">5. Face jaune</a>
+          <a href="#finir-cube">6. Finir le Rubik’s Cube</a>
+          <a href="#conseils">Conseils</a>
+        </aside>
+
+        <div class="guide-content">
+          <article class="guide-card" id="notation">
+            <h2>Avant de commencer</h2>
+            <p>Les lettres des mouvements indiquent quelle face tourner.</p>
+            <ul>
+              <li><strong>U</strong> : tourner la face du haut vers la droite.</li>
+              <li><strong>U'</strong> : tourner la face du haut vers la gauche.</li>
+              <li><strong>R</strong> : tourner la face de droite vers le haut.</li>
+              <li><strong>R'</strong> : tourner la face de droite vers le bas.</li>
+              <li><strong>L</strong> : tourner la face de gauche vers le haut.</li>
+              <li><strong>L'</strong> : tourner la face de gauche vers le bas.</li>
+              <li><strong>F</strong> : tourner la face de devant vers la droite.</li>
+              <li><strong>F'</strong> : tourner la face de devant vers la gauche.</li>
+              <li><strong>D</strong> : tourner la face du bas vers la droite.</li>
+              <li><strong>D'</strong> : tourner la face du bas vers la gauche.</li>
+              <li><strong>B</strong> : tourner la face de derrière vers la droite.</li>
+              <li><strong>B'</strong> : tourner la face de derrière vers la gauche.</li>
+            </ul>
+            <p>Le symbole apostrophe signifie tourner dans le sens inverse. S’il y a un 2 après la lettre, il faut faire le mouvement deux fois.</p>
+            <p class="tip-box">Attention : les algorithmes sont prévus avec la face blanche en bas et la face jaune en haut.</p>
+          </article>
+
+          <article class="guide-card" id="croix">
+            <h2>1. Faire la croix blanche</h2>
+            <p><strong>Objectif :</strong> former une croix blanche et aligner les couleurs des côtés avec les centres.</p>
+            <p>Vérifie toujours les couleurs latérales.</p>
+            <h3>Cas possibles</h3>
+            <ol>
+              <li>Une arête est déjà bien placée : ne la touche plus.</li>
+              <li>Une arête est bien placée avec la face blanche, mais pas avec son centre de couleur : tourne la face blanche jusqu’à ce qu’elle soit bien placée.</li>
+              <li>Une arête est alignée avec son centre de couleur, mais pas avec la face blanche : tourne deux fois la face de devant.</li>
+              <li>Une arête est coincée entre deux centres de couleur qui ne la concernent pas : utilise l’algorithme ci-dessous.</li>
+              <li>Une arête est au-dessus de son centre de couleur mais retournée : utilise l’un des algorithmes ci-dessous.</li>
+            </ol>
+            <p><span class="algorithm">R U' R'</span></p>
+            <p><span class="algorithm">F R U R' F F</span></p>
+            <p><span class="algorithm">U R' F' R</span></p>
+            <p class="tip-box">Tourne toujours les faces pour mettre les arêtes en face de leurs bonnes couleurs avant de faire ces algorithmes.</p>
+          </article>
+
+          <article class="guide-card" id="coins-blancs">
+            <h2>2. Placer les coins blancs</h2>
+            <p><strong>Objectif :</strong> finir la face blanche et le premier étage.</p>
+            <h3>Le coin est en bas sur la face blanche mais mal orienté</h3>
+            <p><span class="algorithm">R' D' R D</span></p>
+            <p>À répéter jusqu’à ce que le coin soit bien placé.</p>
+            <h3>Le coin n’est pas à sa bonne place en bas</h3>
+            <p><span class="algorithm">R U R' U'</span></p>
+            <p>Cet algorithme sert à sortir un coin de ce cas.</p>
+            <h3>Le coin est en haut</h3>
+            <p>Oriente-le vers les trois faces représentant le coin.</p>
+            <p>Si le carré blanc est en face de toi :</p>
+            <p><span class="algorithm">R' F' R F</span></p>
+            <p>Si le carré blanc est en haut :</p>
+            <p><span class="algorithm">R U R' U'</span></p>
+            <p>Si le carré blanc est à gauche :</p>
+            <p><span class="algorithm">R U R' U'</span></p>
+          </article>
+
+          <article class="guide-card" id="deuxieme-etage">
+            <h2>3. Compléter le deuxième étage</h2>
+            <p>Cherche une arête du haut qui ne contient pas de jaune. Aligne sa couleur frontale avec le centre correspondant, puis choisis si elle doit partir à droite ou à gauche.</p>
+            <p>Si le coin auquel elle va être attachée est à gauche, tourne le Rubik’s Cube vers la droite pour que le coin soit à droite, puis sors-le avec l’algorithme jusqu’à ce que le carré blanc soit à droite.</p>
+            <h3>L’arête est à droite</h3>
+            <p><span class="algorithm">R U R' U'</span></p>
+            <h3>L’arête est en face</h3>
+            <p><span class="algorithm">R U R' U' F' R' F R</span></p>
+            <h3>Une mauvaise arête est déjà au deuxième étage</h3>
+            <p>Sors-la avec cet algorithme. Il semble long, mais c’est surtout une répétition du même mouvement.</p>
+            <p><span class="algorithm">R U R' U' R U R' U' U' R U R' U' R U R' U' R U R' U' R U R' U'</span></p>
+          </article>
+
+          <article class="guide-card" id="face-jaune">
+            <h2>4. Faire la croix jaune</h2>
+            <p>Tu peux rencontrer plusieurs cas : un point, un L ou une ligne de trois carrés jaunes.</p>
+            <h3>Un point jaune</h3>
+            <div class="yellow-case-pattern" aria-label="Cas du point jaune sur la face du haut">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span class="sticker-yellow"></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <p>Fais l’algorithme ci-dessous pour obtenir un L.</p>
+            <p><span class="algorithm">F' R U R' U'</span></p>
+            <h3>Un L jaune</h3>
+            <div class="yellow-case-pattern" aria-label="Cas du L jaune sur la face du haut">
+              <span class="sticker-yellow"></span>
+              <span></span>
+              <span></span>
+              <span class="sticker-yellow"></span>
+              <span class="sticker-yellow"></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <p><span class="algorithm">F'2 R U R' U'</span></p>
+            <h3>Une ligne jaune</h3>
+            <div class="yellow-case-pattern" aria-label="Cas de la ligne jaune sur la face du haut">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span class="sticker-yellow"></span>
+              <span class="sticker-yellow"></span>
+              <span class="sticker-yellow"></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <p><span class="algorithm">F' R U R' U'</span></p>
+          </article>
+
+          <article class="guide-card" id="finition">
+            <h2>5. Faire toute la face jaune</h2>
+            <p><strong>Objectif :</strong> finir la face jaune.</p>
+            <p>Place la face jaune en bas, puis tourne le Rubik’s Cube pour avoir une face où un coin contient un carré jaune. Fais l’algorithme jusqu’à ce que le coin soit bien placé, puis tourne la face du bas vers la gauche et recommence jusqu’à ce que la face jaune soit correctement placée.</p>
+            <p><span class="algorithm">R U R' U'</span></p>
+          </article>
+
+          <article class="guide-card" id="finir-cube">
+            <h2>6. Finir le Rubik’s Cube</h2>
+            <p>Maintenant, plusieurs cas peuvent se présenter.</p>
+            <h3>1er cas : une face est déjà faite</h3>
+            <p>Prends la face qui est déjà faite, par exemple la face orange, puis fais :</p>
+            <p><span class="algorithm">R R U R' U R U' R U' R U R</span></p>
+            <h3>2ème cas : deux coins voisins sont à aligner</h3>
+            <p>Aligne la bande avec les deux coins de même couleur avec sa face, mets-la à gauche, puis fais l’algorithme.</p>
+            <p><span class="algorithm">R U R' U' R' F' R R U' R' U R U R' F</span></p>
+            <h3>3ème cas : deux coins bien placés sont en diagonale</h3>
+            <p>Mets les deux coins bien placés en diagonale avec leurs bonnes couleurs, place l’un d’eux à gauche, puis fais l’algorithme.</p>
+            <p><span class="algorithm">F' R U R' U R U' R' F R U R' U' R' F' R F</span></p>
+            <p><strong>Le Rubik’s Cube est maintenant terminé.</strong></p>
+          </article>
+
+          <article class="guide-card" id="conseils">
+            <h2>Conseils</h2>
+            <ul>
+              <li>Toujours vérifier les couleurs des centres.</li>
+              <li>Ne jamais démonter le Rubik’s Cube.</li>
+              <li>Si tu bloques, recommence calmement l’algorithme.</li>
+              <li>Les algorithmes fonctionnent uniquement si le Rubik’s Cube est tenu dans le bon sens.</li>
+            </ul>
+            <p class="tip-box">Avec un peu d’entraînement, tu pourras résoudre un Rubik’s Cube en moins de 2 minutes.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <a class="brand brand-footer" href="../../index.html" aria-label="CubeMaster, accueil">
+          <picture>
+            <source srcset="../../assets/logo/Logo-cubemaster.webp" type="image/webp">
+            <img src="../../assets/logo/Logo-cubemaster.png" alt="" width="800" height="800" loading="lazy">
+          </picture>
+          <span>Cube<span>Master</span></span>
+        </a>
+        <p>Des guides simples pour comprendre et maîtriser les cubes, à ton rythme.</p>
+      </div>
+      <div class="footer-column">
+        <h2>Solutions</h2>
+        <a href="../../solution/2x2/index.html">Cube 2x2</a>
+        <a href="../../solution/3x3-debutant/index.html">Cube 3x3 débutant</a>
+            <a href="../../solution/3x3-avancee/index.html">Cube 3x3 avancée</a>
+        <a href="../../solution/4x4/index.html">Cube 4x4</a>
+        <a href="../../solution/5x5/index.html">Cube 5x5</a>
+      </div>
+      <div class="footer-column">
+        <h2>Nettoyage</h2>
+        <a href="../../nettoyage/2x2/index.html">Cube 2x2</a>
+        <a href="../../nettoyage/3x3/index.html">Cube 3x3</a>
+        <a href="../../nettoyage/pyramix/index.html">Pyramix</a>
+      </div>
+      <div class="footer-column">
+        <h2><a href="../../blog/index.html">Blog</a></h2>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="current-year">2026</span> CubeMaster</p>
+      <p>Apprendre, tourner, recommencer.</p>
+    </div>
+  </footer>
+</body>
+</html>
