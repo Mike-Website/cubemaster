@@ -3,15 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Méthode débutant pour résoudre un Rubik’s Cube 3x3 étape par étape, avec des explications simples.">
+  <meta name="description" content="Résous ton Rubik’s Cube 3x3 étape par étape : croix blanche, première couronne, deuxième étage et face jaune. Méthode débutant avec animations 3D.">
   <meta name="theme-color" content="#2f46b0">
-  <title>Solution Rubik’s Cube 3x3 débutant : méthode simple | CubeMaster</title>
+  <title>Solution Rubik’s Cube 3x3 : méthode débutant | CubeMaster</title>
   <link rel="icon" href="../../assets/logo/Logo-cubemaster.ico" sizes="32x32">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css?v=15">
   <script src="../../script.js" defer></script>
+  <script src="../../assets/vendor/three.min.js" defer></script>
+  <script src="../../cube-player.js?v=12" defer></script>
+  <link rel="canonical" href="https://cubemaster.fr/solution/3x3-debutant/">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CubeMaster">
+  <meta property="og:title" content="Solution Rubik’s Cube 3x3 : méthode débutant | CubeMaster">
+  <meta property="og:description" content="Résous ton Rubik’s Cube 3x3 étape par étape : croix blanche, première couronne, deuxième étage et face jaune. Méthode débutant avec animations 3D.">
+  <meta property="og:url" content="https://cubemaster.fr/solution/3x3-debutant/">
+  <meta property="og:image" content="https://cubemaster.fr/assets/logo/Logo-cubemaster-512px.png">
+  <meta property="og:image:alt" content="Logo CubeMaster">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Solution Rubik’s Cube 3x3 : méthode débutant | CubeMaster">
+  <meta name="twitter:description" content="Résous ton Rubik’s Cube 3x3 étape par étape : croix blanche, première couronne, deuxième étage et face jaune. Méthode débutant avec animations 3D.">
+  <meta name="twitter:image" content="https://cubemaster.fr/assets/logo/Logo-cubemaster-512px.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://cubemaster.fr/"},{"@type":"ListItem","position":2,"name":"Solutions","item":"https://cubemaster.fr/solutions/"},{"@type":"ListItem","position":3,"name":"Résoudre un Rubik’s Cube 3x3 étape par étape","item":"https://cubemaster.fr/solution/3x3-debutant/"}]}</script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -19,38 +35,14 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="../../index.html" aria-label="CubeMaster, accueil">
-        <picture>
-          <source srcset="../../assets/logo/Logo-cubemaster.webp" type="image/webp">
-          <img src="../../assets/logo/Logo-cubemaster.png" alt="" width="800" height="800">
-        </picture>
+        <picture><source srcset="../../assets/logo/Logo-cubemaster.webp" type="image/webp"><img src="../../assets/logo/Logo-cubemaster.png" alt="" width="800" height="800"></picture>
         <span>Cube<span>Master</span></span>
       </a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">
-        <span class="sr-only">Ouvrir le menu</span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation"><span class="sr-only">Ouvrir le menu</span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
       <nav class="main-nav" id="main-navigation" aria-label="Navigation principale">
-        <div class="nav-group">
-          <a class="is-active" aria-current="page" href="../../solutions/index.html">Solutions</a>
-          <div class="subnav" aria-label="Pages solutions">
-            <a href="../../solution/2x2/index.html">Cube 2x2</a>
-            <a href="../../solution/3x3-debutant/index.html">Cube 3x3 débutant</a>
-            <a href="../../solution/3x3-avancee/index.html">Cube 3x3 avancée</a>
-            <a href="../../solution/4x4/index.html">Cube 4x4</a>
-            <a href="../../solution/5x5/index.html">Cube 5x5</a>
-            <a href="../../solution/pyramix/index.html">Pyramix</a>
-            <a href="../../solution/megaminx/index.html">Mégaminx</a>
-            <a href="../../solution/gearcube/index.html">Gear Cube</a>
-          </div>
-        </div>
-        <div class="nav-group">
-          <a href="../../nettoyage/index.html">Nettoyage</a>
-        </div>
-        <div class="nav-group">
-          <a href="../../composition/index.html">Composition</a>
-        </div>
+        <div class="nav-group"><a class="is-active" aria-current="page" href="../../solutions/index.html">Solutions</a><div class="subnav" aria-label="Pages solutions"><a href="../../solution/2x2/index.html">Cube 2x2</a><a href="../../solution/3x3-debutant/index.html">Cube 3x3 débutant</a><a href="../../solution/3x3-avancee/index.html">Cube 3x3 avancée</a><a href="../../solution/4x4/index.html">Cube 4x4</a><a href="../../solution/5x5/index.html">Cube 5x5</a><a href="../../solution/pyraminx/index.html">Pyraminx</a><a href="../../solution/megaminx/index.html">Mégaminx</a><a href="../../solution/gearcube/index.html">Gear Cube</a></div></div>
+        <div class="nav-group"><a href="../../nettoyage/index.html">Nettoyage</a></div>
+        <div class="nav-group"><a href="../../composition/index.html">Composition</a></div>
       </nav>
     </div>
   </header>
@@ -61,11 +53,8 @@
         <div class="breadcrumb"><a href="../../index.html">Accueil</a><span>/</span><a href="../../solutions/index.html">Solutions</a><span>/</span><span>3x3 débutant</span></div>
         <p class="eyebrow"><span></span> Méthode débutant</p>
         <h1>Résoudre un Rubik’s Cube 3x3 étape par étape.</h1>
-        <p class="page-intro">Cette méthode débutant avance en six étapes : croix blanche, coins blancs, deuxième étage, croix jaune, face jaune, puis finition du Rubik’s Cube.</p>
-        <ul class="guide-meta">
-          <li>Niveau : débutant</li>
-          <li>Objectif : première résolution</li>
-        </ul>
+        <p class="page-intro">Six étapes visuelles pour construire la croix blanche, les deux premiers étages, la face jaune et terminer le cube.</p>
+        <ul class="guide-meta"><li>Niveau : débutant</li><li>6 étapes guidées</li><li>Animations 3D contrôlables</li></ul>
       </div>
     </section>
 
@@ -73,165 +62,239 @@
       <div class="container guide-layout">
         <aside class="guide-toc">
           <h2>Sommaire</h2>
-          <a href="#notation">Notation</a>
+          <a href="#notation">Avant de commencer</a>
           <a href="#croix">1. Croix blanche</a>
           <a href="#coins-blancs">2. Coins blancs</a>
           <a href="#deuxieme-etage">3. Deuxième étage</a>
           <a href="#face-jaune">4. Croix jaune</a>
           <a href="#finition">5. Face jaune</a>
-          <a href="#finir-cube">6. Finir le Rubik’s Cube</a>
+          <a href="#finir-cube">6. Finir le cube</a>
           <a href="#conseils">Conseils</a>
         </aside>
 
-        <div class="guide-content">
-          <article class="guide-card" id="notation">
+        <div class="guide-content cube3-guide-content">
+          <svg class="notation-defs" width="0" height="0" aria-hidden="true" focusable="false">
+            <defs>
+              <symbol id="notation-cube-3x3" viewBox="0 0 210 200">
+                <polygon class="cube3-sticker" style="fill:var(--cube3-t1,var(--cube3-top,var(--cube3-muted)))" points="105,10 75,25 105,40 135,25"></polygon><polygon class="cube3-sticker" style="fill:var(--cube3-t2,var(--cube3-top,var(--cube3-muted)))" points="135,25 105,40 135,55 165,40"></polygon><polygon class="cube3-sticker" style="fill:var(--cube3-t3,var(--cube3-top,var(--cube3-muted)))" points="165,40 135,55 165,70 195,55"></polygon>
+                <polygon class="cube3-sticker" style="fill:var(--cube3-t4,var(--cube3-top,var(--cube3-muted)))" points="75,25 45,40 75,55 105,40"></polygon><polygon class="cube3-sticker" style="fill:var(--cube3-t5,var(--cube3-top,var(--cube3-muted)))" points="105,40 75,55 105,70 135,55"></polygon><polygon class="cube3-sticker" style="fill:var(--cube3-t6,var(--cube3-top,var(--cube3-muted)))" points="135,55 105,70 135,85 165,70"></polygon>
+                <polygon class="cube3-sticker" style="fill:var(--cube3-t7,var(--cube3-top,var(--cube3-muted)))" points="45,40 15,55 45,70 75,55"></polygon><polygon class="cube3-sticker" style="fill:var(--cube3-t8,var(--cube3-top,var(--cube3-muted)))" points="75,55 45,70 75,85 105,70"></polygon><polygon class="cube3-sticker" style="fill:var(--cube3-t9,var(--cube3-top,var(--cube3-muted)))" points="105,70 75,85 105,100 135,85"></polygon>
+                <polygon class="cube3-sticker" style="fill:var(--cube3-f1,var(--cube3-front,var(--cube3-muted)))" points="15,55 45,70 45,100 15,85"></polygon><polygon class="cube3-sticker" style="fill:var(--cube3-f2,var(--cube3-front,var(--cube3-muted)))" points="45,70 75,85 75,115 45,100"></polygon><polygon class="cube3-sticker" style="fill:var(--cube3-f3,var(--cube3-front,var(--cube3-muted)))" points="75,85 105,100 105,130 75,115"></polygon>
+                <polygon class="cube3-sticker" style="fill:var(--cube3-f4,var(--cube3-front,var(--cube3-muted)))" points="15,85 45,100 45,130 15,115"></polygon><polygon class="cube3-sticker" style="fill:var(--cube3-f5,var(--cube3-front,var(--cube3-muted)))" points="45,100 75,115 75,145 45,130"></polygon><polygon class="cube3-sticker" style="fill:var(--cube3-f6,var(--cube3-front,var(--cube3-muted)))" points="75,115 105,130 105,160 75,145"></polygon>
+                <polygon class="cube3-sticker" style="fill:var(--cube3-f7,var(--cube3-front,var(--cube3-muted)))" points="15,115 45,130 45,160 15,145"></polygon><polygon class="cube3-sticker" style="fill:var(--cube3-f8,var(--cube3-front,var(--cube3-muted)))" points="45,130 75,145 75,175 45,160"></polygon><polygon class="cube3-sticker" style="fill:var(--cube3-f9,var(--cube3-front,var(--cube3-muted)))" points="75,145 105,160 105,190 75,175"></polygon>
+                <polygon class="cube3-sticker" style="fill:var(--cube3-r1,var(--cube3-right,var(--cube3-muted)))" points="105,100 135,85 135,115 105,130"></polygon><polygon class="cube3-sticker" style="fill:var(--cube3-r2,var(--cube3-right,var(--cube3-muted)))" points="135,85 165,70 165,100 135,115"></polygon><polygon class="cube3-sticker" style="fill:var(--cube3-r3,var(--cube3-right,var(--cube3-muted)))" points="165,70 195,55 195,85 165,100"></polygon>
+                <polygon class="cube3-sticker" style="fill:var(--cube3-r4,var(--cube3-right,var(--cube3-muted)))" points="105,130 135,115 135,145 105,160"></polygon><polygon class="cube3-sticker" style="fill:var(--cube3-r5,var(--cube3-right,var(--cube3-muted)))" points="135,115 165,100 165,130 135,145"></polygon><polygon class="cube3-sticker" style="fill:var(--cube3-r6,var(--cube3-right,var(--cube3-muted)))" points="165,100 195,85 195,115 165,130"></polygon>
+                <polygon class="cube3-sticker" style="fill:var(--cube3-r7,var(--cube3-right,var(--cube3-muted)))" points="105,160 135,145 135,175 105,190"></polygon><polygon class="cube3-sticker" style="fill:var(--cube3-r8,var(--cube3-right,var(--cube3-muted)))" points="135,145 165,130 165,160 135,175"></polygon><polygon class="cube3-sticker" style="fill:var(--cube3-r9,var(--cube3-right,var(--cube3-muted)))" points="165,130 195,115 195,145 165,160"></polygon>
+              </symbol>
+            </defs>
+          </svg>
+
+          <article class="guide-card notation-guide cube3-notation-guide" id="notation">
             <h2>Avant de commencer</h2>
-            <p>Les lettres des mouvements indiquent quelle face tourner.</p>
-            <ul>
-              <li><strong>U</strong> : tourner la face du haut vers la droite.</li>
-              <li><strong>U'</strong> : tourner la face du haut vers la gauche.</li>
-              <li><strong>R</strong> : tourner la face de droite vers le haut.</li>
-              <li><strong>R'</strong> : tourner la face de droite vers le bas.</li>
-              <li><strong>L</strong> : tourner la face de gauche vers le haut.</li>
-              <li><strong>L'</strong> : tourner la face de gauche vers le bas.</li>
-              <li><strong>F</strong> : tourner la face de devant vers la droite.</li>
-              <li><strong>F'</strong> : tourner la face de devant vers la gauche.</li>
-              <li><strong>D</strong> : tourner la face du bas vers la droite.</li>
-              <li><strong>D'</strong> : tourner la face du bas vers la gauche.</li>
-              <li><strong>B</strong> : tourner la face de derrière vers la droite.</li>
-              <li><strong>B'</strong> : tourner la face de derrière vers la gauche.</li>
-            </ul>
-            <p>Le symbole apostrophe signifie tourner dans le sens inverse. S’il y a un 2 après la lettre, il faut faire le mouvement deux fois.</p>
-            <p class="tip-box">Attention : les algorithmes sont prévus avec la face blanche en bas et la face jaune en haut.</p>
+            <p class="notation-intro">Un mouvement indique toujours <strong>quelle face tourner</strong> et <strong>dans quel sens</strong>. Sur un 3x3, les centres servent aussi de repères fixes pour placer les arêtes et les coins.</p>
+
+            <section class="notation-block" aria-labelledby="cube3-terms-title">
+              <div class="notation-block-heading">
+                <div>
+                  <p class="notation-kicker">Le vocabulaire</p>
+                  <h3 id="cube3-terms-title">Les termes utilisés</h3>
+                </div>
+                <p>Les centres ne changent jamais de place. Chaque arête conserve ses deux couleurs et chaque coin conserve ses trois couleurs.</p>
+              </div>
+              <div class="notation-terms-grid cube3-notation-terms-grid">
+                <div class="notation-term">
+                  <svg class="notation-cube cube3-notation-cube cube3-term-square" viewBox="0 0 210 200" role="img" aria-label="Un carré coloré mis en évidence sur le cube 3x3"><use href="#notation-cube-3x3"></use></svg>
+                  <div><h4>Carré</h4><p>Une zone colorée visible sur une pièce.</p></div>
+                </div>
+                <div class="notation-term">
+                  <svg class="notation-cube cube3-notation-cube cube3-term-center" viewBox="0 0 210 200" role="img" aria-label="Le centre d’une face mis en évidence"><use href="#notation-cube-3x3"></use></svg>
+                  <div><h4>Centre</h4><p>Une pièce d’une seule couleur qui indique la couleur de la face.</p></div>
+                </div>
+                <div class="notation-term">
+                  <svg class="notation-cube cube3-notation-cube cube3-term-edge" viewBox="0 0 210 200" role="img" aria-label="Une arête composée de deux carrés mise en évidence"><use href="#notation-cube-3x3"></use></svg>
+                  <div><h4>Arête</h4><p>Une pièce composée de deux carrés de couleurs différentes.</p></div>
+                </div>
+                <div class="notation-term">
+                  <svg class="notation-cube cube3-notation-cube cube3-term-corner" viewBox="0 0 210 200" role="img" aria-label="Un coin composé de trois carrés mis en évidence"><use href="#notation-cube-3x3"></use></svg>
+                  <div><h4>Coin</h4><p>Une pièce composée de trois carrés de couleurs différentes.</p></div>
+                </div>
+                <div class="notation-term">
+                  <svg class="notation-cube cube3-notation-cube cube3-term-face" viewBox="0 0 210 200" role="img" aria-label="Une face complète de neuf carrés mise en évidence"><use href="#notation-cube-3x3"></use></svg>
+                  <div><h4>Face</h4><p>Les neuf carrés visibles sur un même côté du cube.</p></div>
+                </div>
+                <div class="notation-term">
+                  <svg class="notation-cube cube3-notation-cube cube3-term-layer" viewBox="0 0 210 200" role="img" aria-label="La couche du haut mise en évidence"><use href="#notation-cube-3x3"></use></svg>
+                  <div><h4>Couche</h4><p>Un ensemble de neuf pièces qui tourne en même temps.</p></div>
+                </div>
+              </div>
+            </section>
+
+            <section class="notation-block notation-faces" aria-labelledby="cube3-faces-title">
+              <div class="notation-block-heading">
+                <div>
+                  <p class="notation-kicker">La position</p>
+                  <h3 id="cube3-faces-title">Les six faces du cube</h3>
+                </div>
+                <p>Chaque lettre vient du nom anglais. Le cube garde toujours le même angle : le vert montre toute la couche entraînée par le mouvement.</p>
+              </div>
+              <div class="notation-faces-grid">
+                <div class="notation-face-item">
+                  <svg class="notation-cube cube3-notation-cube cube3-notation-face-r" viewBox="0 0 210 200" role="img" aria-label="Couche droite mise en évidence"><use href="#notation-cube-3x3"></use></svg>
+                  <div><strong><span>R</span> Right</strong><p>Face droite</p></div>
+                </div>
+                <div class="notation-face-item">
+                  <svg class="notation-cube cube3-notation-cube cube3-notation-face-l" viewBox="0 0 210 200" role="img" aria-label="Couche gauche mise en évidence"><use href="#notation-cube-3x3"></use></svg>
+                  <div><strong><span>L</span> Left</strong><p>Face gauche</p></div>
+                </div>
+                <div class="notation-face-item">
+                  <svg class="notation-cube cube3-notation-cube cube3-notation-face-f" viewBox="0 0 210 200" role="img" aria-label="Couche avant mise en évidence"><use href="#notation-cube-3x3"></use></svg>
+                  <div><strong><span>F</span> Front</strong><p>Face avant</p></div>
+                </div>
+                <div class="notation-face-item">
+                  <svg class="notation-cube cube3-notation-cube cube3-notation-face-b" viewBox="0 0 210 200" role="img" aria-label="Couche arrière mise en évidence"><use href="#notation-cube-3x3"></use></svg>
+                  <div><strong><span>B</span> Back</strong><p>Face arrière</p></div>
+                </div>
+                <div class="notation-face-item">
+                  <svg class="notation-cube cube3-notation-cube cube3-notation-face-u" viewBox="0 0 210 200" role="img" aria-label="Couche du dessus mise en évidence"><use href="#notation-cube-3x3"></use></svg>
+                  <div><strong><span>U</span> Up</strong><p>Face du dessus</p></div>
+                </div>
+                <div class="notation-face-item">
+                  <svg class="notation-cube cube3-notation-cube cube3-notation-face-d" viewBox="0 0 210 200" role="img" aria-label="Couche du dessous mise en évidence"><use href="#notation-cube-3x3"></use></svg>
+                  <div><strong><span>D</span> Down</strong><p>Face du dessous</p></div>
+                </div>
+              </div>
+            </section>
+
+            <section class="notation-block notation-rotation" aria-labelledby="cube3-rotation-title">
+              <div class="notation-block-heading">
+                <div>
+                  <p class="notation-kicker">La rotation</p>
+                  <h3 id="cube3-rotation-title">Lire un mouvement</h3>
+                </div>
+                <p>Regarde directement la face que tu vas tourner : le sens est toujours défini depuis ce point de vue.</p>
+              </div>
+              <div class="notation-rotation-grid">
+                <div class="notation-turn"><div class="notation-turn-visual"><svg class="notation-cube cube3-notation-cube cube3-notation-face-r" viewBox="0 0 210 200" aria-hidden="true"><use href="#notation-cube-3x3"></use></svg><span class="notation-turn-arrow" aria-hidden="true">↻</span></div><div class="notation-turn-copy"><strong class="notation-move-code">R</strong><h4>Face droite</h4><p>Sens horaire</p></div></div>
+                <div class="notation-turn"><div class="notation-turn-visual"><svg class="notation-cube cube3-notation-cube cube3-notation-face-r" viewBox="0 0 210 200" aria-hidden="true"><use href="#notation-cube-3x3"></use></svg><span class="notation-turn-arrow" aria-hidden="true">↺</span></div><div class="notation-turn-copy"><strong class="notation-move-code">R'</strong><h4>Face droite</h4><p>Sens antihoraire</p></div></div>
+                <div class="notation-turn"><div class="notation-turn-visual"><svg class="notation-cube cube3-notation-cube cube3-notation-face-l" viewBox="0 0 210 200" aria-hidden="true"><use href="#notation-cube-3x3"></use></svg><span class="notation-turn-arrow" aria-hidden="true">↻</span></div><div class="notation-turn-copy"><strong class="notation-move-code">L</strong><h4>Face gauche</h4><p>Sens horaire</p></div></div>
+                <div class="notation-turn"><div class="notation-turn-visual"><svg class="notation-cube cube3-notation-cube cube3-notation-face-l" viewBox="0 0 210 200" aria-hidden="true"><use href="#notation-cube-3x3"></use></svg><span class="notation-turn-arrow" aria-hidden="true">↺</span></div><div class="notation-turn-copy"><strong class="notation-move-code">L'</strong><h4>Face gauche</h4><p>Sens antihoraire</p></div></div>
+                <div class="notation-turn"><div class="notation-turn-visual"><svg class="notation-cube cube3-notation-cube cube3-notation-face-f" viewBox="0 0 210 200" aria-hidden="true"><use href="#notation-cube-3x3"></use></svg><span class="notation-turn-arrow" aria-hidden="true">↻</span></div><div class="notation-turn-copy"><strong class="notation-move-code">F</strong><h4>Face avant</h4><p>Sens horaire</p></div></div>
+                <div class="notation-turn"><div class="notation-turn-visual"><svg class="notation-cube cube3-notation-cube cube3-notation-face-f" viewBox="0 0 210 200" aria-hidden="true"><use href="#notation-cube-3x3"></use></svg><span class="notation-turn-arrow" aria-hidden="true">↺</span></div><div class="notation-turn-copy"><strong class="notation-move-code">F'</strong><h4>Face avant</h4><p>Sens antihoraire</p></div></div>
+                <div class="notation-turn"><div class="notation-turn-visual"><svg class="notation-cube cube3-notation-cube cube3-notation-face-b" viewBox="0 0 210 200" aria-hidden="true"><use href="#notation-cube-3x3"></use></svg><span class="notation-turn-arrow" aria-hidden="true">↻</span></div><div class="notation-turn-copy"><strong class="notation-move-code">B</strong><h4>Face arrière</h4><p>Sens horaire</p></div></div>
+                <div class="notation-turn"><div class="notation-turn-visual"><svg class="notation-cube cube3-notation-cube cube3-notation-face-b" viewBox="0 0 210 200" aria-hidden="true"><use href="#notation-cube-3x3"></use></svg><span class="notation-turn-arrow" aria-hidden="true">↺</span></div><div class="notation-turn-copy"><strong class="notation-move-code">B'</strong><h4>Face arrière</h4><p>Sens antihoraire</p></div></div>
+                <div class="notation-turn"><div class="notation-turn-visual"><svg class="notation-cube cube3-notation-cube cube3-notation-face-u" viewBox="0 0 210 200" aria-hidden="true"><use href="#notation-cube-3x3"></use></svg><span class="notation-turn-arrow" aria-hidden="true">↻</span></div><div class="notation-turn-copy"><strong class="notation-move-code">U</strong><h4>Face du dessus</h4><p>Sens horaire</p></div></div>
+                <div class="notation-turn"><div class="notation-turn-visual"><svg class="notation-cube cube3-notation-cube cube3-notation-face-u" viewBox="0 0 210 200" aria-hidden="true"><use href="#notation-cube-3x3"></use></svg><span class="notation-turn-arrow" aria-hidden="true">↺</span></div><div class="notation-turn-copy"><strong class="notation-move-code">U'</strong><h4>Face du dessus</h4><p>Sens antihoraire</p></div></div>
+                <div class="notation-turn"><div class="notation-turn-visual"><svg class="notation-cube cube3-notation-cube cube3-notation-face-d" viewBox="0 0 210 200" aria-hidden="true"><use href="#notation-cube-3x3"></use></svg><span class="notation-turn-arrow" aria-hidden="true">↻</span></div><div class="notation-turn-copy"><strong class="notation-move-code">D</strong><h4>Face du dessous</h4><p>Sens horaire</p></div></div>
+                <div class="notation-turn"><div class="notation-turn-visual"><svg class="notation-cube cube3-notation-cube cube3-notation-face-d" viewBox="0 0 210 200" aria-hidden="true"><use href="#notation-cube-3x3"></use></svg><span class="notation-turn-arrow" aria-hidden="true">↺</span></div><div class="notation-turn-copy"><strong class="notation-move-code">D'</strong><h4>Face du dessous</h4><p>Sens antihoraire</p></div></div>
+              </div>
+              <div class="notation-direction-note">
+                <p><strong>« Vers la droite »</strong> signifie sens horaire <span>(dans le sens des aiguilles d’une montre).</span></p>
+                <p><strong>« Vers la gauche »</strong> signifie sens antihoraire <span>(dans le sens inverse des aiguilles d’une montre).</span></p>
+                <p><strong>Le chiffre 2</strong> indique un demi-tour <span>(180°, le sens n’a pas d’importance).</span></p>
+              </div>
+            </section>
+
+            <p class="tip-box">Sur un 3x3, la couleur du centre ne bouge jamais : elle reste la référence pour vérifier chaque pièce avant et après un algorithme.</p>
           </article>
 
-          <article class="guide-card" id="croix">
-            <h2>1. Faire la croix blanche</h2>
-            <p><strong>Objectif :</strong> former une croix blanche et aligner les couleurs des côtés avec les centres.</p>
-            <p>Vérifie toujours les couleurs latérales.</p>
-            <h3>Cas possibles</h3>
-            <ol>
-              <li>Une arête est déjà bien placée : ne la touche plus.</li>
-              <li>Une arête est bien placée avec la face blanche, mais pas avec son centre de couleur : tourne la face blanche jusqu’à ce qu’elle soit bien placée.</li>
-              <li>Une arête est alignée avec son centre de couleur, mais pas avec la face blanche : tourne deux fois la face de devant.</li>
-              <li>Une arête est coincée entre deux centres de couleur qui ne la concernent pas : utilise l’algorithme ci-dessous.</li>
-              <li>Une arête est au-dessus de son centre de couleur mais retournée : utilise l’un des algorithmes ci-dessous.</li>
-            </ol>
-            <p><span class="algorithm">R U' R'</span></p>
-            <p><span class="algorithm">F R U R' F F</span></p>
-            <p><span class="algorithm">U R' F' R</span></p>
-            <p class="tip-box">Tourne toujours les faces pour mettre les arêtes en face de leurs bonnes couleurs avant de faire ces algorithmes.</p>
+          <article class="guide-card cube3-guide-step" id="croix">
+            <div class="white-step-heading"><p class="white-step-kicker">Étape 1 · Les quatre arêtes blanches</p><h2>Faire la croix blanche</h2><p class="white-step-lead"><strong>Objectif :</strong> placer les quatre arêtes blanches autour du centre blanc et aligner leur autre couleur avec le centre voisin.</p><p class="white-step-context">Commence par former une croix autour du centre jaune. Aligne ensuite chaque couleur latérale avant de descendre l’arête blanche.</p></div>
+            <section class="white-corner-lesson cube-step-lesson cube3-step-lesson">
+              <header class="white-corner-header"><div><p class="white-corner-eyebrow">Une arête à la fois</p><h3>Centre latéral aligné, puis demi-tour.</h3><p>Quand la couleur latérale correspond au centre, tourne cette face de 180° pour envoyer le blanc sur la face du dessous.</p></div><div class="corner-color-key"><span><i class="color-swatch color-swatch-white"></i>Arête blanche</span><span><i class="color-swatch color-swatch-red"></i>Centre associé</span></div></header>
+              <div class="white-corner-basics"><p class="white-corner-basics-title">À contrôler</p><p><strong>Croix :</strong> les blancs entourent le centre jaune.</p><p><strong>Avant F2 :</strong> la couleur latérale est alignée à son centre.</p><p><strong>Résultat :</strong> croix blanche et quatre côtés alignés.</p></div>
+              <ol class="cube3-sequence cube3-sequence-four">
+                <li><div class="cube3-stage-copy"><span>1</span><div><h4>Repère une arête blanche</h4><p>Amène-la autour du centre jaune sans déplacer les arêtes déjà prêtes.</p></div></div><svg class="cube3-diagram cube3-state-cross-start" viewBox="0 0 210 200" role="img" aria-label="Une arête blanche autour du centre jaune"><use href="#notation-cube-3x3"></use><polygon class="cube3-target-outline" points="75,55 45,70 75,85 105,70"></polygon></svg><small>La face blanche est en dessous</small></li>
+                <li><div class="cube3-stage-copy"><span>2</span><div><h4>Aligne la deuxième couleur</h4><p>Tourne U jusqu’à placer la couleur de l’arête face au centre identique.</p></div></div><svg class="cube3-diagram cube3-state-cross-aligned" viewBox="0 0 210 200" role="img" aria-label="Arête blanche et rouge alignée avec le centre rouge"><use href="#notation-cube-3x3"></use><polygon class="cube3-target-outline" points="45,70 75,85 75,115 45,100"></polygon></svg><small>Rouge face au centre rouge</small></li>
+                <li><div class="cube3-stage-copy"><span>3</span><div><h4>Descends l’arête</h4><p>Fais F2 : deux quarts de tour de la face avant.</p></div></div><svg class="cube3-diagram cube3-state-cross-turn" viewBox="0 0 210 200" role="img" aria-label="Face avant à tourner deux fois"><use href="#notation-cube-3x3"></use><path class="cube3-turn-arrow" d="M35 59 C7 79 3 132 31 160"></path><path class="cube3-turn-arrow-head" d="M19 157 L34 164 L31 148"></path><g class="cube3-turn-badge" aria-hidden="true"><rect x="3" y="96" width="42" height="29" rx="6"></rect><text x="24" y="116">F2</text></g></svg><small>F2 = F puis encore F</small></li>
+                <li><div class="cube3-stage-copy"><span>4</span><div><h4>Recommence pour toutes les arêtes</h4><p>Recommence pour toutes les arêtes et tu verras enfin une croix blanche ! Fais bien attention à aligner les arêtes avec leur centre de couleur.</p></div></div><svg class="cube3-diagram cube3-state-white-cross" viewBox="0 0 210 200" role="img" aria-label="Croix blanche terminée avec les arêtes rouge et verte alignées"><use href="#notation-cube-3x3"></use></svg><small>Vue de la face blanche</small></li>
+              </ol>
+              <div class="corner-algorithm cube3-algorithm"><div class="corner-algorithm-intro"><span>Arête alignée</span><strong>Demi-tour</strong></div><div class="corner-moves"><span class="corner-move corner-move-f"><b>F2</b><small>avant ×2</small></span></div><p>Recommence avec les trois autres arêtes blanches.</p></div>
+              <section class="white-step-video"><div class="white-step-video-heading"><p>Animation de l’étape 1</p><h3>Fais descendre une arête de la croix.</h3><span>La caméra passe ensuite sous le cube et reste sur la croix blanche terminée.</span></div><div class="cube-player" data-cube-player data-size="3" data-player-mode="3x3-cross" data-algorithm="F2"><div class="cube-player-stage" data-cube-stage aria-label="Animation 3D du mouvement F2 pour la croix blanche"><div class="cube-player-hud" aria-live="polite"><span data-cube-phase>Arête blanche alignée</span><strong data-cube-repeat>Prêt à démarrer</strong></div><div class="cube-player-key"><span>Arête suivie</span><i class="color-swatch color-swatch-white"></i><i class="color-swatch color-swatch-red"></i></div></div><div class="cube-player-controls"><button class="cube-player-toggle" type="button" data-cube-toggle aria-label="Lire l’animation"><span data-cube-toggle-icon aria-hidden="true">▶</span></button><div class="cube-player-status"><div class="cube-player-status-line"><span>Mouvement</span><strong class="cube-player-move" data-cube-current-move>F2</strong></div><div class="cube-player-progress"><span data-cube-progress></span></div></div></div></div></section>
+              <div class="white-step-finish"><div><strong>Contrôle avant l’étape 2.</strong><p>La croix blanche est en dessous et les quatre couleurs latérales correspondent aux centres.</p></div><div class="corner-count"><span>✓</span><span>✓</span><span>✓</span><span>✓</span></div></div>
+            </section>
           </article>
 
-          <article class="guide-card" id="coins-blancs">
-            <h2>2. Placer les coins blancs</h2>
-            <p><strong>Objectif :</strong> finir la face blanche et le premier étage.</p>
-            <h3>Le coin est en bas sur la face blanche mais mal orienté</h3>
-            <p><span class="algorithm">R' D' R D</span></p>
-            <p>À répéter jusqu’à ce que le coin soit bien placé.</p>
-            <h3>Le coin n’est pas à sa bonne place en bas</h3>
-            <p><span class="algorithm">R U R' U'</span></p>
-            <p>Cet algorithme sert à sortir un coin de ce cas.</p>
-            <h3>Le coin est en haut</h3>
-            <p>Oriente-le vers les trois faces représentant le coin.</p>
-            <p>Si le carré blanc est en face de toi :</p>
-            <p><span class="algorithm">R' F' R F</span></p>
-            <p>Si le carré blanc est en haut :</p>
-            <p><span class="algorithm">R U R' U'</span></p>
-            <p>Si le carré blanc est à gauche :</p>
-            <p><span class="algorithm">R U R' U'</span></p>
+          <article class="guide-card cube3-guide-step" id="coins-blancs">
+            <div class="white-step-heading"><p class="white-step-kicker">Étape 2 · Les quatre coins blancs</p><h2>Terminer la face blanche</h2><p class="white-step-lead"><strong>Objectif :</strong> placer chaque coin blanc entre les deux centres correspondant à ses autres couleurs.</p><p class="white-step-context">Garde la face blanche en dessous. Le coin suivi dans l’exemple est blanc–rouge–vert.</p></div>
+            <section class="white-corner-lesson cube-step-lesson cube3-step-lesson">
+              <header class="white-corner-header"><div><p class="white-corner-eyebrow">Le geste déjà connu</p><h3>Place le coin au-dessus de son emplacement.</h3><p>Répète R U R' U' jusqu’à ce que le blanc regarde vers le dessous et que les deux couleurs latérales soient alignées.</p></div><div class="corner-color-key"><span><i class="color-swatch color-swatch-white"></i>Blanc</span><span><i class="color-swatch color-swatch-red"></i>Rouge</span><span><i class="color-swatch color-swatch-green"></i>Vert</span></div></header>
+              <div class="white-corner-basics"><p class="white-corner-basics-title">À ne pas oublier</p><p><strong>Prise :</strong> blanc toujours en dessous.</p><p><strong>Coin bloqué :</strong> sors-le avec R U R' U'.</p><p><strong>Contrôle :</strong> le premier rang latéral doit être uni.</p></div>
+              <ol class="cube3-sequence cube3-sequence-three">
+                <li><div class="cube3-stage-copy"><span>1</span><div><h4>Trouve le bon coin</h4><p>Lis ses trois couleurs et place-le en haut, devant et à droite.</p></div></div><svg class="cube3-diagram cube3-state-corner-start" viewBox="0 0 210 200" role="img" aria-label="Coin blanc rouge vert au-dessus de sa place"><use href="#notation-cube-3x3"></use><polygon class="cube3-target-outline" points="105,70 75,85 105,100 135,85"></polygon></svg><small>Coin blanc–rouge–vert</small></li>
+                <li><div class="cube3-stage-copy"><span>2</span><div><h4>Répète le geste</h4><p>Exécute R U R' U' sans changer la prise du cube.</p></div></div><svg class="cube3-diagram cube3-state-corner-move" viewBox="0 0 210 200" role="img" aria-label="Faces droite et haute utilisées pour insérer le coin"><use href="#notation-cube-3x3"></use><polygon class="cube3-face-outline cube3-face-outline-u" points="105,10 195,55 105,100 15,55"></polygon><polygon class="cube3-face-outline cube3-face-outline-r" points="105,100 195,55 195,145 105,190"></polygon></svg><small>Seules U et R bougent</small></li>
+                <li><div class="cube3-stage-copy"><span>3</span><div><h4>Contrôle la première couche</h4><p>Le blanc est en dessous et les rangées rouge et verte sont alignées.</p></div></div><svg class="cube3-diagram cube3-state-first-layer" viewBox="0 0 210 200" role="img" aria-label="Première couche blanche terminée"><use href="#notation-cube-3x3"></use></svg><small>Recommence pour les quatre coins</small></li>
+              </ol>
+              <div class="corner-algorithm cube3-algorithm"><div class="corner-algorithm-intro"><span>Coin au-dessus</span><strong>Jusqu’à insertion</strong></div><div class="corner-moves"><span class="corner-move corner-move-r"><b>R</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-u"><b>U</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-r"><b>R'</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-u"><b>U'</b></span></div><p>Répète autant de fois que nécessaire pour ce coin.</p></div>
+              <section class="white-step-video"><div class="white-step-video-heading"><p>Animation de l’étape 2</p><h3>Insère un coin sans casser la croix blanche.</h3><span>Le départ reprend l’état obtenu à la fin de l’étape 1.</span></div><div class="cube-player" data-cube-player data-size="3" data-player-mode="3x3-white-corner" data-algorithm="R U R' U'"><div class="cube-player-stage" data-cube-stage><div class="cube-player-hud"><span data-cube-phase>Coin au-dessus de sa place</span><strong data-cube-repeat>Prêt à démarrer</strong></div><div class="cube-player-key"><span>Coin suivi</span><i class="color-swatch color-swatch-white"></i><i class="color-swatch color-swatch-red"></i><i class="color-swatch color-swatch-green"></i></div></div><div class="cube-player-controls"><button class="cube-player-toggle" type="button" data-cube-toggle aria-label="Lire l’animation"><span data-cube-toggle-icon>▶</span></button><div class="cube-player-status"><div class="cube-player-status-line"><span>Mouvement</span><strong class="cube-player-move" data-cube-current-move>R U R' U'</strong></div><div class="cube-player-progress"><span data-cube-progress></span></div></div></div></div></section>
+              <div class="white-step-finish"><div><strong>Contrôle avant l’étape 3.</strong><p>La face blanche et le premier rang des quatre faces latérales sont entièrement résolus.</p></div><div class="corner-count"><span>✓</span><span>✓</span><span>✓</span><span>✓</span></div></div>
+            </section>
           </article>
 
-          <article class="guide-card" id="deuxieme-etage">
-            <h2>3. Compléter le deuxième étage</h2>
-            <p>Cherche une arête du haut qui ne contient pas de jaune. Aligne sa couleur frontale avec le centre correspondant, puis choisis si elle doit partir à droite ou à gauche.</p>
-            <p>Si le coin auquel elle va être attachée est à gauche, tourne le Rubik’s Cube vers la droite pour que le coin soit à droite, puis sors-le avec l’algorithme jusqu’à ce que le carré blanc soit à droite.</p>
-            <h3>L’arête est à droite</h3>
-            <p><span class="algorithm">R U R' U'</span></p>
-            <h3>L’arête est en face</h3>
-            <p><span class="algorithm">R U R' U' F' R' F R</span></p>
-            <h3>Une mauvaise arête est déjà au deuxième étage</h3>
-            <p>Sors-la avec cet algorithme. Il semble long, mais c’est surtout une répétition du même mouvement.</p>
-            <p><span class="algorithm">R U R' U' R U R' U' U' R U R' U' R U R' U' R U R' U' R U R' U'</span></p>
+          <article class="guide-card cube3-guide-step" id="deuxieme-etage">
+            <div class="white-step-heading"><p class="white-step-kicker">Étape 3 · Les quatre arêtes du milieu</p><h2>Compléter le deuxième étage</h2><p class="white-step-lead"><strong>Objectif :</strong> insérer les arêtes sans jaune entre les centres de même couleur.</p><p class="white-step-context">Cherche une arête sans jaune sur la face du haut. Aligne sa couleur frontale avec le centre, puis regarde si sa seconde couleur doit partir à droite ou à gauche.</p></div>
+            <section class="white-corner-lesson cube-step-lesson cube3-step-lesson">
+              <header class="white-corner-header"><div><p class="white-corner-eyebrow">Exemple vers la droite</p><h3>Rouge devant, vert à droite.</h3><p>L’arête rouge–verte est alignée avec le centre rouge. Elle doit rejoindre l’emplacement entre les centres rouge et vert.</p></div><div class="corner-color-key"><span><i class="color-swatch color-swatch-red"></i>Devant</span><span><i class="color-swatch color-swatch-green"></i>À droite</span></div></header>
+              <div class="white-corner-basics"><p class="white-corner-basics-title">Avant de partir</p><p><strong>Blanc :</strong> toujours en dessous.</p><p><strong>Arête choisie :</strong> aucun carré jaune.</p><p><strong>Centre :</strong> la couleur frontale est déjà alignée.</p></div>
+              <ol class="cube3-sequence cube3-sequence-three">
+                <li><div class="cube3-stage-copy"><span>1</span><div><h4>Aligne l’arête</h4><p>Tourne U pour placer le rouge de l’arête devant le centre rouge.</p></div></div><svg class="cube3-diagram cube3-state-middle-start" viewBox="0 0 210 200" role="img"><use href="#notation-cube-3x3"></use><polygon class="cube3-target-outline" points="75,55 45,70 75,85 105,70"></polygon><polygon class="cube3-target-outline" points="45,70 75,85 75,115 45,100"></polygon></svg><small>Vert sur le haut, rouge devant</small></li>
+                <li><div class="cube3-stage-copy"><span>2</span><div><h4>Insère-la à droite</h4><p>Exécute l’algorithme complet sans tourner le cube.</p></div></div><svg class="cube3-diagram cube3-state-middle-move" viewBox="0 0 210 200" role="img"><use href="#notation-cube-3x3"></use><polygon class="cube3-face-outline cube3-face-outline-u" points="105,10 195,55 105,100 15,55"></polygon><polygon class="cube3-face-outline cube3-face-outline-r" points="105,100 195,55 195,145 105,190"></polygon></svg><small>U puis déclencheurs droit et avant</small></li>
+                <li><div class="cube3-stage-copy"><span>3</span><div><h4>Vérifie les deux étages</h4><p>Les deux premières rangées de chaque face latérale sont unies.</p></div></div><svg class="cube3-diagram cube3-state-two-layers" viewBox="0 0 210 200" role="img"><use href="#notation-cube-3x3"></use></svg><small>Deux étages terminés</small></li>
+              </ol>
+              <div class="corner-algorithm corner-algorithm-long cube3-algorithm"><div class="corner-algorithm-intro"><span>Insertion à droite</span><strong>Algorithme complet</strong></div><div class="corner-moves corner-moves-long"><span class="corner-move corner-move-u"><b>U</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-r"><b>R</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-u"><b>U'</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-r"><b>R'</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-u"><b>U'</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-f"><b>F'</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-u"><b>U</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-f"><b>F</b></span></div><p>Pour une insertion à gauche, utilise la version miroir : U' L' U L U F U' F'.</p></div>
+              <section class="white-step-video"><div class="white-step-video-heading"><p>Animation de l’étape 3</p><h3>Suis l’arête rouge–verte jusqu’au milieu.</h3><span>La vidéo montre une insertion à droite ; les deux premiers étages restent intacts.</span></div><div class="cube-player" data-cube-player data-size="3" data-player-mode="3x3-middle-right" data-algorithm="U R U' R' U' F' U F"><div class="cube-player-stage" data-cube-stage><div class="cube-player-hud"><span data-cube-phase>Arête alignée</span><strong data-cube-repeat>Prêt à démarrer</strong></div><div class="cube-player-key"><span>Arête suivie</span><i class="color-swatch color-swatch-red"></i><i class="color-swatch color-swatch-green"></i></div></div><div class="cube-player-controls"><button class="cube-player-toggle" type="button" data-cube-toggle aria-label="Lire l’animation"><span data-cube-toggle-icon>▶</span></button><div class="cube-player-status"><div class="cube-player-status-line"><span>Mouvement</span><strong class="cube-player-move" data-cube-current-move>U R U' R' U' F' U F</strong></div><div class="cube-player-progress"><span data-cube-progress></span></div></div></div></div></section>
+              <div class="white-step-finish"><div><strong>Contrôle avant l’étape 4.</strong><p>La face blanche et les deux premiers étages sont résolus. Garde maintenant le jaune au-dessus.</p></div><div class="corner-count"><span>✓</span><span>✓</span><span>✓</span></div></div>
+            </section>
           </article>
 
-          <article class="guide-card" id="face-jaune">
-            <h2>4. Faire la croix jaune</h2>
-            <p>Tu peux rencontrer plusieurs cas : un point, un L ou une ligne de trois carrés jaunes.</p>
-            <h3>Un point jaune</h3>
-            <div class="yellow-case-pattern" aria-label="Cas du point jaune sur la face du haut">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span class="sticker-yellow"></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <p>Fais l’algorithme ci-dessous pour obtenir un L.</p>
-            <p><span class="algorithm">F' R U R' U'</span></p>
-            <h3>Un L jaune</h3>
-            <div class="yellow-case-pattern" aria-label="Cas du L jaune sur la face du haut">
-              <span class="sticker-yellow"></span>
-              <span></span>
-              <span></span>
-              <span class="sticker-yellow"></span>
-              <span class="sticker-yellow"></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <p><span class="algorithm">F'2 R U R' U'</span></p>
-            <h3>Une ligne jaune</h3>
-            <div class="yellow-case-pattern" aria-label="Cas de la ligne jaune sur la face du haut">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span class="sticker-yellow"></span>
-              <span class="sticker-yellow"></span>
-              <span class="sticker-yellow"></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <p><span class="algorithm">F' R U R' U'</span></p>
+          <article class="guide-card cube3-guide-step" id="face-jaune">
+            <div class="white-step-heading"><p class="white-step-kicker">Étape 4 · Orienter les arêtes jaunes</p><h2>Faire la croix jaune</h2><p class="white-step-lead"><strong>Objectif :</strong> obtenir quatre arêtes jaunes autour du centre jaune sans tenir compte des coins.</p><p class="white-step-context">Tu peux voir un point, un L ou une ligne. Oriente le motif comme indiqué, puis exécute l’algorithme associé à ton cas.</p></div>
+            <section class="white-corner-lesson cube-step-lesson cube3-step-lesson">
+              <header class="white-corner-header"><div><p class="white-corner-eyebrow">Regarde uniquement les arêtes</p><h3>Point, L, ligne, puis croix.</h3><p>Pour le L avec Fw, place les deux branches vers l’avant et la droite, comme sur le schéma. Pour la ligne, garde-la horizontale.</p></div><div class="corner-color-key"><span><i class="color-swatch color-swatch-yellow"></i>Arêtes à observer</span></div></header>
+              <ol class="cube3-sequence cube3-sequence-four cube3-yellow-sequence">
+                <li><div class="cube3-stage-copy"><span>1</span><div><h4>Le point</h4><p>Seul le centre jaune est visible. Faire F R U R’ U’ F’, normalement on obtient un L.</p></div></div><svg class="cube3-diagram cube3-state-yellow-dot" viewBox="0 0 210 200"><use href="#notation-cube-3x3"></use></svg><small>Fais l’algorithme</small></li>
+                <li><div class="cube3-stage-copy"><span>2</span><div><h4>Le L</h4><p>Place les arêtes rouge–jaune et verte–jaune au-dessus de leurs centres, avec le jaune vers le haut. Faire Fw R U R’ U’ Fw’ et quand on met Fw c’est parce qu’on prend <strong>2 couches</strong>.</p></div></div><svg class="cube3-diagram cube3-state-yellow-l" viewBox="0 0 210 200" role="img" aria-label="L jaune sur le dessus, arête rouge-jaune au-dessus du centre rouge et arête verte-jaune au-dessus du centre vert"><use href="#notation-cube-3x3"></use></svg><small>Fw : les deux couches de l’avant</small></li>
+                <li><div class="cube3-stage-copy"><span>3</span><div><h4>La ligne</h4><p>Tourne U pour obtenir une ligne horizontale. Faire F R U R’ U’ F’, normalement on obtient une croix.</p></div></div><svg class="cube3-diagram cube3-state-yellow-line" viewBox="0 0 210 200"><use href="#notation-cube-3x3"></use></svg><small>Fais l’algorithme</small></li>
+                <li><div class="cube3-stage-copy"><span>4</span><div><h4>La croix</h4><p>Les quatre arêtes jaunes entourent le centre.</p></div></div><svg class="cube3-diagram cube3-state-yellow-cross" viewBox="0 0 210 200"><use href="#notation-cube-3x3"></use></svg><small>Étape validée</small></li>
+              </ol>
+              <div class="corner-algorithm cube3-algorithm"><div class="corner-algorithm-intro"><span>Point ou ligne</span><strong>Former la croix</strong></div><div class="corner-moves"><span class="corner-move corner-move-f"><b>F</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-r"><b>R</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-u"><b>U</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-r"><b>R'</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-u"><b>U'</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-f"><b>F'</b></span></div><p>Si tu obtiens un L, utilise la version Fw R U R’ U’ Fw’ du cas 2.</p></div>
+              <section class="white-step-video"><div class="white-step-video-heading"><p>Animation de l’étape 4</p><h3>Transforme le motif en croix jaune.</h3><span>Les deux premiers étages restent résolus pendant toute la séquence.</span></div><div class="cube-player" data-cube-player data-size="3" data-player-mode="3x3-yellow-cross" data-algorithm="F R U R' U' F'"><div class="cube-player-stage" data-cube-stage><div class="cube-player-hud"><span data-cube-phase>Motif jaune orienté</span><strong data-cube-repeat>Prêt à démarrer</strong></div><div class="cube-player-key"><span>Arête suivie</span><i class="color-swatch color-swatch-yellow"></i></div></div><div class="cube-player-controls"><button class="cube-player-toggle" type="button" data-cube-toggle aria-label="Lire l’animation"><span data-cube-toggle-icon>▶</span></button><div class="cube-player-status"><div class="cube-player-status-line"><span>Mouvement</span><strong class="cube-player-move" data-cube-current-move>F R U R' U' F'</strong></div><div class="cube-player-progress"><span data-cube-progress></span></div></div></div></div></section>
+              <div class="white-step-finish"><div><strong>Contrôle avant l’étape 5.</strong><p>Une croix jaune est visible au-dessus. Les couleurs latérales ne sont pas encore forcément alignées.</p></div><div class="corner-count"><span>✓</span><span>✓</span><span>✓</span><span>✓</span></div></div>
+            </section>
           </article>
 
-          <article class="guide-card" id="finition">
-            <h2>5. Faire toute la face jaune</h2>
-            <p><strong>Objectif :</strong> finir la face jaune.</p>
-            <p>Place la face jaune en bas, puis tourne le Rubik’s Cube pour avoir une face où un coin contient un carré jaune. Fais l’algorithme jusqu’à ce que le coin soit bien placé, puis tourne la face du bas vers la gauche et recommence jusqu’à ce que la face jaune soit correctement placée.</p>
-            <p><span class="algorithm">R U R' U'</span></p>
+          <article class="guide-card cube3-guide-step" id="finition">
+            <div class="white-step-heading"><p class="white-step-kicker">Étape 5 · Orienter les coins jaunes</p><h2>Faire toute la face jaune</h2><p class="white-step-lead"><strong>Objectif :</strong> tourner les quatre coins pour obtenir neuf carrés jaunes sur la face du haut.</p><p class="white-step-context">La croix jaune reste en place. Oriente le cas comme sur le schéma, exécute l’algorithme, puis réévalue la face jaune.</p></div>
+            <section class="white-corner-lesson cube-step-lesson cube3-step-lesson">
+              <header class="white-corner-header"><div><p class="white-corner-eyebrow">Le poisson jaune</p><h3>Place la tête devant et à droite.</h3><p>Le coin jaune déjà orienté sert de repère. Ne tourne pas tout le cube pendant l’algorithme.</p></div><div class="corner-color-key"><span><i class="color-swatch color-swatch-yellow"></i>Face du haut</span><span><i class="color-swatch color-swatch-blue"></i>Coin repéré</span></div></header>
+              <ol class="cube3-sequence cube3-sequence-three">
+                <li><div class="cube3-stage-copy"><span>1</span><div><h4>Oriente le poisson</h4><p>Place le coin jaune isolé devant à droite.</p></div></div><svg class="cube3-diagram cube3-state-yellow-fish" viewBox="0 0 210 200"><use href="#notation-cube-3x3"></use><polygon class="cube3-target-outline" points="105,70 75,85 105,100 135,85"></polygon></svg><small>Le coin repère est entouré</small></li>
+                <li><div class="cube3-stage-copy"><span>2</span><div><h4>Exécute le Sune</h4><p>Va jusqu’au dernier R' avant de vérifier le résultat.</p></div></div><svg class="cube3-diagram cube3-state-yellow-fish" viewBox="0 0 210 200"><use href="#notation-cube-3x3"></use><polygon class="cube3-face-outline cube3-face-outline-r" points="105,100 195,55 195,145 105,190"></polygon></svg><small>R U R' U R U2 R'</small></li>
+                <li><div class="cube3-stage-copy"><span>3</span><div><h4>Contrôle la face</h4><p>Les neuf carrés du dessus sont jaunes.</p></div></div><svg class="cube3-diagram cube3-state-yellow-face" viewBox="0 0 210 200"><use href="#notation-cube-3x3"></use></svg><small>Orientation terminée</small></li>
+              </ol>
+              <div class="corner-algorithm cube3-algorithm"><div class="corner-algorithm-intro"><span>Poisson bien placé</span><strong>Orienter les coins</strong></div><div class="corner-moves"><span class="corner-move corner-move-r"><b>R</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-u"><b>U</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-r"><b>R'</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-u"><b>U</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-r"><b>R</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-u"><b>U2</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-r"><b>R'</b></span></div><p>Si la face n’est pas encore jaune, replace le nouveau cas et recommence.</p></div>
+              <section class="white-step-video"><div class="white-step-video-heading"><p>Animation de l’étape 5</p><h3>Oriente les derniers coins jaunes.</h3><span>U2 est volontairement montré comme deux mouvements U séparés.</span></div><div class="cube-player" data-cube-player data-size="3" data-player-mode="3x3-yellow-face" data-algorithm="R U R' U R U2 R'"><div class="cube-player-stage" data-cube-stage><div class="cube-player-hud"><span data-cube-phase>Poisson jaune orienté</span><strong data-cube-repeat>Prêt à démarrer</strong></div><div class="cube-player-key"><span>Coin suivi</span><i class="color-swatch color-swatch-yellow"></i></div></div><div class="cube-player-controls"><button class="cube-player-toggle" type="button" data-cube-toggle aria-label="Lire l’animation"><span data-cube-toggle-icon>▶</span></button><div class="cube-player-status"><div class="cube-player-status-line"><span>Mouvement</span><strong class="cube-player-move" data-cube-current-move>R U R' U R U2 R'</strong></div><div class="cube-player-progress"><span data-cube-progress></span></div></div></div></div></section>
+              <div class="white-step-finish"><div><strong>Contrôle avant l’étape 6.</strong><p>La face jaune est entièrement orientée. Les pièces du dernier étage peuvent encore être à la mauvaise place.</p></div><div class="corner-count"><span>✓</span><span>✓</span><span>✓</span></div></div>
+            </section>
           </article>
 
-          <article class="guide-card" id="finir-cube">
-            <h2>6. Finir le Rubik’s Cube</h2>
-            <p>Maintenant, plusieurs cas peuvent se présenter.</p>
-            <h3>1er cas : une face est déjà faite</h3>
-            <p>Prends la face qui est déjà faite, par exemple la face orange, puis fais :</p>
-            <p><span class="algorithm">R R U R' U R U' R U' R U R</span></p>
-            <h3>2ème cas : deux coins voisins sont à aligner</h3>
-            <p>Aligne la bande avec les deux coins de même couleur avec sa face, mets-la à gauche, puis fais l’algorithme.</p>
-            <p><span class="algorithm">R U R' U' R' F' R R U' R' U R U R' F</span></p>
-            <h3>3ème cas : deux coins bien placés sont en diagonale</h3>
-            <p>Mets les deux coins bien placés en diagonale avec leurs bonnes couleurs, place l’un d’eux à gauche, puis fais l’algorithme.</p>
-            <p><span class="algorithm">F' R U R' U R U' R' F R U R' U' R' F' R F</span></p>
-            <p><strong>Le Rubik’s Cube est maintenant terminé.</strong></p>
+          <article class="guide-card cube3-guide-step" id="finir-cube">
+            <div class="white-step-heading"><p class="white-step-kicker">Étape 6 · Placer le dernier étage</p><h2>Finir le Rubik’s Cube</h2><p class="white-step-lead"><strong>Objectif :</strong> placer d’abord les quatre coins jaunes, puis les quatre arêtes jaunes.</p><p class="white-step-context">La face jaune reste au-dessus. Termine chaque algorithme avant de juger le résultat : le cube paraît se mélanger au milieu, puis se reconstruit.</p></div>
+            <section class="white-corner-lesson cube-step-lesson cube3-step-lesson">
+              <header class="white-corner-header"><div><p class="white-corner-eyebrow">Deux actions, dans cet ordre</p><h3>Coins, puis arêtes.</h3><p>Un coin est bien placé lorsque ses trois couleurs correspondent aux trois centres voisins, même s’il fallait encore le tourner avant l’étape 5.</p></div><div class="corner-color-key"><span><i class="color-swatch color-swatch-yellow"></i>Jaune en haut</span><span><i class="color-swatch color-swatch-blue"></i>Pièce suivie</span></div></header>
+              <div class="white-corner-basics"><p class="white-corner-basics-title">Prise du cube</p><p><strong>Coins :</strong> place le repère demandé devant.</p><p><strong>Arêtes :</strong> ne change pas la prise au milieu.</p><p><strong>Fin :</strong> ajuste U si les faces sont seulement décalées.</p></div>
+              <ol class="cube3-sequence cube3-sequence-three">
+                <li><div class="cube3-stage-copy"><span>1</span><div><h4>Positionne les coins</h4><p>Exécute le premier algorithme jusqu’au dernier F2.</p></div></div><svg class="cube3-diagram cube3-state-final-start" viewBox="0 0 210 200"><use href="#notation-cube-3x3"></use><polygon class="cube3-target-outline" points="105,70 75,85 105,100 135,85"></polygon></svg><small>Face jaune faite, coins déplacés</small></li>
+                <li><div class="cube3-stage-copy"><span>2</span><div><h4>Positionne les arêtes</h4><p>Garde le jaune en haut et exécute le second algorithme.</p></div></div><svg class="cube3-diagram cube3-state-final-edges" viewBox="0 0 210 200"><use href="#notation-cube-3x3"></use><polygon class="cube3-target-outline" points="75,55 45,70 75,85 105,70"></polygon></svg><small>Coins corrects, arêtes déplacées</small></li>
+                <li><div class="cube3-stage-copy"><span>3</span><div><h4>Contemple le résultat</h4><p>Les neuf carrés de chaque face affichent la même couleur.</p></div></div><svg class="cube3-diagram cube3-state-solved" viewBox="0 0 210 200"><use href="#notation-cube-3x3"></use></svg><small>Cube 3x3 résolu</small></li>
+              </ol>
+              <div class="corner-algorithm corner-algorithm-long cube3-algorithm cube3-final-algorithm"><div class="corner-algorithm-intro"><span>1. Placer les coins</span><strong>Algorithme complet</strong></div><div class="corner-moves corner-moves-long"><span class="corner-move corner-move-f"><b>F'</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-l"><b>L</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-f"><b>F'</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-r"><b>R2</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-f"><b>F</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-l"><b>L'</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-f"><b>F'</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-r"><b>R2</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-f"><b>F2</b></span></div><p>Va jusqu’au dernier F2, même si les couleurs semblent se mélanger.</p></div>
+              <div class="corner-algorithm corner-algorithm-long cube3-algorithm cube3-final-algorithm"><div class="corner-algorithm-intro"><span>2. Placer les arêtes</span><strong>Dernier algorithme</strong></div><div class="corner-moves corner-moves-long"><span class="corner-move corner-move-f"><b>F2</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-u"><b>U</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-l"><b>L</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-r"><b>R'</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-f"><b>F2</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-l"><b>L'</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-r"><b>R</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-u"><b>U</b></span><span class="corner-move-arrow">→</span><span class="corner-move corner-move-f"><b>F2</b></span></div><p>Les mouvements F2 et R2 sont montrés en deux quarts de tour dans la vidéo.</p></div>
+              <section class="white-step-video"><div class="white-step-video-heading"><p>Animation de l’étape 6</p><h3>Place les coins, puis les arêtes jaunes.</h3><span>La vidéo marque une pause entre les deux algorithmes et se termine sur le cube résolu.</span></div><div class="cube-player" data-cube-player data-size="3" data-player-mode="3x3-final" data-algorithm="F' L F' R2 F L' F' R2 F2 F2 U L R' F2 L' R U F2"><div class="cube-player-stage" data-cube-stage><div class="cube-player-hud"><span data-cube-phase>Dernier étage à placer</span><strong data-cube-repeat>Prêt à démarrer</strong></div><div class="cube-player-key"><span>Pièce suivie</span><i class="color-swatch color-swatch-yellow"></i><i class="color-swatch color-swatch-red"></i><i class="color-swatch color-swatch-green"></i></div></div><div class="cube-player-controls"><button class="cube-player-toggle" type="button" data-cube-toggle aria-label="Lire l’animation"><span data-cube-toggle-icon>▶</span></button><div class="cube-player-status"><div class="cube-player-status-line"><span>Mouvement</span><strong class="cube-player-move" data-cube-current-move>Coins puis arêtes</strong></div><div class="cube-player-progress"><span data-cube-progress></span></div></div></div></div></section>
+              <div class="white-step-finish step-finish-solved"><div><strong>Résolution terminée.</strong><p>Les six faces sont unies : ton Rubik’s Cube 3x3 est résolu.</p></div><div class="corner-count"><span>✓</span><span>✓</span><span>✓</span><span>✓</span></div></div>
+            </section>
           </article>
 
-          <article class="guide-card" id="conseils">
-            <h2>Conseils</h2>
-            <ul>
-              <li>Toujours vérifier les couleurs des centres.</li>
-              <li>Ne jamais démonter le Rubik’s Cube.</li>
-              <li>Si tu bloques, recommence calmement l’algorithme.</li>
-              <li>Les algorithmes fonctionnent uniquement si le Rubik’s Cube est tenu dans le bon sens.</li>
-            </ul>
-            <p class="tip-box">Avec un peu d’entraînement, tu pourras résoudre un Rubik’s Cube en moins de 2 minutes.</p>
-          </article>
+          <article class="guide-card" id="conseils"><div class="white-step-heading"><p class="white-step-kicker">Pour progresser</p><h2>Conseils</h2><p class="white-step-lead">Vérifie toujours la position du cube avant un algorithme et termine la séquence avant de recommencer.</p></div><div class="cube3-advice-grid"><p><strong>Les centres ne bougent pas.</strong><span>Ils indiquent toujours la couleur finale de chaque face.</span></p><p><strong>Garde la bonne prise.</strong><span>Une rotation complète du cube change le sens des lettres.</span></p><p><strong>Reviens au dernier contrôle.</strong><span>Si une étape ne correspond plus aux schémas, corrige-la avant de continuer.</span></p></div></article>
         </div>
       </div>
     </section>
@@ -239,38 +302,12 @@
 
   <footer class="site-footer">
     <div class="container footer-main">
-      <div class="footer-brand">
-        <a class="brand brand-footer" href="../../index.html" aria-label="CubeMaster, accueil">
-          <picture>
-            <source srcset="../../assets/logo/Logo-cubemaster.webp" type="image/webp">
-            <img src="../../assets/logo/Logo-cubemaster.png" alt="" width="800" height="800" loading="lazy">
-          </picture>
-          <span>Cube<span>Master</span></span>
-        </a>
-        <p>Des guides simples pour comprendre et maîtriser les cubes, à ton rythme.</p>
-      </div>
-      <div class="footer-column">
-        <h2>Solutions</h2>
-        <a href="../../solution/2x2/index.html">Cube 2x2</a>
-        <a href="../../solution/3x3-debutant/index.html">Cube 3x3 débutant</a>
-            <a href="../../solution/3x3-avancee/index.html">Cube 3x3 avancée</a>
-        <a href="../../solution/4x4/index.html">Cube 4x4</a>
-        <a href="../../solution/5x5/index.html">Cube 5x5</a>
-      </div>
-      <div class="footer-column">
-        <h2>Nettoyage</h2>
-        <a href="../../nettoyage/2x2/index.html">Cube 2x2</a>
-        <a href="../../nettoyage/3x3/index.html">Cube 3x3</a>
-        <a href="../../nettoyage/pyramix/index.html">Pyramix</a>
-      </div>
-      <div class="footer-column">
-        <h2><a href="../../blog/index.html">Blog</a></h2>
-      </div>
+      <div class="footer-brand"><a class="brand brand-footer" href="../../index.html" aria-label="CubeMaster, accueil"><picture><source srcset="../../assets/logo/Logo-cubemaster.webp" type="image/webp"><img src="../../assets/logo/Logo-cubemaster.png" alt="" width="800" height="800" loading="lazy"></picture><span>Cube<span>Master</span></span></a><p>Des guides simples pour comprendre et maîtriser les cubes, à ton rythme.</p></div>
+      <div class="footer-column"><h2>Solutions</h2><a href="../../solution/2x2/index.html">Cube 2x2</a><a href="../../solution/3x3-debutant/index.html">Cube 3x3 débutant</a><a href="../../solution/3x3-avancee/index.html">Cube 3x3 avancée</a><a href="../../solution/4x4/index.html">Cube 4x4</a><a href="../../solution/5x5/index.html">Cube 5x5</a></div>
+      <div class="footer-column"><h2>Nettoyage</h2><a href="../../nettoyage/2x2/index.html">Cube 2x2</a><a href="../../nettoyage/3x3/index.html">Cube 3x3</a><a href="../../nettoyage/pyraminx/index.html">Pyraminx</a></div>
+      <div class="footer-column"><h2><a href="../../blog/index.html">Blog</a></h2></div>
     </div>
-    <div class="container footer-bottom">
-      <p>© <span id="current-year">2026</span> CubeMaster</p>
-      <p>Apprendre, tourner, recommencer.</p>
-    </div>
+    <div class="container footer-bottom"><p>© <span id="current-year">2026</span> CubeMaster</p><p>Apprendre, tourner, recommencer.</p></div>
   </footer>
 </body>
 </html>

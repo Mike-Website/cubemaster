@@ -1,0 +1,6 @@
+[build]
+  command = "node --test cube-player.test.cjs cube4-moves.test.cjs puzzle-guides.test.cjs nettoyage/guide.test.cjs && node scripts/build.mjs"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"

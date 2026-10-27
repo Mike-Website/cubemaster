@@ -3,17 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Le guide de nettoyage 2x2 est en préparation.">
+  <meta name="description" content="Comment nettoyer un Rubik’s Cube 2x2 : huit coins, démontage prudent, séchage et lubrification. Guide étape par étape et FAQ d’entretien.">
+  <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#2f46b0">
-  <title>Nettoyer un cube 2x2 | CubeMaster</title>
+  <title>Nettoyer un Rubik’s Cube 2x2 : guide d’entretien | CubeMaster</title>
   <link rel="icon" href="../../assets/logo/Logo-cubemaster.ico" sizes="32x32">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../guide.css">
   <script src="../../script.js" defer></script>
+  <script src="../../assets/vendor/lucide.min.js" defer></script>
+  <script src="../guide.js" defer></script>
+  <link rel="canonical" href="https://cubemaster.fr/nettoyage/2x2/">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CubeMaster">
+  <meta property="og:title" content="Nettoyer un Rubik’s Cube 2x2 : guide d’entretien | CubeMaster">
+  <meta property="og:description" content="Comment nettoyer un Rubik’s Cube 2x2 : huit coins, démontage prudent, séchage et lubrification. Guide étape par étape et FAQ d’entretien.">
+  <meta property="og:url" content="https://cubemaster.fr/nettoyage/2x2/">
+  <meta property="og:image" content="https://cubemaster.fr/assets/logo/Logo-cubemaster-512px.png">
+  <meta property="og:image:alt" content="Logo CubeMaster">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Nettoyer un Rubik’s Cube 2x2 : guide d’entretien | CubeMaster">
+  <meta name="twitter:description" content="Comment nettoyer un Rubik’s Cube 2x2 : huit coins, démontage prudent, séchage et lubrification. Guide étape par étape et FAQ d’entretien.">
+  <meta name="twitter:image" content="https://cubemaster.fr/assets/logo/Logo-cubemaster-512px.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://cubemaster.fr/"},{"@type":"ListItem","position":2,"name":"Nettoyage","item":"https://cubemaster.fr/nettoyage/"},{"@type":"ListItem","position":3,"name":"Nettoyer un Rubik’s Cube 2x2","item":"https://cubemaster.fr/nettoyage/2x2/"}]}</script>
 </head>
-<body class="construction">
+<body class="cm-cleaning">
   <a class="skip-link" href="#contenu">Aller au contenu</a>
   <header class="site-header">
     <div class="container header-inner">
@@ -39,7 +57,7 @@
             <a href="../../solution/3x3-avancee/index.html">Cube 3x3 avancée</a>
             <a href="../../solution/4x4/index.html">Cube 4x4</a>
             <a href="../../solution/5x5/index.html">Cube 5x5</a>
-            <a href="../../solution/pyramix/index.html">Pyramix</a>
+            <a href="../../solution/pyraminx/index.html">Pyraminx</a>
             <a href="../../solution/megaminx/index.html">Mégaminx</a>
             <a href="../../solution/gearcube/index.html">Gear Cube</a>
           </div>
@@ -55,19 +73,204 @@
   </header>
 
   <main id="contenu">
-    <section class="container construction-panel">
-      <div class="construction-copy">
-        <p class="eyebrow"><span></span> En cours de construction</p>
-        <h1>Nettoyer un cube 2x2</h1>
-        <p>Le guide de nettoyage 2x2 est en préparation.</p>
-        <a class="button button-primary" href="../../nettoyage/3x3/index.html">Voir le nettoyage 3x3 <span aria-hidden="true">→</span></a>
+    <section class="cm-intro">
+      <div class="container">
+        <div class="breadcrumb"><a href="../../index.html">Accueil</a><span>/</span><a href="../../nettoyage/index.html">Nettoyage</a><span>/</span><span>2x2</span></div>
+        <p class="cm-eyebrow"><i data-lucide="sparkles" aria-hidden="true"></i> Entretien du puzzle</p>
+        <h1>Nettoyer un Rubik’s Cube 2x2.</h1>
+        <p>Retire la poussière et les résidus de lubrifiant pour retrouver un 2x2 propre et fluide. Prends soin des huit coins et de leur mécanisme, du premier retrait au contrôle final.</p>
+        <div class="cm-meta">
+          <span><i data-lucide="clock-3" aria-hidden="true"></i> 20 à 30 minutes</span>
+          <span><i data-lucide="layers" aria-hidden="true"></i> 6 étapes</span>
+          <span><i data-lucide="shield-check" aria-hidden="true"></i> Démontage selon le modèle</span>
+        </div>
       </div>
-      <div class="solving-cube" aria-hidden="true">
-        <span></span><span></span><span></span>
-        <span></span><span></span><span></span>
-        <span></span><span></span><span></span>
+    </section>
+
+    <section class="cm-guide-body">
+      <div class="container" data-cleaning-guide>
+        <section class="cm-kit" id="avant" aria-labelledby="materiel-titre">
+          <div class="cm-kit-heading">
+            <i data-lucide="briefcase" aria-hidden="true"></i>
+            <div><p class="cm-kicker">Avant le premier geste</p><h2 id="materiel-titre">Sur ton établi.</h2></div>
+            <p>Un espace propre et bien éclairé. Les petites pièces vont dans la coupelle.</p>
+          </div>
+          <ul class="cm-materials">
+            <li><label><input type="checkbox"><i data-lucide="wrench" aria-hidden="true"></i><span>Tournevis si prévu</span></label></li>
+            <li><label><input type="checkbox"><i data-lucide="container" aria-hidden="true"></i><span>Coupelles de tri</span></label></li>
+            <li><label><input type="checkbox"><i data-lucide="layers-2" aria-hidden="true"></i><span>Chiffon microfibre</span></label></li>
+            <li><label><input type="checkbox"><i data-lucide="droplets" aria-hidden="true"></i><span>Eau + savon si autorisé</span></label></li>
+            <li><label><input type="checkbox"><i data-lucide="brush" aria-hidden="true"></i><span>Brosse ou cotons-tiges</span></label></li>
+            <li><label><input type="checkbox"><i data-lucide="pipette" aria-hidden="true"></i><span>Lubrifiant compatible</span></label></li>
+          </ul>
+          <p class="cm-kit-note">Le 2x2 ne se démonte pas comme un 3x3. Vérifie la méthode de ton modèle avant de retirer un coin ; certains éléments internes doivent rester en place. Le temps indiqué est une estimation, hors séchage.</p>
+          <p class="cm-kit-note">Référence illustrée : <a href="https://www.cs.brandeis.edu/~storer/JimPuzzles/RUBIK/Rubik2x2x2/Rubik2x2x2Mechanism.pdf" target="_blank" rel="noopener noreferrer">schéma de montage Rubik’s 2x2 (archive 2008)</a>. Compare le mécanisme à celui de ton cube : cette ancienne version n’est pas une notice de démontage des modèles actuels.</p>
+        </section>
+
+        <nav class="cm-wizard-rail" aria-label="Étapes du nettoyage" data-step-navigation hidden>
+          <button class="cm-rail-step" type="button" data-step-index="0" aria-label="Étape 1 : Repérer le premier coin" aria-controls="etape-1"><span class="cm-rail-number">1</span><span>Premier coin</span></button>
+          <button class="cm-rail-step" type="button" data-step-index="1" aria-label="Étape 2 : Démonter et ranger les pièces" aria-controls="etape-2"><span class="cm-rail-number">2</span><span>Démontage</span></button>
+          <button class="cm-rail-step" type="button" data-step-index="2" aria-label="Étape 3 : Nettoyer et sécher les coins" aria-controls="etape-3"><span class="cm-rail-number">3</span><span>Nettoyage</span></button>
+          <button class="cm-rail-step" type="button" data-step-index="3" aria-label="Étape 4 : Lubrifier les surfaces de contact" aria-controls="etape-4"><span class="cm-rail-number">4</span><span>Lubrifiant</span></button>
+          <button class="cm-rail-step" type="button" data-step-index="4" aria-label="Étape 5 : Remonter le 2x2" aria-controls="etape-5"><span class="cm-rail-number">5</span><span>Remontage</span></button>
+          <button class="cm-rail-step" type="button" data-step-index="5" aria-label="Étape 6 : Vérifier le fonctionnement" aria-controls="etape-6"><span class="cm-rail-number">6</span><span>Contrôle</span></button>
+        </nav>
+
+        <div class="cm-wizard-host">
+          <article class="cm-workspace cm-phase-blue" id="etape-1" data-cleaning-step aria-labelledby="etape-1-titre">
+            <div class="cm-workspace-visual">
+              <figure class="cm-photo cm-photo-generated cm-photo-reference"><img src="../../assets/images/nettoyage/rubiks-2x2-preparation-v2.webp" alt="Illustration générée : 2x2 résolu, rouge en haut, blanc devant et vert à droite ; coin supérieur rouge-blanc-vert entouré en bleu, près d’une coupelle et d’un chiffon." width="1254" height="1254" loading="eager" decoding="async"><figcaption>Le coin à repérer<span>Illustration générée · Référence Rubik’s 2008</span></figcaption></figure>
+            </div>
+            <div class="cm-workspace-copy">
+              <div class="cm-workspace-meta"><p class="cm-kicker">Étape 1 / 6</p><span>Le démontage</span></div>
+              <h2 id="etape-1-titre">Repérer le premier coin</h2>
+              <p class="cm-workspace-tools"><i data-lucide="wrench" aria-hidden="true"></i> Notice du modèle + outil en plastique si prévu</p>
+              <div class="cm-step-copy"><p>Le 2x2 présente huit coins, sans arêtes ni centres visibles comme sur un 3x3. Commence avec le cube résolu et prends une photo de ses couleurs.</p><p>Si la notice prévoit le retrait d’un coin, place les faces dans la position indiquée puis enlève délicatement cette première pièce.</p><aside class="cm-precaution"><i data-lucide="shield-check" aria-hidden="true"></i><p>Ne fais pas levier avec un objet métallique. Si le coin résiste ou si tu ne connais pas la méthode, garde le cube assemblé et nettoie seulement l’extérieur.</p></aside></div>
+            </div>
+          </article>
+
+          <article class="cm-workspace cm-phase-blue" id="etape-2" data-cleaning-step aria-labelledby="etape-2-titre">
+            <div class="cm-workspace-visual">
+              <figure class="cm-photo cm-photo-generated cm-photo-reference"><img src="../../assets/images/nettoyage/rubiks-2x2-pieces-v2.webp" alt="Illustration générée : vue éclatée du 2x2 de référence, six coins dans le corps et deux coins séparés au-dessus des guides internes ; repères de montage, pas de retrait." width="1254" height="1254" loading="lazy" decoding="async"><figcaption>Deux coins séparés, les guides visibles<span>Illustration générée · Référence Rubik’s 2008</span></figcaption></figure>
+            </div>
+            <div class="cm-workspace-copy">
+              <div class="cm-workspace-meta"><p class="cm-kicker">Étape 2 / 6</p><span>Le démontage</span></div>
+              <h2 id="etape-2-titre">Démonter et ranger les pièces</h2>
+              <p class="cm-workspace-tools"><i data-lucide="container" aria-hidden="true"></i> Coupelle + photo de référence</p>
+              <div class="cm-step-copy"><p>Une fois le premier coin retiré, enlève progressivement les autres pièces accessibles selon la notice. Range-les dans l’ordre du démontage.</p><p>Garde les petits éléments dans la coupelle et photographie l’intérieur avant chaque nouvelle manipulation.</p><aside class="cm-precaution"><i data-lucide="shield-check" aria-hidden="true"></i><p>Certains coins ou éléments internes sont liés au mécanisme. Ne cherche pas à séparer toutes les pièces et ne dévisse rien sans instruction adaptée à ton modèle.</p></aside></div>
+            </div>
+          </article>
+
+          <article class="cm-workspace cm-phase-green" id="etape-3" data-cleaning-step aria-labelledby="etape-3-titre">
+            <div class="cm-workspace-visual">
+              <figure class="cm-photo cm-photo-generated cm-photo-reference"><img src="../../assets/images/nettoyage/rubiks-2x2-nettoyage-v2.webp" alt="Illustration générée : nettoyage à sec d’un coin rouge-blanc-vert détaché, un coton-tige passant sur le plastique noir près de sa base, sur un chiffon microfibre." width="1254" height="1254" loading="lazy" decoding="async"><figcaption>Nettoyer les parties accessibles du coin<span>Illustration générée · Référence Rubik’s 2008</span></figcaption></figure>
+            </div>
+            <div class="cm-workspace-copy">
+              <div class="cm-workspace-meta"><p class="cm-kicker">Étape 3 / 6</p><span>Le soin</span></div>
+              <h2 id="etape-3-titre">Nettoyer et sécher les coins</h2>
+              <p class="cm-workspace-tools"><i data-lucide="brush" aria-hidden="true"></i> Chiffon microfibre + brosse souple</p>
+              <div class="cm-step-copy"><p>Retire la poussière et l’ancien lubrifiant des coins avec un chiffon doux ou une brosse souple.</p><p>Si la notice le permet, utilise un chiffon à peine humide et un peu de savon doux sur le plastique. Ne trempe pas les pièces contenant des aimants.</p><p>Essuie les pièces, puis laisse-les sécher complètement avant le remontage. Nettoie le mécanisme interne uniquement avec un chiffon sec ou un coton-tige.</p><aside class="cm-precaution"><i data-lucide="shield-check" aria-hidden="true"></i><p>Ne plonge pas le 2x2 assemblé dans l’eau. Les vis, les ressorts et les éléments internes doivent rester au sec.</p></aside></div>
+            </div>
+          </article>
+
+          <article class="cm-workspace cm-phase-green" id="etape-4" data-cleaning-step aria-labelledby="etape-4-titre">
+            <div class="cm-workspace-visual">
+              <figure class="cm-photo cm-photo-generated cm-photo-reference"><img src="../../assets/images/nettoyage/rubiks-2x2-lubrifiant-v2.webp" alt="Illustration générée : coin rouge-blanc-vert propre et sec près d’un flacon compte-gouttes fermé, sur le chiffon ; aucun lubrifiant n’est appliqué." width="1254" height="1254" loading="lazy" decoding="async"><figcaption>Pièce sèche, produit compatible à vérifier<span>Illustration générée · Référence Rubik’s 2008</span></figcaption></figure>
+            </div>
+            <div class="cm-workspace-copy">
+              <div class="cm-workspace-meta"><p class="cm-kicker">Étape 4 / 6</p><span>Le soin</span></div>
+              <h2 id="etape-4-titre">Lubrifier les surfaces de contact</h2><span class="cm-optional">Facultatif</span>
+              <p class="cm-workspace-tools"><i data-lucide="pipette" aria-hidden="true"></i> Lubrifiant spécial cube compatible</p>
+              <div class="cm-step-copy"><p>Cette étape est facultative. Sur les pièces propres et sèches, applique une très petite quantité de lubrifiant spécial cube aux surfaces de contact prévues par le fabricant.</p><p>Respecte le dosage du produit. Tu répartiras le lubrifiant en tournant les faces une fois le 2x2 remonté.</p><aside class="cm-precaution"><i data-lucide="shield-check" aria-hidden="true"></i><p>Évite les huiles domestiques et le WD-40. Ajouter trop de lubrifiant peut rendre le cube collant plutôt que plus fluide.</p></aside></div>
+            </div>
+          </article>
+
+          <article class="cm-workspace cm-phase-yellow" id="etape-5" data-cleaning-step aria-labelledby="etape-5-titre">
+            <div class="cm-workspace-visual">
+              <figure class="cm-photo cm-photo-generated cm-photo-reference"><img src="../../assets/images/nettoyage/rubiks-2x2-remontage-v3.webp" alt="Illustration générée : sept coins en place dans le 2x2, le dernier coin rouge-blanc-vert au-dessus de son emplacement ; pointillés bleus d’alignement pour le montage." width="1254" height="1254" loading="lazy" decoding="async"><figcaption>Le dernier coin retrouve ses trois couleurs<span>Illustration générée · Référence Rubik’s 2008</span></figcaption></figure>
+            </div>
+            <div class="cm-workspace-copy">
+              <div class="cm-workspace-meta"><p class="cm-kicker">Étape 5 / 6</p><span>La remise en route</span></div>
+              <h2 id="etape-5-titre">Remonter le 2x2</h2>
+              <p class="cm-workspace-tools"><i data-lucide="wrench" aria-hidden="true"></i> Coins rangés + photo de référence</p>
+              <div class="cm-step-copy"><p>Replace les pièces dans l’ordre prévu pour ton modèle, en t’aidant des photos et de la notice.</p><p>Pour chaque coin, fais correspondre ses trois couleurs aux faces voisines. Le coin rouge-blanc-vert rejoint ainsi les faces rouge, blanche et verte du modèle illustré. Remets les éléments de réglage uniquement si tu les as retirés.</p><aside class="cm-precaution"><i data-lucide="shield-check" aria-hidden="true"></i><p>La dernière pièce peut demander de la précision, mais jamais de la force. Si elle ne rentre pas, vérifie son orientation et l’alignement des faces.</p></aside></div>
+            </div>
+          </article>
+
+          <article class="cm-workspace cm-phase-yellow" id="etape-6" data-cleaning-step aria-labelledby="etape-6-titre">
+            <div class="cm-workspace-visual">
+              <figure class="cm-photo cm-photo-generated cm-photo-reference"><img src="../../assets/images/nettoyage/rubiks-2x2-controle-v2.webp" alt="Illustration générée : 2x2 remonté tenu dans une main, deux rangées de deux carrés sur chaque face visible, rouge en haut, blanc devant et vert à droite, faces alignées." width="1254" height="1254" loading="lazy" decoding="async"><figcaption>Le cube remonté, prêt au contrôle<span>Illustration générée · Référence Rubik’s 2008</span></figcaption></figure>
+            </div>
+            <div class="cm-workspace-copy">
+              <div class="cm-workspace-meta"><p class="cm-kicker">Étape 6 / 6</p><span>La remise en route</span></div>
+              <h2 id="etape-6-titre">Vérifier le fonctionnement</h2>
+              <p class="cm-workspace-tools"><i data-lucide="rotate-3d" aria-hidden="true"></i> Ton 2x2 remonté</p>
+              <div class="cm-step-copy"><p>Tourne doucement toutes les faces plusieurs fois pour répartir le lubrifiant et vérifier le remontage.</p><p>Le 2x2 doit tourner régulièrement, sans blocage ni jeu excessif. Si un réglage a été modifié, retrouve sa valeur initiale avant de l’ajuster progressivement selon la notice.</p><aside class="cm-precaution"><i data-lucide="shield-check" aria-hidden="true"></i><p>Un point dur n’est pas une invitation à forcer. Arrête-toi et vérifie le placement des pièces avant de reprendre.</p></aside></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="cm-wizard-controls" data-step-controls hidden>
+          <button class="cm-icon-button" type="button" data-direction="-1" title="Étape précédente" aria-label="Étape précédente" disabled><i data-lucide="arrow-left" aria-hidden="true"></i></button>
+          <button class="cm-next-button" type="button" data-direction="1"><span data-next-label>Étape suivante</span><i data-lucide="arrow-right" aria-hidden="true"></i></button>
+        </div>
+        <div class="cm-wizard-status" data-step-status hidden>
+          <p data-position-label role="status" aria-atomic="true">Étape 1 sur 6</p>
+          <progress max="6" value="1" aria-label="Position dans le guide" data-step-progress></progress>
+        </div>
+        <p class="cm-visual-note">Ces six vues sont des illustrations générées en validation, basées sur le 2x2 du schéma de montage Rubik’s archivé en 2008 : elles ne sont ni des photos réelles ni des plans techniques exacts. Le contour bleu repère un coin ; les pointillés indiquent des emplacements de montage, pas un geste d’extraction. Le flacon fermé ne précise ni une zone d’application ni un dosage. Pour démonter et remonter ton cube, suis la notice de ton modèle et tes propres photos.</p>
+      </div>
+    </section>
+
+    <section class="cm-faq" id="faq" aria-labelledby="faq-titre">
+      <div class="container cm-faq-layout">
+        <div class="cm-faq-heading">
+          <i data-lucide="circle-help" aria-hidden="true"></i>
+          <p class="cm-kicker">Les bons réflexes</p>
+          <h2 id="faq-titre">Questions fréquentes sur le nettoyage du 2x2.</h2>
+          <p>Nettoyage, séchage et lubrification.</p>
+        </div>
+        <div class="cm-faq-list">
+          <details class="cm-faq-item" name="faq-nettoyage" open>
+            <summary><h3>Peut-on nettoyer un 2x2 sans le démonter ?</h3><i data-lucide="plus" aria-hidden="true"></i></summary>
+            <p>Oui. Essuie les faces avec un chiffon microfibre et enlève la poussière accessible avec une brosse souple. Pour un entretien intérieur, vérifie d’abord la notice : le retrait d’un coin n’est pas identique sur tous les modèles.</p>
+          </details>
+          <details class="cm-faq-item" name="faq-nettoyage">
+            <summary><h3>Faut-il retirer les huit coins du 2x2 ?</h3><i data-lucide="plus" aria-hidden="true"></i></summary>
+            <p>Pas forcément. Certains coins ou guides restent liés au mécanisme interne : huit coins visibles ne signifie pas huit pièces librement amovibles. Démonte uniquement ce que la notice autorise et garde des photos de chaque étape. Si tu ne connais pas la méthode, limite-toi au nettoyage extérieur.</p>
+          </details>
+          <details class="cm-faq-item" name="faq-nettoyage">
+            <summary><h3>Peut-on laver les pièces du 2x2 à l’eau ?</h3><i data-lucide="plus" aria-hidden="true"></i></summary>
+            <p>Ne plonge pas le cube assemblé dans l’eau. Si la notice le permet, utilise un chiffon à peine humide sur le plastique, sans tremper les aimants ni mouiller les parties métalliques. Tout doit sécher complètement avant le remontage.</p>
+          </details>
+          <details class="cm-faq-item" name="faq-nettoyage">
+            <summary><h3>Quel lubrifiant utiliser pour un 2x2 ?</h3><i data-lucide="plus" aria-hidden="true"></i></summary>
+            <p>Choisis un lubrifiant spécial cube compatible avec ton modèle et applique une très petite quantité sur les zones de friction propres et sèches. Après remontage, tourne les faces pour le répartir. N’utilise pas d’huile domestique ni de WD-40.</p>
+          </details>
+          <details class="cm-faq-item" name="faq-nettoyage">
+            <summary><h3>Pourquoi mon 2x2 bloque-t-il après le remontage ?</h3><i data-lucide="plus" aria-hidden="true"></i></summary>
+            <p>Vérifie d’abord l’orientation des coins, l’alignement des faces et les réglages que tu as éventuellement modifiés. Des résidus de saleté ou un excès de lubrifiant peuvent aussi gêner les mouvements. Ne force pas et reprends la notice si le blocage persiste.</p>
+          </details>
+          <p class="cm-faq-sources">Références d’entretien général : <a href="https://speedcubeshop.com/a/blog/how-to-clean-a-rubiks-cube-expert-guide-for-peak-performance" target="_blank" rel="noopener noreferrer">nettoyage et précautions (SpeedCubeShop)</a>, <a href="https://speedcubeshop.com/a/blog/how-to-clean-your-speed-cube" target="_blank" rel="noopener noreferrer">entretien courant (SpeedCubeShop)</a> et <a href="https://www.gancube.com/blogs/gan_news/how-to-lube-a-speedcube" target="_blank" rel="noopener noreferrer">lubrification (GANCUBE)</a>. Pour le démontage et les réglages, la notice de ton modèle reste la référence.</p>
+        </div>
       </div>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <a class="brand brand-footer" href="../../index.html" aria-label="CubeMaster, accueil">
+          <picture>
+            <source srcset="../../assets/logo/Logo-cubemaster.webp" type="image/webp">
+            <img src="../../assets/logo/Logo-cubemaster.png" alt="" width="800" height="800">
+          </picture>
+          <span>Cube<span>Master</span></span>
+        </a>
+        <p>Des méthodes simples pour comprendre, résoudre et entretenir les cubes.</p>
+      </div>
+      <div class="footer-column">
+        <h2>Solutions</h2>
+        <a href="../../solution/2x2/index.html">Cube 2x2</a>
+        <a href="../../solution/3x3-debutant/index.html">Cube 3x3 débutant</a>
+        <a href="../../solution/3x3-avancee/index.html">Cube 3x3 avancée</a>
+        <a href="../../solution/4x4/index.html">Cube 4x4</a>
+        <a href="../../solution/5x5/index.html">Cube 5x5</a>
+      </div>
+      <div class="footer-column">
+        <h2>Nettoyage</h2>
+        <a href="../../nettoyage/2x2/index.html">Cube 2x2</a>
+        <a href="../../nettoyage/3x3/index.html">Cube 3x3</a>
+        <a href="../../nettoyage/pyraminx/index.html">Pyraminx</a>
+      </div>
+      <div class="footer-column">
+        <h2><a href="../../blog/index.html">Blog</a></h2>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="current-year">2026</span> CubeMaster</p>
+      <p>Apprendre, tourner, recommencer.</p>
+    </div>
+  </footer>
 </body>
 </html>

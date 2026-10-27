@@ -100,7 +100,7 @@ body {
 | Solution | 3x3 débutant | `/solution/3x3-debutant/` | `https://cubemaster.fr/solution/3X3-debutant` |
 | Solution | 4x4 | `/solution/4x4/` | `https://cubemaster.fr/solution/4X4` |
 | Solution | 5x5 | `/solution/5x5/` | `https://cubemaster.fr/solution/5X5` |
-| Solution | Pyramix | `/solution/pyramix/` | `https://cubemaster.fr/solution/pyramix` |
+| Solution | Pyraminx | `/solution/pyraminx/` | `https://cubemaster.fr/solution/pyraminx` |
 | Solution | Mégaminx | `/solution/megaminx/` | `https://cubemaster.fr/solution/megaminx` |
 | Solution | Gear Cube | `/solution/gearcube/` | `https://cubemaster.fr/solution/gearcube` |
 
@@ -112,7 +112,7 @@ body {
 | Nettoyage | 3x3 | `/nettoyage/3x3/` | `https://cubemaster.fr/nettoyage/3X3` |
 | Nettoyage | 4x4 | `/nettoyage/4x4/` | `https://cubemaster.fr/nettoyage/4X4` |
 | Nettoyage | 5x5 | `/nettoyage/5x5/` | `https://cubemaster.fr/nettoyage/5X5` |
-| Nettoyage | Pyramix | `/nettoyage/pyramix/` | `https://cubemaster.fr/nettoyage/pyramix` |
+| Nettoyage | Pyraminx | `/nettoyage/pyraminx/` | `https://cubemaster.fr/nettoyage/pyraminx` |
 | Nettoyage | Mégaminx | `/nettoyage/megaminx/` | `https://cubemaster.fr/nettoyage/megaminx` |
 | Nettoyage | Gear Cube | `/nettoyage/gearcube/` | `https://cubemaster.fr/nettoyage/gearcube` |
 
@@ -124,7 +124,7 @@ body {
 | Composition | 3x3 | `/composition/3x3/` | `https://cubemaster.fr/composition/3X3` |
 | Composition | 4x4 | `/composition/4x4/` | `https://cubemaster.fr/composition/4X4` |
 | Composition | 5x5 | `/composition/5x5/` | `https://cubemaster.fr/composition/5X5` |
-| Composition | Pyramix | `/composition/pyramix/` | `https://cubemaster.fr/composition/pyramix` |
+| Composition | Pyraminx | `/composition/pyraminx/` | `https://cubemaster.fr/composition/pyraminx` |
 | Composition | Mégaminx | `/composition/megaminx/` | `https://cubemaster.fr/composition/megaminx` |
 | Composition | Gear Cube | `/composition/gearcube/` | `https://cubemaster.fr/composition/gearcube` |
 
@@ -143,7 +143,7 @@ Navigation secondaire possible :
 - 3x3
 - 4x4
 - 5x5
-- Pyramix
+- Pyraminx
 - Mégaminx
 - Gear Cube
 
@@ -219,7 +219,7 @@ cubemaster/
 │   ├── 3x3-debutant.html
 │   ├── 4x4.html
 │   ├── 5x5.html
-│   ├── pyramix.html
+│   ├── pyraminx.html
 │   ├── megaminx.html
 │   └── gearcube.html
 ├── nettoyage/
@@ -227,7 +227,7 @@ cubemaster/
 │   ├── 3x3.html
 │   ├── 4x4.html
 │   ├── 5x5.html
-│   ├── pyramix.html
+│   ├── pyraminx.html
 │   ├── megaminx.html
 │   └── gearcube.html
 └── composition/
@@ -235,7 +235,7 @@ cubemaster/
     ├── 3x3.html
     ├── 4x4.html
     ├── 5x5.html
-    ├── pyramix.html
+    ├── pyraminx.html
     ├── megaminx.html
     └── gearcube.html
 ```
@@ -266,6 +266,9 @@ prochaines étapes du 2x2 et pour les autres résolutions, notamment le 3x3.
 
 ### Structure d'une étape
 
+- toute nouvelle page de résolution doit contenir des images ou schémas du puzzle pour chaque étape et chaque sous-étape, sur le modèle pédagogique validé du 2x2 ; une simple liste de mouvements ou un lien vers une autre résolution ne remplace pas ces visuels ;
+- les cas particuliers, notamment les parités, ont aussi leur propre schéma et une instruction qui explique comment reconnaître le cas avant l'algorithme ;
+- l'absence provisoire d'une vidéo 3D ne dispense jamais des schémas statiques ; la vidéo pourra être ajoutée après validation du contenu et des états ;
 - présenter un objectif court avant les schémas ;
 - employer une grille de deux schémas par ligne sur ordinateur et une colonne sur mobile ;
 - donner à chaque schéma un numéro, un titre d'action, une instruction courte, un visuel et une légende ;
@@ -293,6 +296,14 @@ prochaines étapes du 2x2 et pour les autres résolutions, notamment le 3x3.
 - montrer les faces et les couches manipulées avec des flèches directionnelles explicites ;
 - adapter les schémas au puzzle concerné : le modèle graphique est commun, mais les pièces, les algorithmes et les états doivent être vérifiés pour chaque résolution.
 
+### Référence Pyraminx : vocabulaire
+
+- le bloc « Les termes utilisés » redessine les trois vues du [Google Docs Pyraminx](https://docs.google.com/document/d/1MiLhGMrMtnpAnPA5vBp-SxriWftRf89uzHbPm0lr01s/edit), dans l’ordre **Coins**, **Centres**, **Arêtes** ; le document sert de référence pour les pièces, pas de visuel à afficher tel quel ;
+- les coins désignent ici les petites pointes. Les centres sont les trois triangles inversés derrière les pointes sur chaque face ; les arêtes sont les trois autres triangles entre les centres. Conserver ces repères, sans les remplacer par des états génériques ;
+- `pyraminxTermDiagram` reprend le style validé des pages 2x2 et 3x3 : trois faces en perspective, traits noirs, pièces concernées orange, autres pièces grisées et ombre discrète ;
+- le fichier source non retouché reste `assets/images/solution/pyraminx-termes-google-docs.png`, uniquement comme référence. La provenance et les règles de dessin sont documentées dans le README de ce dossier.
+- le bloc « Les faces du puzzle » présente Avant, Gauche, Droite et Dessous, sans case Dessus. Les quatre vues gardent le même angle. La face du dessous est jaune, légèrement floutée et visible derrière des faces latérales transparentes aux traits gris ; les autres cases conservent des traits noirs.
+
 ### Base 3D validée
 
 - utiliser `cube-player.js` et la version locale de Three.js pour les animations ;
@@ -306,6 +317,22 @@ prochaines étapes du 2x2 et pour les autres résolutions, notamment le 3x3.
 - présenter les faces cachées par un mouvement de caméra lorsque leur contrôle est utile, sans modifier l'état du cube ;
 - afficher `R2` dans l'algorithme, mais l'animer comme deux mouvements `R` distincts séparés par une pause ;
 - valider par le code l'état initial et l'état final de chaque animation avant de la réutiliser.
+
+### Extension 4x4 en cours de validation
+
+- la page `/solution/4x4/` reprend les trois blocs de notation du 3x3 avec des visuels 4x4 : vocabulaire orange, couches vertes, mouvements bleus ;
+- ici, les minuscules `r`, `l`, `u`, `d` tournent une seule couche interne ; `Rw`, `Lw`, `Uw` tournent deux couches. Depuis la face avant, les colonnes 2 et 3 sont respectivement `l` et `r` ;
+- `cube4-scenes.js` fournit les séquences des centres, de la parité OLL et de la parité PLL au lecteur partagé `cube-player.js` ; les mouvements restent géométriques, centrés et sans translation artificielle ;
+- les animations sont sans lecture automatique, avec un seul bouton lecture/pause/reprise/relance ; les demi-tours restent notés `2` et sont animés en deux quarts de tour séparés ;
+- les centres sont animés depuis deux barres blanches à gauche en haut et à droite devant. Le blanc est complété en haut, le jaune en bas, puis le blanc passe à gauche et le jaune à droite. Les barres de couleur sont montrées horizontalement avant de redevenir verticales pour l’insertion. La vue finale remet le jaune en haut et le blanc en bas ;
+- les exemples de transfert d’une barre vers le bas sont `l D2 l'` à gauche et `r' D2 r` à droite. Pour `r U2 r'`, les deux barres doivent être dans la colonne droite ; à gauche, utiliser `l' U2 l` ;
+- correction proposée du retournement d’une arête : `R U R' F R' F' R`. L’apostrophe du second F est indispensable ;
+- association proposée : `u L' U' L u'` avec morceau avant droit en haut et avant gauche en bas ; `d' L' U' L d` pour les hauteurs inversées. Les couleurs frontales sont inversées avant de réunir les morceaux ;
+- l’orientation répétée des coins avec `R U R' U'` est proposée blanc en haut et jaune en bas, avec `D` ou `D'` entre les coins. Le maintien du blanc en bas demanderait une autre formule ;
+- ces corrections de notation et de prise ont été soumises à l’utilisateur : elles sont des propositions vérifiées, pas encore une validation éditoriale ;
+- les parités reprennent les formules CubeSkills : OLL `Rw U2 x Rw U2 Rw U2 Rw' U2 Lw U2 Rw' U2 Rw U2 Rw' U2 Rw'` et PLL `r2 U2 r2 Uw2 r2 Uw2 U2`. Les animations partent de configurations légales construites par inversion ;
+- `cube-player.test.cjs` vérifie les rotations 2x2/3x3/4x4, les couches internes et doubles, les états des centres et les résultats animés des deux parités. `cube4-moves.test.cjs` contrôle les repères, les apostrophes et les couches surlignées ;
+- le bloc séparé « Dernier étage : coins, puis arêtes » a été retiré à la demande de l’utilisateur.
 
 ### Algorithmes 2x2 validés
 
@@ -342,12 +369,87 @@ prochaines étapes du 2x2 et pour les autres résolutions, notamment le 3x3.
 - réaligner ensuite la dernière face avec le mouvement final indiqué par la configuration ;
 - dans la démonstration validée, la séquence est `R U R' U'` répétée trois fois, puis `U'`.
 
+### Algorithmes 3x3 validés
+
+La page `/solution/3x3-debutant/` reprend le standard pédagogique du 2x2 avec six étapes, des schémas isométriques à traits noirs et une animation 3D par étape. Les algorithmes du dernier étage suivent le guide débutant officiel Rubik's.
+
+**Étape 1 - Croix blanche**
+
+- former d'abord une croix avec les quatre arêtes blanches autour du centre jaune ;
+- aligner la couleur latérale de chaque arête avec le centre identique ;
+- effectuer un demi-tour de la face alignée, par exemple `F2`, pour descendre l'arête vers le centre blanc ;
+- vérifier la croix blanche et les quatre centres latéraux avant de continuer.
+
+**Étape 2 - Coins blancs**
+
+- garder la face blanche en dessous ;
+- placer le coin à traiter au-dessus de son emplacement ;
+- répéter `R U R' U'` jusqu'à son insertion ;
+- vérifier la face blanche et le premier rang des quatre faces latérales.
+
+**Étape 3 - Deuxième étage**
+
+- choisir une arête du haut qui ne contient pas de jaune ;
+- aligner sa couleur frontale avec le centre ;
+- insertion à droite : `U R U' R' U' F' U F` ;
+- insertion à gauche : `U' L' U L U F U' F'` ;
+- vérifier les deux premiers étages avant de travailler le jaune.
+
+**Étape 4 - Croix jaune**
+
+- reconnaître le point, le L ou la ligne ;
+- orienter le L avec ses branches vers l'arrière et la gauche, ou garder la ligne horizontale ;
+- exécuter `F R U R' U' F'` jusqu'à obtenir la croix jaune.
+
+**Étape 5 - Face jaune**
+
+- garder le jaune en haut et orienter le cas du poisson comme indiqué par le schéma ;
+- exécuter entièrement `R U R' U R U2 R'` ;
+- replacer le nouveau cas et recommencer si les neuf carrés ne sont pas encore jaunes.
+
+**Étape 6 - Dernier étage**
+
+- placer les coins avec `F' L F' R2 F L' F' R2 F2` ;
+- placer ensuite les arêtes avec `F2 U L R' F2 L' R U F2` ;
+- montrer chaque mouvement double comme deux quarts de tour séparés dans les animations ;
+- terminer les algorithmes avant de contrôler le résultat.
+
+### Continuité 3D du 3x3
+
+- les modes du lecteur sont `3x3-cross`, `3x3-white-corner`, `3x3-middle-right`, `3x3-yellow-cross`, `3x3-yellow-face` et `3x3-final` ;
+- chaque lecteur contient 27 pièces et fait tourner une couche de 9 pièces autour du centre du cube ;
+- les états sont construits à rebours depuis un cube résolu : le résultat d'une vidéo est exactement l'état de départ de la suivante ;
+- chaque lecteur expose des contrôles internes pour le nombre de pièces, l'état initial, les pixels visibles et l'état final attendu ;
+- source de vérification des algorithmes du dernier étage : `https://coach.rubiks.com/en/quick-reference`.
+
 ### Référence technique
 
 - structure HTML : `solution/2x2/index.html`, section `#face-blanche` ;
 - moteur 3D : `cube-player.js`, avec les modes `first-layer`, `yellow-orient`, `last-swap` et `quick-finish` ;
 - styles partagés : `style.css`, règles `.white-step-*`, `.white-corner-*`, `.corner-*` et `.cube-player-*` ;
 - avant toute duplication, contrôler la cohérence des couleurs, l'ordre des mouvements, les traits SVG superposés et le rendu responsive.
+
+### Référence pour les pages Nettoyage
+
+- le modèle retenu est intégré à `nettoyage/3x3/index.html` : une étape à la fois, navigation précédent/suivant et suivi de la position dans le parcours ; les anciennes propositions ont été retirées ;
+- garder le bloc visible « Avant le premier geste / Sur ton établi. » au-dessus du parcours, avec une seule case à cocher par matériel ; le pictogramme du chiffon ne doit pas ressembler à une seconde case ;
+- ne pas afficher de case « Étape terminée » ; la barre suit l'étape affichée, sans validation manuelle ;
+- le parcours partagé est dans `nettoyage/guide.js` et `nettoyage/guide.css`. Conserver les étapes dans le HTML pour une lecture complète sans JavaScript. Le modèle 3x3 est validé et adapté aux guides 2x2, 4x4, Mégaminx, Pyraminx et Gear Cube, avec six étapes et une FAQ propre à chaque puzzle ;
+- ne pas toucher au guide 5x5 tant que son contenu n'a pas été fourni par l'utilisateur ;
+- conserver les liens de références d'entretien en nouvel onglet avec `target="_blank"` et `rel="noopener noreferrer"` ;
+- conserver la charte CubeMaster et le contenu propre à chaque puzzle ; ne pas reprendre les blocs de résolution pour présenter l'entretien ;
+- les visuels doivent être exclusifs au site et fidèles au cube réellement utilisé : aucune pièce, couleur, géométrie interne ou manipulation inventée ;
+- privilégier des photographies originales d'un modèle identifié ; une image générée ne constitue ni une photographie réelle ni une référence mécanique validée ;
+- le triptyque `assets/images/nettoyage/atelier-3x3-propositions.png` reste une illustration de maquette. Le panneau du cube démonté n'est pas validé pour publication pédagogique ; ne pas le déployer dans les guides sans remplacement ou validation à partir de photos réelles.
+- les cinq guides adaptés ont d'abord reçu leurs propres triptyques d'atelier `assets/images/nettoyage/atelier-{puzzle}-genere.webp`, générés avec Imagegen : préparation, nettoyage extérieur et contrôle final. Pyraminx, Mégaminx et Gear Cube les conservent en attendant leur reprise. Aucune vue de 3x3 n'est utilisée pour représenter un autre puzzle ;
+- ces visuels extérieurs ne documentent pas le démontage, la lubrification interne ou le remontage d'un modèle précis. Pour ces gestes, prévoir des photographies originales d'un modèle identifié ; les guides restent en revue locale et en `noindex, nofollow` jusqu'à validation ;
+- la connexion SEO est documentée dans `nettoyage/integrations-seo.md`. Les FAQ doivent s'appuyer sur les requêtes, intentions et questions réellement relevées par puzzle, sans inventer de volumes ni confondre popularité d'une réponse et fiabilité mécanique. Ne jamais intégrer des identifiants API dans les fichiers du site.
+- correction demandée pour les visuels d'entretien : les vues extérieures répétées ont été jugées trop décoratives. Préparer des vues liées au premier retrait, aux pièces séparées, au nettoyage et au remontage, avec des repères pédagogiques ;
+- références choisies par l'utilisateur : Rubik's pour le 2x2 et le 4x4 (choix confirmé le 10 octobre 2026). Pour Pyraminx et Mégaminx, pas d'équivalent Rubik's identifié : Meffert's proposé, en attente de réponse. QiYi MoFangGe / Raphaël pour le Gear Cube, dont la variante reste à identifier par l'utilisateur. Deux schémas de montage Rubik's anciens, archivés en 2008, ont été retrouvés ; ne pas les présenter comme les mécanismes actuels. Le statut et les sources sont consignés dans `nettoyage/references-modeles.md`. Ne pas attribuer les images génériques actuelles à ces marques et ne pas générer d'intérieur non documenté.
+- dernier périmètre demandé : terminer le 2x2 et le 4x4 seulement, puis reprendre les autres puzzles plus tard ;
+- chaque étape du 2x2 et du 4x4 utilise désormais une vue distincte : repérage, pièces séparées, nettoyage à sec, préparation du lubrifiant, remontage et contrôle. Douze fichiers `rubiks-{puzzle}-{scene}-v2.webp` (remontage 2x2 corrigé en `v3`) remplacent les anciennes vues, y compris l'anatomie 2x2 dont le contour vert est corrigé. Le 2x2 suit le coin rouge-blanc-vert ; le 4x4 distingue centre/arête/coin et montre deux stades différents du remontage. Les textes et FAQ sont précisés sans changer le parcours validé ;
+- les douze vues sont carrées, affichées intégralement sur mobile et desktop avec `.cm-photo-reference`, sans recadrage de triptyque. Les originaux PNG et WebP optimisés sont conservés dans `assets/images/nettoyage/`. Les prompts exacts, corrections et limites sont enregistrés dans `creation-entretien-rubiks-v2.json` ;
+- les légendes et la note indiquent que ces illustrations sont générées en validation à partir des références Rubik's anciennes, pas des photographies réelles ni des plans exacts. Les documents originaux sont liés en nouvel onglet. Le contour bleu sert au repérage, les pointillés au montage, jamais à l'extraction. Les flacons fermés ne démontrent ni zone d'application ni dose. Le premier retrait et l'application réelle restent conditionnés à la notice du modèle exact. L'intégration des séries est terminée, pas leur certification mécanique ou leur validation finale par l'utilisateur.
 
 ## 13. Première version à produire
 
@@ -358,7 +460,7 @@ La page d'accueil doit présenter :
 - le nom du site : **CubeMaster** ;
 - une accroche pédagogique ;
 - les trois grandes familles de contenus : Solutions, Nettoyage, Composition ;
-- les principaux cubes traités : 2x2, 3x3, 4x4, 5x5, Pyramix, Mégaminx, Gear Cube ;
+- les principaux cubes traités : 2x2, 3x3, 4x4, 5x5, Pyraminx, Mégaminx, Gear Cube ;
 - une navigation claire ;
 - un design moderne, géométrique et coloré.
 
@@ -389,7 +491,7 @@ Créer une première vraie page d'accueil pour CubeMaster, un site pédagogique 
 5. Créer une navigation principale : Accueil, Solutions, Nettoyage, Composition.
 6. Créer un hero moderne avec le titre CubeMaster et une accroche claire.
 7. Créer 3 blocs principaux : Solutions, Nettoyage, Composition.
-8. Mettre en avant les cubes : 2x2, 3x3, 4x4, 5x5, Pyramix, Mégaminx, Gear Cube.
+8. Mettre en avant les cubes : 2x2, 3x3, 4x4, 5x5, Pyraminx, Mégaminx, Gear Cube.
 9. Donner une direction graphique moderne, géométrique et colorée.
 10. Garder une excellente lisibilité mobile et desktop.
 11. Ne pas créer encore toutes les pages secondaires.

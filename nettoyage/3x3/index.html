@@ -3,17 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Guide simple pour nettoyer un Rubik’s Cube 3x3 : démontage, nettoyage des pièces, lubrification et remontage.">
+  <meta name="description" content="Comment nettoyer un Rubik’s Cube 3x3 : matériel, démontage, poussière, séchage et lubrification. Guide pas à pas et FAQ pour entretenir ton cube.">
+  <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#2f46b0">
-  <title>Nettoyer un Rubik’s Cube 3x3 | CubeMaster</title>
+  <title>Nettoyer un Rubik’s Cube 3x3 : guide d’entretien | CubeMaster</title>
   <link rel="icon" href="../../assets/logo/Logo-cubemaster.ico" sizes="32x32">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../guide.css">
   <script src="../../script.js" defer></script>
+  <script src="../../assets/vendor/lucide.min.js" defer></script>
+  <script src="../guide.js" defer></script>
+  <link rel="canonical" href="https://cubemaster.fr/nettoyage/3x3/">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CubeMaster">
+  <meta property="og:title" content="Nettoyer un Rubik’s Cube 3x3 : guide d’entretien | CubeMaster">
+  <meta property="og:description" content="Comment nettoyer un Rubik’s Cube 3x3 : matériel, démontage, poussière, séchage et lubrification. Guide pas à pas et FAQ pour entretenir ton cube.">
+  <meta property="og:url" content="https://cubemaster.fr/nettoyage/3x3/">
+  <meta property="og:image" content="https://cubemaster.fr/assets/logo/Logo-cubemaster-512px.png">
+  <meta property="og:image:alt" content="Logo CubeMaster">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Nettoyer un Rubik’s Cube 3x3 : guide d’entretien | CubeMaster">
+  <meta name="twitter:description" content="Comment nettoyer un Rubik’s Cube 3x3 : matériel, démontage, poussière, séchage et lubrification. Guide pas à pas et FAQ pour entretenir ton cube.">
+  <meta name="twitter:image" content="https://cubemaster.fr/assets/logo/Logo-cubemaster-512px.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://cubemaster.fr/"},{"@type":"ListItem","position":2,"name":"Nettoyage","item":"https://cubemaster.fr/nettoyage/"},{"@type":"ListItem","position":3,"name":"Nettoyer un Rubik’s Cube 3x3","item":"https://cubemaster.fr/nettoyage/3x3/"}]}</script>
 </head>
-<body>
+<body class="cm-cleaning">
   <a class="skip-link" href="#contenu">Aller au contenu</a>
   <header class="site-header">
     <div class="container header-inner">
@@ -39,7 +57,7 @@
             <a href="../../solution/3x3-avancee/index.html">Cube 3x3 avancée</a>
             <a href="../../solution/4x4/index.html">Cube 4x4</a>
             <a href="../../solution/5x5/index.html">Cube 5x5</a>
-            <a href="../../solution/pyramix/index.html">Pyramix</a>
+            <a href="../../solution/pyraminx/index.html">Pyraminx</a>
             <a href="../../solution/megaminx/index.html">Mégaminx</a>
             <a href="../../solution/gearcube/index.html">Gear Cube</a>
           </div>
@@ -55,95 +73,162 @@
   </header>
 
   <main id="contenu">
-    <section class="page-header">
+    <section class="cm-intro">
       <div class="container">
         <div class="breadcrumb"><a href="../../index.html">Accueil</a><span>/</span><a href="../../nettoyage/index.html">Nettoyage</a><span>/</span><span>3x3</span></div>
-        <p class="eyebrow"><span></span> Entretien</p>
+        <p class="cm-eyebrow"><i data-lucide="sparkles" aria-hidden="true"></i> Entretien du cube</p>
         <h1>Nettoyer un Rubik’s Cube 3x3.</h1>
-        <p class="page-intro">Une méthode simple pour démonter, nettoyer, lubrifier et remonter un Rubik’s Cube 3x3 sans abîmer les pièces ni le mécanisme.</p>
-        <ul class="guide-meta">
-          <li>Niveau : débutant</li>
-          <li>Objectif : cube propre et fluide</li>
-          <li>Temps estimé : 25 à 35 minutes</li>
-        </ul>
+        <p>Enlève la poussière et les résidus de lubrifiant pour retrouver un cube propre et fluide. Suis les étapes de démontage, nettoyage, séchage et remontage de ton Rubik’s Cube 3x3.</p>
+        <div class="cm-meta">
+          <span><i data-lucide="clock-3" aria-hidden="true"></i> 25 à 35 minutes</span>
+          <span><i data-lucide="layers" aria-hidden="true"></i> 7 étapes</span>
+          <span><i data-lucide="circle-check" aria-hidden="true"></i> Niveau débutant</span>
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container guide-layout">
-        <aside class="guide-toc">
-          <h2>Sommaire</h2>
-          <a href="#avant">Avant de commencer</a>
-          <a href="#cache">1. Enlever le cache central</a>
-          <a href="#centre">2. Dévisser le centre</a>
-          <a href="#demonter">3. Démonter le cube</a>
-          <a href="#nettoyer">4. Nettoyer les pièces</a>
-          <a href="#lubrifier">5. Lubrifier</a>
-          <a href="#remonter">6. Remonter</a>
-          <a href="#verifier">7. Vérifier</a>
-        </aside>
+    <section class="cm-guide-body">
+      <div class="container" data-cleaning-guide>
+        <section class="cm-kit" id="avant" aria-labelledby="materiel-titre">
+          <div class="cm-kit-heading">
+            <i data-lucide="briefcase" aria-hidden="true"></i>
+            <div><p class="cm-kicker">Avant le premier geste</p><h2 id="materiel-titre">Sur ton établi.</h2></div>
+            <p>Un espace propre et bien éclairé. Les petites pièces vont dans la coupelle.</p>
+          </div>
+          <ul class="cm-materials">
+            <li><label><input type="checkbox"><i data-lucide="wrench" aria-hidden="true"></i><span>Tournevis adapté</span></label></li>
+            <li><label><input type="checkbox"><i data-lucide="container" aria-hidden="true"></i><span>Coupelle</span></label></li>
+            <li><label><input type="checkbox"><i data-lucide="layers-2" aria-hidden="true"></i><span>Chiffon microfibre</span></label></li>
+            <li><label><input type="checkbox"><i data-lucide="droplets" aria-hidden="true"></i><span>Eau + savon si nécessaire</span></label></li>
+            <li><label><input type="checkbox"><i data-lucide="brush" aria-hidden="true"></i><span>Brosse ou cotons-tiges</span></label></li>
+            <li><label><input type="checkbox"><i data-lucide="pipette" aria-hidden="true"></i><span>Lubrifiant pour cube</span></label></li>
+          </ul>
+        </section>
 
-        <div class="guide-content">
-          <article class="guide-card" id="avant">
-            <h2>Avant de commencer</h2>
-            <p>Prépare un espace propre et bien éclairé. Pose les petites pièces dans une coupelle au fur et à mesure pour éviter de perdre une vis, un ressort ou un cache.</p>
-            <h3>Matériel nécessaire</h3>
-            <ul>
-              <li>Un tournevis adapté à la vis du Rubik’s Cube.</li>
-              <li>Une coupelle pour ne pas perdre les petites pièces.</li>
-              <li>Un chiffon doux ou en microfibre.</li>
-              <li>De l’eau tiède avec un peu de savon, uniquement si nécessaire.</li>
-              <li>Des cotons-tiges ou une petite brosse souple.</li>
-              <li>Un lubrifiant spécial Rubik’s Cube.</li>
-            </ul>
+        <nav class="cm-wizard-rail" aria-label="Étapes du nettoyage" data-step-navigation hidden>
+          <button class="cm-rail-step" type="button" data-step-index="0" aria-label="Étape 1 : enlever le cache central" aria-controls="cache"><span class="cm-rail-number">1</span><span>Cache</span></button>
+          <button class="cm-rail-step" type="button" data-step-index="1" aria-label="Étape 2 : dévisser le centre" aria-controls="centre"><span class="cm-rail-number">2</span><span>Centre</span></button>
+          <button class="cm-rail-step" type="button" data-step-index="2" aria-label="Étape 3 : démonter le cube" aria-controls="demonter"><span class="cm-rail-number">3</span><span>Démontage</span></button>
+          <button class="cm-rail-step" type="button" data-step-index="3" aria-label="Étape 4 : nettoyer les pièces" aria-controls="nettoyer"><span class="cm-rail-number">4</span><span>Nettoyage</span></button>
+          <button class="cm-rail-step" type="button" data-step-index="4" aria-label="Étape 5 : lubrifier le mécanisme" aria-controls="lubrifier"><span class="cm-rail-number">5</span><span>Lubrifiant</span></button>
+          <button class="cm-rail-step" type="button" data-step-index="5" aria-label="Étape 6 : remonter le cube" aria-controls="remonter"><span class="cm-rail-number">6</span><span>Remontage</span></button>
+          <button class="cm-rail-step" type="button" data-step-index="6" aria-label="Étape 7 : vérifier le fonctionnement" aria-controls="verifier"><span class="cm-rail-number">7</span><span>Contrôle</span></button>
+        </nav>
+
+        <div class="cm-wizard-host">
+          <article class="cm-workspace cm-phase-blue" id="cache" data-cleaning-step aria-labelledby="cache-titre">
+            <div class="cm-workspace-visual"><figure class="cm-photo"><img src="../../assets/images/nettoyage/atelier-3x3-propositions.png" alt="Illustration de maquette : cube 3x3 avec un cache central retiré, tournevis et coupelle." width="2172" height="724"><figcaption>Le démontage <span>Visuel provisoire</span></figcaption></figure></div>
+            <div class="cm-workspace-copy">
+              <div class="cm-workspace-meta"><p class="cm-kicker">Étape 1 / 7</p><span>Le démontage</span></div>
+              <h2 id="cache-titre">Enlever le cache central</h2>
+              <p class="cm-workspace-tools"><i data-lucide="wrench" aria-hidden="true"></i> Ongle ou outil en plastique</p>
+              <div class="cm-step-copy"><p>À l’aide de ton ongle ou d’un petit outil en plastique, retire délicatement le cache situé au centre d’une face du Rubik’s Cube.</p><aside class="cm-precaution"><i data-lucide="shield-check" aria-hidden="true"></i><p>Évite d’utiliser un objet métallique pointu afin de ne pas rayer le plastique.</p></aside></div>
+            </div>
           </article>
 
-          <article class="guide-card" id="cache">
-            <h2>1. Enlever le cache central d’une face</h2>
-            <p>À l’aide de ton ongle ou d’un petit outil en plastique, retire délicatement le cache situé au centre d’une face du Rubik’s Cube.</p>
-            <p class="tip-box">Évite d’utiliser un objet métallique pointu afin de ne pas rayer le plastique.</p>
+          <article class="cm-workspace cm-phase-blue" id="centre" data-cleaning-step aria-labelledby="centre-titre">
+            <div class="cm-workspace-visual"><figure class="cm-photo"><img src="../../assets/images/nettoyage/atelier-3x3-propositions.png" alt="Illustration de maquette : cube 3x3 avec un cache central retiré, tournevis et coupelle." width="2172" height="724" loading="lazy"><figcaption>Le démontage <span>Visuel provisoire</span></figcaption></figure></div>
+            <div class="cm-workspace-copy">
+              <div class="cm-workspace-meta"><p class="cm-kicker">Étape 2 / 7</p><span>Le démontage</span></div>
+              <h2 id="centre-titre">Dévisser le centre</h2>
+              <p class="cm-workspace-tools"><i data-lucide="wrench" aria-hidden="true"></i> Tournevis + coupelle</p>
+              <div class="cm-step-copy"><p>À l’aide du tournevis, dévisse la vis située sous le cache central.</p><p>Place la vis, le ressort et le cache dans la coupelle pour éviter de les perdre.</p></div>
+            </div>
           </article>
 
-          <article class="guide-card" id="centre">
-            <h2>2. Dévisser le centre</h2>
-            <p>À l’aide du tournevis, dévisse la vis située sous le cache central.</p>
-            <p>Place la vis, le ressort et le cache dans la coupelle pour éviter de les perdre.</p>
+          <article class="cm-workspace cm-phase-blue" id="demonter" data-cleaning-step aria-labelledby="demonter-titre">
+            <div class="cm-workspace-visual"><figure class="cm-photo"><img src="../../assets/images/nettoyage/atelier-3x3-propositions.png" alt="Illustration de maquette du démontage, non validée comme référence technique." width="2172" height="724" loading="lazy"><figcaption>Le démontage <span>Visuel provisoire</span></figcaption></figure></div>
+            <div class="cm-workspace-copy">
+              <div class="cm-workspace-meta"><p class="cm-kicker">Étape 3 / 7</p><span>Le démontage</span></div>
+              <h2 id="demonter-titre">Démonter le cube</h2>
+              <p class="cm-workspace-tools"><i data-lucide="wrench" aria-hidden="true"></i> Coupelle à portée de main</p>
+              <div class="cm-step-copy"><p>Retire d’abord une arête, puis les autres pièces : arêtes, coins et centres, jusqu’à ce que le cube soit entièrement démonté.</p><p>Ne force pas : les pièces doivent se retirer facilement une fois la première enlevée.</p></div>
+            </div>
           </article>
 
-          <article class="guide-card" id="demonter">
-            <h2>3. Démonter le Rubik’s Cube</h2>
-            <p>Retire d’abord une arête, puis les autres pièces : arêtes, coins et centres, jusqu’à ce que le cube soit entièrement démonté.</p>
-            <p>Ne force pas : les pièces doivent se retirer facilement une fois la première enlevée.</p>
+          <article class="cm-workspace cm-phase-green" id="nettoyer" data-cleaning-step aria-labelledby="nettoyer-titre">
+            <div class="cm-workspace-visual"><figure class="cm-photo cm-photo-middle"><img src="../../assets/images/nettoyage/atelier-3x3-propositions.png" alt="Illustration de maquette : pièces démontées, chiffon et brosse. Géométrie des pièces non validée." width="2172" height="724" loading="lazy"><figcaption>Le soin <span>Visuel provisoire</span></figcaption></figure></div>
+            <div class="cm-workspace-copy">
+              <div class="cm-workspace-meta"><p class="cm-kicker">Étape 4 / 7</p><span>Le soin</span></div>
+              <h2 id="nettoyer-titre">Nettoyer les pièces</h2>
+              <p class="cm-workspace-tools"><i data-lucide="brush" aria-hidden="true"></i> Chiffon + brosse souple</p>
+              <div class="cm-step-copy"><p>Retire la poussière et les résidus d’ancien lubrifiant avec un chiffon doux ou une brosse souple.</p><p>Si nécessaire et si la notice de ton modèle le permet, passe un chiffon à peine humidifié avec de l’eau tiède et un peu de savon doux sur les pièces en plastique.</p><p>Essuie les pièces, puis laisse-les sécher complètement avant le remontage.</p><p>Nettoie également le mécanisme interne à l’aide d’un chiffon sec ou d’un coton-tige.</p><aside class="cm-precaution"><i data-lucide="shield-check" aria-hidden="true"></i><p>Important : n’utilise pas d’eau sur le mécanisme métallique.</p></aside></div>
+            </div>
           </article>
 
-          <article class="guide-card" id="nettoyer">
-            <h2>4. Nettoyer les pièces</h2>
-            <p>Lave les pièces en plastique avec de l’eau tiède et un peu de savon si elles sont sales.</p>
-            <p>Essuie-les soigneusement avec un chiffon propre.</p>
-            <p>Nettoie également le mécanisme interne à l’aide d’un chiffon sec ou d’un coton-tige.</p>
-            <p class="tip-box">Important : n’utilise pas d’eau sur le mécanisme métallique.</p>
+          <article class="cm-workspace cm-phase-green" id="lubrifier" data-cleaning-step aria-labelledby="lubrifier-titre">
+            <div class="cm-workspace-visual"><figure class="cm-photo cm-photo-middle"><img src="../../assets/images/nettoyage/atelier-3x3-propositions.png" alt="Illustration de maquette : pièces démontées, chiffon et brosse. Géométrie des pièces non validée." width="2172" height="724" loading="lazy"><figcaption>Le soin <span>Visuel provisoire</span></figcaption></figure></div>
+            <div class="cm-workspace-copy">
+              <div class="cm-workspace-meta"><p class="cm-kicker">Étape 5 / 7</p><span>Le soin</span></div>
+              <h2 id="lubrifier-titre">Lubrifier le mécanisme</h2><span class="cm-optional">Facultatif</span>
+              <p class="cm-workspace-tools"><i data-lucide="pipette" aria-hidden="true"></i> Lubrifiant spécial cube</p>
+              <div class="cm-step-copy"><p>Cette étape est facultative, mais elle peut rendre le cube plus fluide.</p><p>Applique une petite quantité de lubrifiant spécial Rubik’s Cube sur les parties en contact.</p><p>N’en mets pas trop : quelques gouttes suffisent.</p></div>
+            </div>
           </article>
 
-          <article class="guide-card" id="lubrifier">
-            <h2>5. Lubrifier le mécanisme</h2>
-            <p>Cette étape est facultative, mais elle peut rendre le cube plus fluide.</p>
-            <p>Applique une petite quantité de lubrifiant spécial Rubik’s Cube sur les parties en contact.</p>
-            <p>N’en mets pas trop : quelques gouttes suffisent.</p>
+          <article class="cm-workspace cm-phase-yellow" id="remonter" data-cleaning-step aria-labelledby="remonter-titre">
+            <div class="cm-workspace-visual"><figure class="cm-photo cm-photo-last"><img src="../../assets/images/nettoyage/atelier-3x3-propositions.png" alt="Illustration de maquette : cube 3x3 remonté, chiffon et flacon de lubrifiant." width="2172" height="724" loading="lazy"><figcaption>La remise en route <span>Visuel provisoire</span></figcaption></figure></div>
+            <div class="cm-workspace-copy">
+              <div class="cm-workspace-meta"><p class="cm-kicker">Étape 6 / 7</p><span>La remise en route</span></div>
+              <h2 id="remonter-titre">Remonter le cube</h2>
+              <p class="cm-workspace-tools"><i data-lucide="wrench" aria-hidden="true"></i> Tournevis + pièces rangées</p>
+              <div class="cm-step-copy"><p>Replace les pièces dans l’ordre inverse du démontage.</p><p>Revisse ensuite le centre sans trop serrer afin que le cube reste fluide.</p><p>Remets enfin le cache central en place.</p></div>
+            </div>
           </article>
 
-          <article class="guide-card" id="remonter">
-            <h2>6. Remonter le Rubik’s Cube</h2>
-            <p>Replace les pièces dans l’ordre inverse du démontage.</p>
-            <p>Revisse ensuite le centre sans trop serrer afin que le cube reste fluide.</p>
-            <p>Remets enfin le cache central en place.</p>
+          <article class="cm-workspace cm-phase-yellow" id="verifier" data-cleaning-step aria-labelledby="verifier-titre">
+            <div class="cm-workspace-visual"><figure class="cm-photo cm-photo-last"><img src="../../assets/images/nettoyage/atelier-3x3-propositions.png" alt="Illustration de maquette : cube 3x3 remonté, chiffon et flacon de lubrifiant." width="2172" height="724" loading="lazy"><figcaption>La remise en route <span>Visuel provisoire</span></figcaption></figure></div>
+            <div class="cm-workspace-copy">
+              <div class="cm-workspace-meta"><p class="cm-kicker">Étape 7 / 7</p><span>La remise en route</span></div>
+              <h2 id="verifier-titre">Vérifier le fonctionnement</h2>
+              <p class="cm-workspace-tools"><i data-lucide="rotate-3d" aria-hidden="true"></i> Ton cube remonté</p>
+              <div class="cm-step-copy"><p>Tourne les différentes faces plusieurs fois.</p><p>Le cube doit tourner facilement, sans bloquer ni être trop lâche.</p><p>Si nécessaire, ajuste légèrement le serrage de la vis centrale.</p></div>
+            </div>
           </article>
+        </div>
 
-          <article class="guide-card" id="verifier">
-            <h2>7. Vérifier le fonctionnement</h2>
-            <p>Tourne les différentes faces plusieurs fois.</p>
-            <p>Le cube doit tourner facilement, sans bloquer ni être trop lâche.</p>
-            <p>Si nécessaire, ajuste légèrement le serrage de la vis centrale.</p>
-          </article>
+        <div class="cm-wizard-controls" data-step-controls hidden>
+          <button class="cm-icon-button" type="button" data-direction="-1" title="Étape précédente" aria-label="Étape précédente" disabled><i data-lucide="arrow-left" aria-hidden="true"></i></button>
+          <button class="cm-next-button" type="button" data-direction="1"><span data-next-label>Étape suivante</span><i data-lucide="arrow-right" aria-hidden="true"></i></button>
+        </div>
+        <div class="cm-wizard-status" data-step-status hidden>
+          <p data-position-label role="status" aria-atomic="true">Étape 1 sur 7</p>
+          <progress max="7" value="1" aria-label="Position dans le guide" data-step-progress></progress>
+        </div>
+        <p class="cm-visual-note">Visuels de maquette générés, à remplacer par des photos réelles avant publication. Ils ne constituent pas une référence technique de démontage.</p>
+      </div>
+    </section>
+
+    <section class="cm-faq" id="faq" aria-labelledby="faq-titre">
+      <div class="container cm-faq-layout">
+        <div class="cm-faq-heading">
+          <i data-lucide="circle-help" aria-hidden="true"></i>
+          <p class="cm-kicker">Les bons réflexes</p>
+          <h2 id="faq-titre">Questions fréquentes sur le nettoyage du 3x3.</h2>
+          <p>Nettoyage, séchage et lubrification.</p>
+        </div>
+        <div class="cm-faq-list">
+          <details class="cm-faq-item" name="faq-nettoyage" open>
+            <summary><h3>Peut-on nettoyer un Rubik’s Cube 3x3 sans le démonter ?</h3><i data-lucide="plus" aria-hidden="true"></i></summary>
+            <p>Oui, pour l’extérieur : essuie les faces avec un chiffon microfibre et retire la poussière accessible avec une brosse souple. Ce nettoyage rapide ne retire pas les résidus de lubrifiant à l’intérieur. Pour un entretien complet, suis le démontage adapté à ton modèle.</p>
+          </details>
+          <details class="cm-faq-item" name="faq-nettoyage">
+            <summary><h3>Peut-on passer le cube sous l’eau ?</h3><i data-lucide="plus" aria-hidden="true"></i></summary>
+            <p>Ne plonge pas le cube assemblé dans l’eau. Pour les saletés tenaces, utilise un chiffon à peine humide et un peu de savon doux sur le plastique, si la notice le permet. Garde le mécanisme métallique au sec et laisse tout sécher complètement avant le remontage.</p>
+          </details>
+          <details class="cm-faq-item" name="faq-nettoyage">
+            <summary><h3>Quel lubrifiant utiliser après le nettoyage ?</h3><i data-lucide="plus" aria-hidden="true"></i></summary>
+            <p>Choisis un lubrifiant spécial cube compatible avec ton modèle, souvent à base de silicone. Applique une petite quantité sur les surfaces de contact propres et sèches, puis tourne les faces pour le répartir. Évite les huiles domestiques et le WD-40.</p>
+          </details>
+          <details class="cm-faq-item" name="faq-nettoyage">
+            <summary><h3>Pourquoi mon cube colle ou tourne mal ?</h3><i data-lucide="plus" aria-hidden="true"></i></summary>
+            <p>La poussière et l’ancien lubrifiant peuvent gêner les rotations. Un excès de lubrifiant peut aussi rendre le cube collant. Nettoie les pièces, vérifie le remontage et les réglages prévus par le fabricant. N’ajoute pas systématiquement du lubrifiant et ne force pas sur un blocage.</p>
+          </details>
+          <details class="cm-faq-item" name="faq-nettoyage">
+            <summary><h3>À quelle fréquence faut-il nettoyer son 3x3 ?</h3><i data-lucide="plus" aria-hidden="true"></i></summary>
+            <p>Adapte l’entretien à ton utilisation plutôt qu’à un calendrier fixe. Nettoie quand tu vois des saletés ou que les rotations deviennent moins fluides. Entre deux nettoyages complets, un chiffon sur les faces et un rangement dans une housse ou une boîte limitent l’accumulation de poussière.</p>
+          </details>
+          <p class="cm-faq-sources">Références d’entretien : <a href="https://speedcubeshop.com/a/blog/how-to-clean-a-rubiks-cube-expert-guide-for-peak-performance" target="_blank" rel="noopener noreferrer">nettoyage et précautions (SpeedCubeShop)</a>, <a href="https://speedcubeshop.com/a/blog/how-to-clean-your-speed-cube" target="_blank" rel="noopener noreferrer">entretien courant (SpeedCubeShop)</a> et <a href="https://www.gancube.com/blogs/gan_news/how-to-lube-a-speedcube" target="_blank" rel="noopener noreferrer">lubrification (GANCUBE)</a>.</p>
         </div>
       </div>
     </section>
@@ -173,7 +258,7 @@
         <h2>Nettoyage</h2>
         <a href="../../nettoyage/2x2/index.html">Cube 2x2</a>
         <a href="../../nettoyage/3x3/index.html">Cube 3x3</a>
-        <a href="../../nettoyage/pyramix/index.html">Pyramix</a>
+        <a href="../../nettoyage/pyraminx/index.html">Pyraminx</a>
       </div>
       <div class="footer-column">
         <h2><a href="../../blog/index.html">Blog</a></h2>

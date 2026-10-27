@@ -3,17 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Le guide de nettoyage Mégaminx est en préparation.">
+  <meta name="description" content="Comment nettoyer un Mégaminx : organiser les coins et arêtes, conserver les repères de couleurs, sécher, lubrifier et remonter. Guide et FAQ.">
+  <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#2f46b0">
-  <title>Nettoyer un Mégaminx | CubeMaster</title>
+  <title>Nettoyer un Mégaminx : guide d’entretien | CubeMaster</title>
   <link rel="icon" href="../../assets/logo/Logo-cubemaster.ico" sizes="32x32">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../guide.css">
   <script src="../../script.js" defer></script>
+  <script src="../../assets/vendor/lucide.min.js" defer></script>
+  <script src="../guide.js" defer></script>
+  <link rel="canonical" href="https://cubemaster.fr/nettoyage/megaminx/">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CubeMaster">
+  <meta property="og:title" content="Nettoyer un Mégaminx : guide d’entretien | CubeMaster">
+  <meta property="og:description" content="Comment nettoyer un Mégaminx : organiser les coins et arêtes, conserver les repères de couleurs, sécher, lubrifier et remonter. Guide et FAQ.">
+  <meta property="og:url" content="https://cubemaster.fr/nettoyage/megaminx/">
+  <meta property="og:image" content="https://cubemaster.fr/assets/logo/Logo-cubemaster-512px.png">
+  <meta property="og:image:alt" content="Logo CubeMaster">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Nettoyer un Mégaminx : guide d’entretien | CubeMaster">
+  <meta name="twitter:description" content="Comment nettoyer un Mégaminx : organiser les coins et arêtes, conserver les repères de couleurs, sécher, lubrifier et remonter. Guide et FAQ.">
+  <meta name="twitter:image" content="https://cubemaster.fr/assets/logo/Logo-cubemaster-512px.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://cubemaster.fr/"},{"@type":"ListItem","position":2,"name":"Nettoyage","item":"https://cubemaster.fr/nettoyage/"},{"@type":"ListItem","position":3,"name":"Nettoyer un Mégaminx","item":"https://cubemaster.fr/nettoyage/megaminx/"}]}</script>
 </head>
-<body class="construction">
+<body class="cm-cleaning">
   <a class="skip-link" href="#contenu">Aller au contenu</a>
   <header class="site-header">
     <div class="container header-inner">
@@ -39,7 +57,7 @@
             <a href="../../solution/3x3-avancee/index.html">Cube 3x3 avancée</a>
             <a href="../../solution/4x4/index.html">Cube 4x4</a>
             <a href="../../solution/5x5/index.html">Cube 5x5</a>
-            <a href="../../solution/pyramix/index.html">Pyramix</a>
+            <a href="../../solution/pyraminx/index.html">Pyraminx</a>
             <a href="../../solution/megaminx/index.html">Mégaminx</a>
             <a href="../../solution/gearcube/index.html">Gear Cube</a>
           </div>
@@ -55,19 +73,203 @@
   </header>
 
   <main id="contenu">
-    <section class="container construction-panel">
-      <div class="construction-copy">
-        <p class="eyebrow"><span></span> En cours de construction</p>
-        <h1>Nettoyer un Mégaminx</h1>
-        <p>Le guide de nettoyage Mégaminx est en préparation.</p>
-        <a class="button button-primary" href="../../solution/3x3-debutant/index.html">Voir la méthode 3x3 <span aria-hidden="true">→</span></a>
+    <section class="cm-intro">
+      <div class="container">
+        <div class="breadcrumb"><a href="../../index.html">Accueil</a><span>/</span><a href="../../nettoyage/index.html">Nettoyage</a><span>/</span><span>Mégaminx</span></div>
+        <p class="cm-eyebrow"><i data-lucide="sparkles" aria-hidden="true"></i> Entretien du puzzle</p>
+        <h1>Nettoyer un Mégaminx.</h1>
+        <p>Garde les nombreuses pièces du Mégaminx organisées pendant son entretien. Photographie les couleurs, nettoie doucement les surfaces de contact et remonte les pièces avec leurs bons repères.</p>
+        <div class="cm-meta">
+          <span><i data-lucide="clock-3" aria-hidden="true"></i> 30 à 45 minutes</span>
+          <span><i data-lucide="layers" aria-hidden="true"></i> 6 étapes</span>
+          <span><i data-lucide="shield-check" aria-hidden="true"></i> Démontage selon le modèle</span>
+        </div>
       </div>
-      <div class="solving-cube" aria-hidden="true">
-        <span></span><span></span><span></span>
-        <span></span><span></span><span></span>
-        <span></span><span></span><span></span>
+    </section>
+
+    <section class="cm-guide-body">
+      <div class="container" data-cleaning-guide>
+        <section class="cm-kit" id="avant" aria-labelledby="materiel-titre">
+          <div class="cm-kit-heading">
+            <i data-lucide="briefcase" aria-hidden="true"></i>
+            <div><p class="cm-kicker">Avant le premier geste</p><h2 id="materiel-titre">Sur ton établi.</h2></div>
+            <p>Un espace propre et bien éclairé. Les petites pièces vont dans la coupelle.</p>
+          </div>
+          <ul class="cm-materials">
+            <li><label><input type="checkbox"><i data-lucide="wrench" aria-hidden="true"></i><span>Tournevis si prévu</span></label></li>
+            <li><label><input type="checkbox"><i data-lucide="container" aria-hidden="true"></i><span>Coupelles de tri</span></label></li>
+            <li><label><input type="checkbox"><i data-lucide="layers-2" aria-hidden="true"></i><span>Chiffon microfibre</span></label></li>
+            <li><label><input type="checkbox"><i data-lucide="droplets" aria-hidden="true"></i><span>Eau + savon si autorisé</span></label></li>
+            <li><label><input type="checkbox"><i data-lucide="brush" aria-hidden="true"></i><span>Brosse ou cotons-tiges</span></label></li>
+            <li><label><input type="checkbox"><i data-lucide="pipette" aria-hidden="true"></i><span>Lubrifiant compatible</span></label></li>
+          </ul>
+          <p class="cm-kit-note">Photographie les faces avant de commencer : le schéma de couleurs peut varier selon le modèle. Suis sa notice pour le démontage et les réglages. Le temps indiqué est une estimation, hors séchage.</p>
+        </section>
+
+        <nav class="cm-wizard-rail" aria-label="Étapes du nettoyage" data-step-navigation hidden>
+          <button class="cm-rail-step" type="button" data-step-index="0" aria-label="Étape 1 : Préparer le Mégaminx" aria-controls="etape-1"><span class="cm-rail-number">1</span><span>Repères</span></button>
+          <button class="cm-rail-step" type="button" data-step-index="1" aria-label="Étape 2 : Démonter progressivement le Mégaminx" aria-controls="etape-2"><span class="cm-rail-number">2</span><span>Démontage</span></button>
+          <button class="cm-rail-step" type="button" data-step-index="2" aria-label="Étape 3 : Nettoyer et sécher les pièces" aria-controls="etape-3"><span class="cm-rail-number">3</span><span>Nettoyage</span></button>
+          <button class="cm-rail-step" type="button" data-step-index="3" aria-label="Étape 4 : Lubrifier les surfaces de contact" aria-controls="etape-4"><span class="cm-rail-number">4</span><span>Lubrifiant</span></button>
+          <button class="cm-rail-step" type="button" data-step-index="4" aria-label="Étape 5 : Remonter le Mégaminx" aria-controls="etape-5"><span class="cm-rail-number">5</span><span>Remontage</span></button>
+          <button class="cm-rail-step" type="button" data-step-index="5" aria-label="Étape 6 : Vérifier toutes les faces" aria-controls="etape-6"><span class="cm-rail-number">6</span><span>Contrôle</span></button>
+        </nav>
+
+        <div class="cm-wizard-host">
+          <article class="cm-workspace cm-phase-blue" id="etape-1" data-cleaning-step aria-labelledby="etape-1-titre">
+            <div class="cm-workspace-visual">
+              <figure class="cm-photo cm-photo-generated"><img src="../../assets/images/nettoyage/atelier-megaminx-genere.webp" alt="Illustration générée : un Mégaminx intact à faces pentagonales, près de deux coupelles et d’un tournevis." width="2172" height="724" loading="eager" decoding="async"><figcaption>Avant le premier geste<span>Illustration générée · Vue extérieure</span></figcaption></figure>
+            </div>
+            <div class="cm-workspace-copy">
+              <div class="cm-workspace-meta"><p class="cm-kicker">Étape 1 / 6</p><span>Le démontage</span></div>
+              <h2 id="etape-1-titre">Préparer le Mégaminx</h2>
+              <p class="cm-workspace-tools"><i data-lucide="camera" aria-hidden="true"></i> Photos de référence + coupelles de tri</p>
+              <div class="cm-step-copy"><p>Le Mégaminx possède de nombreux coins, arêtes et centres. Commence avec le puzzle résolu et prends des photos sous plusieurs angles pour conserver les couleurs des faces voisines.</p><p>Prépare des coupelles séparées pour les différentes familles de pièces et note les réglages que la notice prévoit de modifier.</p><aside class="cm-precaution"><i data-lucide="shield-check" aria-hidden="true"></i><p>Ne te fie pas au schéma de couleurs d’un autre Mégaminx : utilise celui de ton propre modèle.</p></aside></div>
+            </div>
+          </article>
+
+          <article class="cm-workspace cm-phase-blue" id="etape-2" data-cleaning-step aria-labelledby="etape-2-titre">
+            <div class="cm-workspace-visual">
+              <figure class="cm-photo cm-photo-generated"><img src="../../assets/images/nettoyage/atelier-megaminx-genere.webp" alt="Illustration générée : un Mégaminx intact à faces pentagonales, près de deux coupelles et d’un tournevis." width="2172" height="724" loading="lazy" decoding="async"><figcaption>Repères extérieurs<span>Illustration générée · Vue extérieure</span></figcaption></figure>
+            </div>
+            <div class="cm-workspace-copy">
+              <div class="cm-workspace-meta"><p class="cm-kicker">Étape 2 / 6</p><span>Le démontage</span></div>
+              <h2 id="etape-2-titre">Démonter progressivement le Mégaminx</h2>
+              <p class="cm-workspace-tools"><i data-lucide="container" aria-hidden="true"></i> Notice du modèle + pièces rangées</p>
+              <div class="cm-step-copy"><p>Retire une première arête uniquement selon la méthode prévue pour ton modèle. Continue doucement avec les autres pièces accessibles, sans chercher à tout démonter.</p><p>Range les coins et les arêtes par catégorie, en gardant les repères de couleurs. Photographie chaque zone avant de poursuivre.</p><aside class="cm-precaution"><i data-lucide="shield-check" aria-hidden="true"></i><p>Ne force pas une pièce et ne démonte pas les centres ou le noyau sans instruction de remontage. Sans méthode fiable, reste sur un nettoyage extérieur.</p></aside></div>
+            </div>
+          </article>
+
+          <article class="cm-workspace cm-phase-green" id="etape-3" data-cleaning-step aria-labelledby="etape-3-titre">
+            <div class="cm-workspace-visual">
+              <figure class="cm-photo cm-photo-generated cm-photo-middle"><img src="../../assets/images/nettoyage/atelier-megaminx-genere.webp" alt="Illustration générée : un chiffon microfibre essuyant la face extérieure rouge d’un Mégaminx intact." width="2172" height="724" loading="lazy" decoding="async"><figcaption>Le nettoyage extérieur<span>Illustration générée · Vue extérieure</span></figcaption></figure>
+            </div>
+            <div class="cm-workspace-copy">
+              <div class="cm-workspace-meta"><p class="cm-kicker">Étape 3 / 6</p><span>Le soin</span></div>
+              <h2 id="etape-3-titre">Nettoyer et sécher les pièces</h2>
+              <p class="cm-workspace-tools"><i data-lucide="brush" aria-hidden="true"></i> Chiffon microfibre + brosse souple</p>
+              <div class="cm-step-copy"><p>Essuie les pièces avec un chiffon doux et enlève la poussière ou l’ancien lubrifiant avec une petite brosse souple.</p><p>Si la notice le permet, traite les saletés tenaces sur le plastique avec un chiffon à peine humide et du savon doux. Conserve ton tri pendant le nettoyage.</p><p>Essuie les pièces, puis laisse-les sécher complètement avant le remontage. Utilise un chiffon sec ou un coton-tige pour les parties internes.</p><aside class="cm-precaution"><i data-lucide="shield-check" aria-hidden="true"></i><p>Ne mouille pas les vis, les ressorts ni le noyau. Ne trempe pas les pièces contenant des aimants ou portant des autocollants.</p></aside></div>
+            </div>
+          </article>
+
+          <article class="cm-workspace cm-phase-green" id="etape-4" data-cleaning-step aria-labelledby="etape-4-titre">
+            <div class="cm-workspace-visual">
+              <figure class="cm-photo cm-photo-generated cm-photo-middle"><img src="../../assets/images/nettoyage/atelier-megaminx-genere.webp" alt="Illustration générée : un chiffon microfibre essuyant la face extérieure rouge d’un Mégaminx intact." width="2172" height="724" loading="lazy" decoding="async"><figcaption>Nettoyer avant de lubrifier<span>Illustration générée · Vue extérieure</span></figcaption></figure>
+            </div>
+            <div class="cm-workspace-copy">
+              <div class="cm-workspace-meta"><p class="cm-kicker">Étape 4 / 6</p><span>Le soin</span></div>
+              <h2 id="etape-4-titre">Lubrifier les surfaces de contact</h2><span class="cm-optional">Facultatif</span>
+              <p class="cm-workspace-tools"><i data-lucide="pipette" aria-hidden="true"></i> Lubrifiant spécial puzzle compatible</p>
+              <div class="cm-step-copy"><p>Sur les surfaces propres et sèches, dépose une petite quantité de lubrifiant compatible avec ton Mégaminx, aux endroits prévus par le fabricant.</p><p>Respecte le dosage du produit. Une fois le puzzle remonté, les rotations de ses différentes faces permettront de répartir le lubrifiant.</p><aside class="cm-precaution"><i data-lucide="shield-check" aria-hidden="true"></i><p>N’utilise pas d’huile domestique ni de WD-40 et n’ajoute pas de lubrifiant pour compenser un remontage incorrect.</p></aside></div>
+            </div>
+          </article>
+
+          <article class="cm-workspace cm-phase-yellow" id="etape-5" data-cleaning-step aria-labelledby="etape-5-titre">
+            <div class="cm-workspace-visual">
+              <figure class="cm-photo cm-photo-generated cm-photo-last"><img src="../../assets/images/nettoyage/atelier-megaminx-genere.webp" alt="Illustration générée : un Mégaminx intact aux faces alignées, près d’un chiffon et d’un flacon fermé." width="2172" height="724" loading="lazy" decoding="async"><figcaption>Après le remontage<span>Illustration générée · Vue extérieure</span></figcaption></figure>
+            </div>
+            <div class="cm-workspace-copy">
+              <div class="cm-workspace-meta"><p class="cm-kicker">Étape 5 / 6</p><span>La remise en route</span></div>
+              <h2 id="etape-5-titre">Remonter le Mégaminx</h2>
+              <p class="cm-workspace-tools"><i data-lucide="wrench" aria-hidden="true"></i> Pièces triées + photos de référence</p>
+              <div class="cm-step-copy"><p>Replace les pièces dans l’ordre indiqué par la notice. Travaille progressivement autour des centres en t’aidant des photos du puzzle résolu.</p><p>Vérifie les deux couleurs de chaque arête et les trois couleurs de chaque coin avec les faces voisines. Restaure les réglages que tu avais modifiés.</p><aside class="cm-precaution"><i data-lucide="shield-check" aria-hidden="true"></i><p>Ne force jamais une pièce qui ne rentre pas. Vérifie d’abord son emplacement, son orientation et l’alignement des faces.</p></aside></div>
+            </div>
+          </article>
+
+          <article class="cm-workspace cm-phase-yellow" id="etape-6" data-cleaning-step aria-labelledby="etape-6-titre">
+            <div class="cm-workspace-visual">
+              <figure class="cm-photo cm-photo-generated cm-photo-last"><img src="../../assets/images/nettoyage/atelier-megaminx-genere.webp" alt="Illustration générée : un Mégaminx intact aux faces alignées, près d’un chiffon et d’un flacon fermé." width="2172" height="724" loading="lazy" decoding="async"><figcaption>Le contrôle final<span>Illustration générée · Vue extérieure</span></figcaption></figure>
+            </div>
+            <div class="cm-workspace-copy">
+              <div class="cm-workspace-meta"><p class="cm-kicker">Étape 6 / 6</p><span>La remise en route</span></div>
+              <h2 id="etape-6-titre">Vérifier toutes les faces</h2>
+              <p class="cm-workspace-tools"><i data-lucide="rotate-3d" aria-hidden="true"></i> Ton Mégaminx remonté</p>
+              <div class="cm-step-copy"><p>Tourne doucement chacune des faces plusieurs fois, sans chercher la vitesse. Vérifie que les mouvements restent réguliers dans toutes les directions.</p><p>Les pièces ne doivent pas se coincer ni présenter de jeu excessif. Si un réglage a été modifié, ajuste-le uniquement selon la notice, par petites corrections.</p><aside class="cm-precaution"><i data-lucide="shield-check" aria-hidden="true"></i><p>En cas de blocage, compare le montage à tes photos. Ne force pas le mécanisme pour tenter de le remettre en place.</p></aside></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="cm-wizard-controls" data-step-controls hidden>
+          <button class="cm-icon-button" type="button" data-direction="-1" title="Étape précédente" aria-label="Étape précédente" disabled><i data-lucide="arrow-left" aria-hidden="true"></i></button>
+          <button class="cm-next-button" type="button" data-direction="1"><span data-next-label>Étape suivante</span><i data-lucide="arrow-right" aria-hidden="true"></i></button>
+        </div>
+        <div class="cm-wizard-status" data-step-status hidden>
+          <p data-position-label role="status" aria-atomic="true">Étape 1 sur 6</p>
+          <progress max="6" value="1" aria-label="Position dans le guide" data-step-progress></progress>
+        </div>
+        <p class="cm-visual-note">Illustrations générées pour CubeMaster : elles montrent un Mégaminx intact et son entretien extérieur, pas un démontage documenté. Pour les pièces internes et le remontage, suis la notice de ton modèle et tes propres photos.</p>
+      </div>
+    </section>
+
+    <section class="cm-faq" id="faq" aria-labelledby="faq-titre">
+      <div class="container cm-faq-layout">
+        <div class="cm-faq-heading">
+          <i data-lucide="circle-help" aria-hidden="true"></i>
+          <p class="cm-kicker">Les bons réflexes</p>
+          <h2 id="faq-titre">Questions fréquentes sur le nettoyage du Mégaminx.</h2>
+          <p>Nettoyage, séchage et lubrification.</p>
+        </div>
+        <div class="cm-faq-list">
+          <details class="cm-faq-item" name="faq-nettoyage" open>
+            <summary><h3>Peut-on nettoyer un Mégaminx sans le démonter ?</h3><i data-lucide="plus" aria-hidden="true"></i></summary>
+            <p>Oui. Un chiffon microfibre et une brosse souple permettent de nettoyer les faces et de retirer la poussière accessible. Pour enlever les résidus internes, prévois un démontage adapté au modèle et des photos de référence avant de retirer les pièces.</p>
+          </details>
+          <details class="cm-faq-item" name="faq-nettoyage">
+            <summary><h3>Comment retrouver les bonnes couleurs au remontage ?</h3><i data-lucide="plus" aria-hidden="true"></i></summary>
+            <p>Photographie ton Mégaminx résolu sous plusieurs angles avant de commencer. Pendant le remontage, vérifie les couleurs des arêtes et des coins avec les centres voisins. N’utilise pas automatiquement le schéma d’un autre modèle.</p>
+          </details>
+          <details class="cm-faq-item" name="faq-nettoyage">
+            <summary><h3>Peut-on laver les pièces du Mégaminx à l’eau ?</h3><i data-lucide="plus" aria-hidden="true"></i></summary>
+            <p>Ne plonge pas le puzzle assemblé dans l’eau. Si la notice le permet, utilise un chiffon à peine humide sur le plastique, sans tremper les aimants ni les autocollants. Les parties métalliques restent au sec ; les pièces doivent sécher complètement avant le remontage.</p>
+          </details>
+          <details class="cm-faq-item" name="faq-nettoyage">
+            <summary><h3>Quel lubrifiant convient à un Mégaminx ?</h3><i data-lucide="plus" aria-hidden="true"></i></summary>
+            <p>Choisis un lubrifiant spécial puzzle compatible avec ton modèle. Applique une petite quantité sur les surfaces propres et sèches prévues par le fabricant, puis tourne les différentes faces après remontage. Évite les huiles domestiques et le WD-40.</p>
+          </details>
+          <details class="cm-faq-item" name="faq-nettoyage">
+            <summary><h3>Que vérifier si une face du Mégaminx accroche ?</h3><i data-lucide="plus" aria-hidden="true"></i></summary>
+            <p>Contrôle le placement des pièces autour de cette face, leur orientation et les réglages éventuellement modifiés. Retire les résidus visibles et vérifie qu’il n’y a pas d’excès de lubrifiant. Si le blocage persiste, arrête-toi et consulte la notice plutôt que de forcer.</p>
+          </details>
+          <p class="cm-faq-sources">Références d’entretien général : <a href="https://speedcubeshop.com/a/blog/how-to-clean-a-rubiks-cube-expert-guide-for-peak-performance" target="_blank" rel="noopener noreferrer">nettoyage et précautions (SpeedCubeShop)</a>, <a href="https://speedcubeshop.com/a/blog/how-to-clean-your-speed-cube" target="_blank" rel="noopener noreferrer">entretien courant (SpeedCubeShop)</a> et <a href="https://www.gancube.com/blogs/gan_news/how-to-lube-a-speedcube" target="_blank" rel="noopener noreferrer">lubrification (GANCUBE)</a>. Pour le démontage et les réglages, la notice de ton modèle reste la référence.</p>
+        </div>
       </div>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <a class="brand brand-footer" href="../../index.html" aria-label="CubeMaster, accueil">
+          <picture>
+            <source srcset="../../assets/logo/Logo-cubemaster.webp" type="image/webp">
+            <img src="../../assets/logo/Logo-cubemaster.png" alt="" width="800" height="800">
+          </picture>
+          <span>Cube<span>Master</span></span>
+        </a>
+        <p>Des méthodes simples pour comprendre, résoudre et entretenir les cubes.</p>
+      </div>
+      <div class="footer-column">
+        <h2>Solutions</h2>
+        <a href="../../solution/2x2/index.html">Cube 2x2</a>
+        <a href="../../solution/3x3-debutant/index.html">Cube 3x3 débutant</a>
+        <a href="../../solution/3x3-avancee/index.html">Cube 3x3 avancée</a>
+        <a href="../../solution/4x4/index.html">Cube 4x4</a>
+        <a href="../../solution/5x5/index.html">Cube 5x5</a>
+      </div>
+      <div class="footer-column">
+        <h2>Nettoyage</h2>
+        <a href="../../nettoyage/2x2/index.html">Cube 2x2</a>
+        <a href="../../nettoyage/3x3/index.html">Cube 3x3</a>
+        <a href="../../nettoyage/pyraminx/index.html">Pyraminx</a>
+      </div>
+      <div class="footer-column">
+        <h2><a href="../../blog/index.html">Blog</a></h2>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="current-year">2026</span> CubeMaster</p>
+      <p>Apprendre, tourner, recommencer.</p>
+    </div>
+  </footer>
 </body>
 </html>

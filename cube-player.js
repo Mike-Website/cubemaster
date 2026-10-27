@@ -38,6 +38,67 @@
     ...STEP_TWO_TARGET_ALGORITHM,
     ...invertAlgorithm(STEP_TWO_SEQUENCE),
   ]);
+  const THREE_BY_THREE_STEPS = [
+    {
+      mode: "3x3-cross",
+      algorithm: parseAlgorithm("F2"),
+      target: new THREE.Vector3(0, -1, 1),
+      startPhase: "Une arête blanche est alignée avec son centre",
+      startDetail: "La face blanche reste en dessous",
+      endPhase: "La croix blanche est terminée",
+      endDetail: "Les quatre couleurs latérales correspondent aux centres",
+      resultView: true,
+    },
+    {
+      mode: "3x3-white-corner",
+      algorithm: parseAlgorithm("R U R' U'"),
+      target: new THREE.Vector3(1, -1, 1),
+      startPhase: "Le coin blanc–rouge–vert est au-dessus de sa place",
+      startDetail: "Croix blanche conservée en dessous",
+      endPhase: "Le coin blanc est inséré",
+      endDetail: "La première couche progresse sans casser la croix",
+    },
+    {
+      mode: "3x3-middle-right",
+      algorithm: parseAlgorithm("U R U' R' U' F' U F"),
+      target: new THREE.Vector3(1, 0, 1),
+      startPhase: "L’arête rouge–verte doit partir à droite",
+      startDetail: "Aucun carré jaune sur cette arête",
+      endPhase: "L’arête est insérée au deuxième étage",
+      endDetail: "Les deux premiers étages sont terminés",
+    },
+    {
+      mode: "3x3-yellow-cross",
+      algorithm: parseAlgorithm("F R U R' U' F'"),
+      target: new THREE.Vector3(0, 1, 1),
+      startPhase: "Le motif jaune est orienté face à toi",
+      startDetail: "Applique l’algorithme sans changer la prise",
+      endPhase: "La croix jaune est formée",
+      endDetail: "Les coins jaunes restent à orienter",
+    },
+    {
+      mode: "3x3-yellow-face",
+      algorithm: parseAlgorithm("R U R' U R U2 R'"),
+      target: new THREE.Vector3(1, 1, 1),
+      startPhase: "Le poisson jaune est placé dans le bon sens",
+      startDetail: "Le coin repéré reste devant à droite",
+      endPhase: "Toute la face jaune est orientée",
+      endDetail: "Il reste à placer les pièces du dernier étage",
+    },
+    {
+      mode: "3x3-final",
+      algorithm: parseAlgorithm("F' L F' R2 F L' F' R2 F2 F2 U L R' F2 L' R U F2"),
+      target: new THREE.Vector3(1, 1, 1),
+      startPhase: "Les pièces jaunes sont orientées mais mal placées",
+      startDetail: "Commence par positionner les coins",
+      middlePhase: "Les coins sont placés",
+      middleDetail: "Positionne maintenant les quatre arêtes",
+      endPhase: "Le Rubik’s Cube 3x3 est résolu",
+      endDetail: "Les six faces sont unies",
+      splitAt: 9,
+      secondTarget: new THREE.Vector3(0, 1, 1),
+    },
+  ];
 
   function CubeStepPlayer(element) {
     this.element = element;
@@ -49,8 +110,14 @@
     this.repeat = element.querySelector("[data-cube-repeat]");
     this.progress = element.querySelector("[data-cube-progress]");
     this.mode = element.dataset.playerMode || "first-layer";
+    this.step3x3 = getThreeByThreeStep(this.mode);
+    this.step4x4 = (window.CubeMaster4Steps || []).find((step) => step.mode === this.mode);
+    this.size = Number(element.dataset.size) || (this.step3x3 ? 3 : 2);
+    this.cubieSize = this.size === 4 ? 0.46 : this.size === 3 ? 0.62 : CUBIE_SIZE;
+    this.cubieOffset = this.size === 4 ? 0.25 : this.size === 3 ? 0.66 : CUBIE_OFFSET;
     this.repetitions = Number(element.dataset.repetitions) || 3;
     this.algorithm = parseAlgorithm(element.dataset.algorithm);
+    if (this.step4x4) this.algorithm = this.step4x4.chapters.flatMap((chapter) => chapter.moves);
     this.prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     this.isPlaying = false;
     this.isPaused = false;
@@ -72,6 +139,7 @@
       this.updatePlaybackControl();
       this.resize();
       this.render();
+      this.validateRenderedPixels();
     } catch (error) {
       console.error("CubeMaster 3D player:", error);
       this.showUnavailable();
@@ -116,18 +184,20 @@
 
   CubeStepPlayer.prototype.createCube = function () {
     const targetHomeCoordinate = getTargetHomeCoordinate(this.mode);
+    const coordinates = this.size === 4 ? [-3, -1, 1, 3] : this.size === 3 ? [-1, 0, 1] : [-1, 1];
 
-    [-1, 1].forEach((x) => {
-      [-1, 1].forEach((y) => {
-        [-1, 1].forEach((z) => {
+    coordinates.forEach((x) => {
+      coordinates.forEach((y) => {
+        coordinates.forEach((z) => {
           const coordinate = new THREE.Vector3(x, y, z);
           const isTarget = coordinate.equals(targetHomeCoordinate);
           const cubie = this.createCubie(coordinate, isTarget);
 
-          cubie.position.copy(coordinate).multiplyScalar(CUBIE_OFFSET);
+          cubie.position.copy(coordinate).multiplyScalar(this.cubieOffset);
           cubie.userData.coordinate = coordinate.clone();
           cubie.userData.homeCoordinate = coordinate.clone();
           cubie.userData.isTarget = isTarget;
+          cubie.userData.cubieSize = this.cubieSize;
           this.modelRoot.add(cubie);
           this.cubies.push(cubie);
 
@@ -135,19 +205,22 @@
         });
       });
     });
+
+    this.stage.dataset.cubieCount = String(this.cubies.length);
   };
 
   CubeStepPlayer.prototype.createCubie = function (coordinate, isTarget) {
     const group = new THREE.Group();
-    const geometry = new THREE.BoxGeometry(CUBIE_SIZE, CUBIE_SIZE, CUBIE_SIZE);
+    const geometry = new THREE.BoxGeometry(this.cubieSize, this.cubieSize, this.cubieSize);
     const faceColors = getFaceColors(this.mode);
+    const boundary = this.size === 4 ? 3 : 1;
     const materials = [
-      this.createFaceMaterial(coordinate.x === 1 ? faceColors.xPositive : COLORS.black, isTarget && coordinate.x === 1),
-      this.createFaceMaterial(coordinate.x === -1 ? faceColors.xNegative : COLORS.black, isTarget && coordinate.x === -1),
-      this.createFaceMaterial(coordinate.y === 1 ? faceColors.yPositive : COLORS.black, isTarget && coordinate.y === 1),
-      this.createFaceMaterial(coordinate.y === -1 ? faceColors.yNegative : COLORS.black, isTarget && coordinate.y === -1),
-      this.createFaceMaterial(coordinate.z === 1 ? faceColors.zPositive : COLORS.black, isTarget && coordinate.z === 1),
-      this.createFaceMaterial(coordinate.z === -1 ? faceColors.zNegative : COLORS.black, isTarget && coordinate.z === -1),
+      this.createFaceMaterial(coordinate.x === boundary ? faceColors.xPositive : COLORS.black, isTarget && coordinate.x === boundary),
+      this.createFaceMaterial(coordinate.x === -boundary ? faceColors.xNegative : COLORS.black, isTarget && coordinate.x === -boundary),
+      this.createFaceMaterial(coordinate.y === boundary ? faceColors.yPositive : COLORS.black, isTarget && coordinate.y === boundary),
+      this.createFaceMaterial(coordinate.y === -boundary ? faceColors.yNegative : COLORS.black, isTarget && coordinate.y === -boundary),
+      this.createFaceMaterial(coordinate.z === boundary ? faceColors.zPositive : COLORS.black, isTarget && coordinate.z === boundary),
+      this.createFaceMaterial(coordinate.z === -boundary ? faceColors.zNegative : COLORS.black, isTarget && coordinate.z === -boundary),
     ];
     const mesh = new THREE.Mesh(geometry, materials);
     const edgeGeometry = new THREE.EdgesGeometry(geometry);
@@ -161,7 +234,7 @@
     group.userData.materials = materials;
 
     if (isTarget) {
-      const targetOutline = createTargetOutline();
+      const targetOutline = createTargetOutline(this.cubieSize);
       group.add(targetOutline);
       group.userData.targetOutline = targetOutline;
     }
@@ -187,6 +260,19 @@
   CubeStepPlayer.prototype.createInitialSetup = function () {
     this.stage.dataset.cubeMode = this.mode;
 
+    if (this.step4x4) {
+      this.applySequenceInstantly(this.step4x4.resultMoves || []);
+      this.expectedResultState = this.captureCubieState();
+      this.applySequenceInstantly(invertAlgorithm(this.algorithm));
+      this.stage.dataset.cubeValidated = String(this.size === 4 && this.cubies.length === 64);
+      return;
+    }
+
+    if (this.step3x3) {
+      this.createThreeByThreeSetup();
+      return;
+    }
+
     if (this.mode === "yellow-orient") {
       this.createYellowOrientationSetup();
       return;
@@ -207,6 +293,24 @@
 
   CubeStepPlayer.prototype.applySequenceInstantly = function (moves) {
     moves.forEach((move) => this.applyMoveInstantly(move));
+  };
+
+  CubeStepPlayer.prototype.createThreeByThreeSetup = function () {
+    const stepIndex = THREE_BY_THREE_STEPS.indexOf(this.step3x3);
+    const followingMoves = THREE_BY_THREE_STEPS
+      .slice(stepIndex + 1)
+      .flatMap((step) => step.algorithm);
+
+    this.applySequenceInstantly(invertAlgorithm(followingMoves));
+    this.expectedResultState = this.captureCubieState();
+    this.applySequenceInstantly(invertAlgorithm(this.algorithm));
+    this.targetCubie = this.findCubieByHomeCoordinate(this.step3x3.target);
+    this.stage.dataset.cubeValidated = String(
+      this.size === 3 &&
+      this.cubies.length === 27 &&
+      algorithmsMatch(this.algorithm, this.step3x3.algorithm) &&
+      Boolean(this.targetCubie)
+    );
   };
 
   CubeStepPlayer.prototype.createFirstLayerSetup = function () {
@@ -329,7 +433,13 @@
     this.modelRoot.rotation.copy(this.initialModelRotation);
     this.isPaused = false;
     this.setTargetOutlineOpacity(0);
-    if (this.mode === "yellow-orient") {
+    if (this.step4x4) {
+      this.setPhase(this.step4x4.chapters[0].title, "Prêt à démarrer");
+      this.setCurrentMove("Départ");
+    } else if (this.step3x3) {
+      this.setPhase(this.step3x3.startPhase, "Prêt à démarrer");
+      this.setCurrentMove(this.algorithm.join(" "));
+    } else if (this.mode === "yellow-orient") {
       this.setPhase("Face blanche en haut", "Prêt à démarrer");
       this.setCurrentMove("R U R' U' · 4 coins");
     } else if (this.mode === "last-swap") {
@@ -412,7 +522,11 @@
     this.stage.dataset.cubeState = "playing";
     this.updatePlaybackControl();
 
-    if (this.mode === "yellow-orient") {
+    if (this.step4x4) {
+      await this.playFourByFourStep();
+    } else if (this.step3x3) {
+      await this.playThreeByThreeStep();
+    } else if (this.mode === "yellow-orient") {
       await this.playYellowOrientationStep();
     } else if (this.mode === "last-swap") {
       await this.playLastSwapStep();
@@ -426,6 +540,101 @@
     this.isPlaying = false;
     this.isPaused = false;
     this.updatePlaybackControl();
+  };
+
+  CubeStepPlayer.prototype.setFourByFourTargets = function (coordinates) {
+    this.cubies.forEach(hideTargetOutline);
+    this.trackedCubies = (coordinates || []).map((coordinate) =>
+      this.cubies.find((cubie) => cubie.userData.coordinate.equals(new THREE.Vector3(...coordinate)))
+    ).filter(Boolean);
+    this.targetCubie = this.trackedCubies[0];
+  };
+
+  CubeStepPlayer.prototype.animateFourByFourOutline = function (opacity) {
+    return Promise.all((this.trackedCubies || []).map((cubie) => {
+      const outline = ensureTargetOutline(cubie);
+      const material = outline.userData.material;
+      const startOpacity = material.opacity;
+      outline.visible = true;
+      return tween(this, this.prefersReducedMotion ? 0 : OUTLINE_FADE_DURATION, (progress) => {
+        material.opacity = startOpacity + (opacity - startOpacity) * easeInOutCubic(progress);
+        this.render();
+      }).then(() => { outline.visible = opacity > 0; });
+    }));
+  };
+
+  CubeStepPlayer.prototype.playFourByFourStep = async function () {
+    let completedMoves = 0;
+    for (const [index, chapter] of this.step4x4.chapters.entries()) {
+      this.setPhase(chapter.title, "Séquence " + (index + 1) + " sur " + this.step4x4.chapters.length);
+      this.setCurrentMove("Départ");
+      this.setFourByFourTargets(chapter.targets);
+      await this.animateFourByFourOutline(1);
+      await pauseAwareWait(this, this.prefersReducedMotion ? 0 : 1600);
+      await this.animateFourByFourOutline(0);
+      for (const move of chapter.moves) {
+        await this.animateTeachingMove(move);
+        completedMoves += 1;
+        this.setProgress(completedMoves / this.algorithm.length * 100);
+        await pauseAwareWait(this, this.prefersReducedMotion ? 0 : MOVE_PAUSE);
+      }
+      this.setPhase(chapter.result, chapter.detail);
+      this.setFourByFourTargets(chapter.resultTargets);
+      await this.animateFourByFourOutline(1);
+      await pauseAwareWait(this, this.prefersReducedMotion ? 0 : 1800);
+    }
+    this.stage.dataset.cubeResultValidated = String(this.matchesExpectedResult());
+    this.setPhase(this.step4x4.endPhase, this.step4x4.endDetail);
+    this.setCurrentMove("✓");
+    if (this.step4x4.inspectResult) await this.animateCameraInspection();
+  };
+
+  CubeStepPlayer.prototype.playThreeByThreeStep = async function () {
+    const step = this.step3x3;
+    const totalMoves = this.algorithm.length;
+    let completedMoves = 0;
+
+    this.setPhase(step.startPhase, step.startDetail);
+    this.setCurrentMove("Départ");
+    await pauseAwareWait(this, this.prefersReducedMotion ? 0 : 650);
+    await this.animateTargetOutline(1);
+    await pauseAwareWait(this, this.prefersReducedMotion ? 0 : 1100);
+    await this.animateTargetOutline(0);
+
+    for (let moveIndex = 0; moveIndex < this.algorithm.length; moveIndex += 1) {
+      if (step.splitAt === moveIndex) {
+        this.setPhase(step.middlePhase, step.middleDetail);
+        this.setTargetCubieAtCoordinate(step.secondTarget);
+        await this.animateTargetOutline(1);
+        await pauseAwareWait(this, this.prefersReducedMotion ? 0 : 900);
+        await this.animateTargetOutline(0);
+      }
+
+      await this.animateTeachingMove(this.algorithm[moveIndex]);
+      completedMoves += 1;
+      this.setProgress((completedMoves / totalMoves) * 100);
+      await pauseAwareWait(this, this.prefersReducedMotion ? 0 : MOVE_PAUSE);
+    }
+
+    this.stage.dataset.cubeResultValidated = String(this.matchesExpectedResult());
+    if (step.secondTarget) {
+      this.setTargetCubieAtCoordinate(step.secondTarget);
+    } else {
+      this.setTargetCubieByHomeCoordinate(step.target);
+    }
+    await this.animateTargetOutline(1);
+    this.setCurrentMove("✓");
+    this.setPhase(step.endPhase, step.endDetail);
+
+    if (step.resultView) {
+      await pauseAwareWait(this, this.prefersReducedMotion ? 0 : 900);
+      await this.animateCameraToResult();
+    } else if (step.inspectResult) {
+      await pauseAwareWait(this, this.prefersReducedMotion ? 0 : 900);
+      await this.animateCameraInspection();
+    } else {
+      await pauseAwareWait(this, this.prefersReducedMotion ? 0 : 1500);
+    }
   };
 
   CubeStepPlayer.prototype.playFirstLayerStep = async function () {
@@ -579,16 +788,7 @@
 
     this.setPhase("Algorithme final", "Va jusqu’au dernier F'");
     for (const move of this.algorithm) {
-      if (move === "R2") {
-        this.setCurrentMove("R · 1/2");
-        await this.animateMove("R");
-        await pauseAwareWait(this, this.prefersReducedMotion ? 0 : DOUBLE_TURN_PAUSE);
-        this.setCurrentMove("R · 2/2");
-        await this.animateMove("R");
-      } else {
-        this.setCurrentMove(move);
-        await this.animateMove(move);
-      }
+      await this.animateTeachingMove(move);
       completedMoves += 1;
       this.setProgress((completedMoves / totalMoves) * 100);
       await pauseAwareWait(this, this.prefersReducedMotion ? 0 : MOVE_PAUSE);
@@ -602,13 +802,29 @@
     await pauseAwareWait(this, this.prefersReducedMotion ? 0 : 1600);
   };
 
+  CubeStepPlayer.prototype.animateTeachingMove = async function (move) {
+    this.teachingMove = move;
+    if (!move.includes("2")) {
+      this.setCurrentMove(move);
+      await this.animateMove(move);
+      return;
+    }
+
+    const quarterTurn = move.replace("2", "");
+    this.setCurrentMove(quarterTurn + " · 1/2");
+    await this.animateMove(quarterTurn);
+    await pauseAwareWait(this, this.prefersReducedMotion ? 0 : DOUBLE_TURN_PAUSE);
+    this.setCurrentMove(quarterTurn + " · 2/2");
+    await this.animateMove(quarterTurn);
+  };
+
   CubeStepPlayer.prototype.animateMove = function (move) {
-    const definition = getMoveDefinition(move);
+    const definition = getMoveDefinition(move, this.size);
     if (!definition) return Promise.resolve();
 
     const layer = this.prepareLayer(definition);
     const duration = this.prefersReducedMotion ? 0 : MOVE_DURATION;
-    this.stage.dataset.activeFace = move;
+    this.stage.dataset.activeFace = this.size === 4 ? this.teachingMove || move : move;
 
     return tween(this, duration, (progress) => {
       layer.pivot.rotation[definition.axis] = definition.angle * easeInOutCubic(progress);
@@ -622,7 +838,7 @@
   };
 
   CubeStepPlayer.prototype.applyMoveInstantly = function (move) {
-    const definition = getMoveDefinition(move);
+    const definition = getMoveDefinition(move, this.size);
     if (!definition) return;
 
     const layer = this.prepareLayer(definition);
@@ -633,7 +849,7 @@
   CubeStepPlayer.prototype.prepareLayer = function (definition) {
     const pivot = new THREE.Group();
     const cubies = this.cubies.filter(
-      (cubie) => Math.round(cubie.userData.coordinate[definition.axis]) === definition.layer
+      (cubie) => definition.layers.includes(Math.round(cubie.userData.coordinate[definition.axis]))
     );
 
     this.modelRoot.add(pivot);
@@ -656,7 +872,7 @@
       this.modelRoot.add(cubie);
       matrix.decompose(cubie.position, cubie.quaternion, cubie.scale);
       cubie.userData.coordinate.copy(coordinate);
-      cubie.position.copy(coordinate).multiplyScalar(CUBIE_OFFSET);
+      cubie.position.copy(coordinate).multiplyScalar(this.cubieOffset);
       cubie.quaternion.normalize();
       snapQuaternion(cubie.quaternion);
     });
@@ -788,6 +1004,23 @@
     if (this.renderer) this.renderer.render(this.scene, this.camera);
   };
 
+  CubeStepPlayer.prototype.validateRenderedPixels = function () {
+    const context = this.renderer && this.renderer.getContext();
+    if (!context) return;
+
+    const width = context.drawingBufferWidth;
+    const height = context.drawingBufferHeight;
+    const pixels = new Uint8Array(width * height * 4);
+    context.readPixels(0, 0, width, height, context.RGBA, context.UNSIGNED_BYTE, pixels);
+
+    let visibleSamples = 0;
+    for (let index = 3; index < pixels.length; index += 64) {
+      if (pixels[index] > 20) visibleSamples += 1;
+    }
+
+    this.stage.dataset.cubePixelsValidated = String(visibleSamples > 80);
+  };
+
   CubeStepPlayer.prototype.setPhase = function (phase, repeat) {
     if (this.phase) this.phase.textContent = phase;
     if (this.repeat) this.repeat.textContent = repeat;
@@ -807,7 +1040,7 @@
     this.toggleButton.disabled = true;
   };
 
-  function createTargetOutline() {
+  function createTargetOutline(cubieSize) {
     const outline = new THREE.Group();
     const material = new THREE.MeshBasicMaterial({
       color: COLORS.blue,
@@ -815,9 +1048,10 @@
       opacity: 0,
       transparent: true,
     });
-    const length = CUBIE_SIZE + 0.11;
-    const half = CUBIE_SIZE / 2 + 0.04;
-    const thickness = 0.035;
+    const size = cubieSize || CUBIE_SIZE;
+    const length = size + 0.11;
+    const half = size / 2 + 0.04;
+    const thickness = Math.max(0.024, size * 0.037);
     const xEdge = new THREE.BoxGeometry(length, thickness, thickness);
     const yEdge = new THREE.BoxGeometry(thickness, length, thickness);
     const zEdge = new THREE.BoxGeometry(thickness, thickness, length);
@@ -848,7 +1082,7 @@
 
   function ensureTargetOutline(cubie) {
     if (!cubie.userData.targetOutline) {
-      const outline = createTargetOutline();
+      const outline = createTargetOutline(cubie.userData.cubieSize);
       cubie.add(outline);
       cubie.userData.targetOutline = outline;
     }
@@ -871,13 +1105,23 @@
   }
 
   function getTargetHomeCoordinate(mode) {
+    const step3x3 = getThreeByThreeStep(mode);
+    if (step3x3) return step3x3.target.clone();
+
     return mode === "last-swap"
       ? new THREE.Vector3(1, 1, -1)
       : new THREE.Vector3(1, -1, 1);
   }
 
   function getFaceColors(mode) {
-    if (mode === "yellow-orient") {
+    if (mode === "4x4-oll") {
+      return {
+        xPositive: COLORS.red, xNegative: COLORS.orange,
+        yPositive: COLORS.yellow, yNegative: COLORS.white,
+        zPositive: COLORS.blue, zNegative: COLORS.green,
+      };
+    }
+    if (mode === "yellow-orient" || mode === "4x4-centres") {
       return {
         xPositive: COLORS.blue,
         xNegative: COLORS.green,
@@ -896,6 +1140,14 @@
       zPositive: COLORS.red,
       zNegative: COLORS.orange,
     };
+  }
+
+  function getThreeByThreeStep(mode) {
+    return THREE_BY_THREE_STEPS.find((step) => step.mode === mode);
+  }
+
+  function algorithmsMatch(first, second) {
+    return first.length === second.length && first.every((move, index) => move === second[index]);
   }
 
   function createStepTwoSequence() {
@@ -927,7 +1179,8 @@
     return moves.length ? moves : INSERTION_ALGORITHM.slice();
   }
 
-  function getMoveDefinition(move) {
+  function getMoveDefinition(move, size = 2) {
+    if (!/^(?:[RLUDFB]w?|[rludfbxyz])(?:2|')?$/.test(move)) return null;
     const face = move.charAt(0).toUpperCase();
     const isPrime = move.includes("'");
     const isDouble = move.includes("2");
@@ -938,16 +1191,28 @@
       L: { axis: "x", layer: -1, direction: 1, vector: new THREE.Vector3(1, 0, 0) },
       R: { axis: "x", layer: 1, direction: -1, vector: new THREE.Vector3(1, 0, 0) },
       U: { axis: "y", layer: 1, direction: -1, vector: new THREE.Vector3(0, 1, 0) },
+      X: { axis: "x", direction: -1, vector: new THREE.Vector3(1, 0, 0) },
+      Y: { axis: "y", direction: -1, vector: new THREE.Vector3(0, 1, 0) },
+      Z: { axis: "z", direction: -1, vector: new THREE.Vector3(0, 0, 1) },
     };
     const definition = definitions[face];
 
     if (!definition) return null;
 
+    const boundary = size === 4 ? 3 : 1;
+    const rotation = /^[xyz]/.test(move);
+    const inner = size === 4 && /^[rludfb]/.test(move);
+    const wide = move.includes("w");
+    const layers = rotation ? (size === 4 ? [-3, -1, 1, 3] : size === 3 ? [-1, 0, 1] : [-1, 1])
+      : inner ? [definition.layer]
+      : wide ? [definition.layer * boundary, size === 4 ? definition.layer : 0]
+      : [definition.layer * boundary];
     return {
       angle: definition.direction * (isPrime ? -1 : 1) * (isDouble ? 2 : 1) * QUARTER_TURN,
       axis: definition.axis,
       face,
       layer: definition.layer,
+      layers,
       vector: definition.vector,
     };
   }

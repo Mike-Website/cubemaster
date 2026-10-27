@@ -3,17 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Le guide de nettoyage 4x4 est en préparation.">
+  <meta name="description" content="Comment nettoyer un Rubik’s Cube 4x4 : centres mobiles, arêtes, tri des pièces, séchage et lubrification. Guide pas à pas et FAQ d’entretien.">
+  <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#2f46b0">
-  <title>Nettoyer un cube 4x4 | CubeMaster</title>
+  <title>Nettoyer un Rubik’s Cube 4x4 : guide d’entretien | CubeMaster</title>
   <link rel="icon" href="../../assets/logo/Logo-cubemaster.ico" sizes="32x32">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../guide.css">
   <script src="../../script.js" defer></script>
+  <script src="../../assets/vendor/lucide.min.js" defer></script>
+  <script src="../guide.js" defer></script>
+  <link rel="canonical" href="https://cubemaster.fr/nettoyage/4x4/">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CubeMaster">
+  <meta property="og:title" content="Nettoyer un Rubik’s Cube 4x4 : guide d’entretien | CubeMaster">
+  <meta property="og:description" content="Comment nettoyer un Rubik’s Cube 4x4 : centres mobiles, arêtes, tri des pièces, séchage et lubrification. Guide pas à pas et FAQ d’entretien.">
+  <meta property="og:url" content="https://cubemaster.fr/nettoyage/4x4/">
+  <meta property="og:image" content="https://cubemaster.fr/assets/logo/Logo-cubemaster-512px.png">
+  <meta property="og:image:alt" content="Logo CubeMaster">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Nettoyer un Rubik’s Cube 4x4 : guide d’entretien | CubeMaster">
+  <meta name="twitter:description" content="Comment nettoyer un Rubik’s Cube 4x4 : centres mobiles, arêtes, tri des pièces, séchage et lubrification. Guide pas à pas et FAQ d’entretien.">
+  <meta name="twitter:image" content="https://cubemaster.fr/assets/logo/Logo-cubemaster-512px.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://cubemaster.fr/"},{"@type":"ListItem","position":2,"name":"Nettoyage","item":"https://cubemaster.fr/nettoyage/"},{"@type":"ListItem","position":3,"name":"Nettoyer un Rubik’s Cube 4x4","item":"https://cubemaster.fr/nettoyage/4x4/"}]}</script>
 </head>
-<body class="construction">
+<body class="cm-cleaning">
   <a class="skip-link" href="#contenu">Aller au contenu</a>
   <header class="site-header">
     <div class="container header-inner">
@@ -39,7 +57,7 @@
             <a href="../../solution/3x3-avancee/index.html">Cube 3x3 avancée</a>
             <a href="../../solution/4x4/index.html">Cube 4x4</a>
             <a href="../../solution/5x5/index.html">Cube 5x5</a>
-            <a href="../../solution/pyramix/index.html">Pyramix</a>
+            <a href="../../solution/pyraminx/index.html">Pyraminx</a>
             <a href="../../solution/megaminx/index.html">Mégaminx</a>
             <a href="../../solution/gearcube/index.html">Gear Cube</a>
           </div>
@@ -55,19 +73,204 @@
   </header>
 
   <main id="contenu">
-    <section class="container construction-panel">
-      <div class="construction-copy">
-        <p class="eyebrow"><span></span> En cours de construction</p>
-        <h1>Nettoyer un cube 4x4</h1>
-        <p>Le guide de nettoyage 4x4 est en préparation.</p>
-        <a class="button button-primary" href="../../solution/3x3-debutant/index.html">Voir la méthode 3x3 <span aria-hidden="true">→</span></a>
+    <section class="cm-intro">
+      <div class="container">
+        <div class="breadcrumb"><a href="../../index.html">Accueil</a><span>/</span><a href="../../nettoyage/index.html">Nettoyage</a><span>/</span><span>4x4</span></div>
+        <p class="cm-eyebrow"><i data-lucide="sparkles" aria-hidden="true"></i> Entretien du puzzle</p>
+        <h1>Nettoyer un Rubik’s Cube 4x4.</h1>
+        <p>Entretiens les coins, les centres mobiles et les éléments d’arêtes de ton 4x4. Garde chaque famille de pièces organisée pour nettoyer le cube puis le remonter sans forcer.</p>
+        <div class="cm-meta">
+          <span><i data-lucide="clock-3" aria-hidden="true"></i> 30 à 45 minutes</span>
+          <span><i data-lucide="layers" aria-hidden="true"></i> 6 étapes</span>
+          <span><i data-lucide="shield-check" aria-hidden="true"></i> Démontage selon le modèle</span>
+        </div>
       </div>
-      <div class="solving-cube" aria-hidden="true">
-        <span></span><span></span><span></span>
-        <span></span><span></span><span></span>
-        <span></span><span></span><span></span>
+    </section>
+
+    <section class="cm-guide-body">
+      <div class="container" data-cleaning-guide>
+        <section class="cm-kit" id="avant" aria-labelledby="materiel-titre">
+          <div class="cm-kit-heading">
+            <i data-lucide="briefcase" aria-hidden="true"></i>
+            <div><p class="cm-kicker">Avant le premier geste</p><h2 id="materiel-titre">Sur ton établi.</h2></div>
+            <p>Un espace propre et bien éclairé. Les petites pièces vont dans la coupelle.</p>
+          </div>
+          <ul class="cm-materials">
+            <li><label><input type="checkbox"><i data-lucide="wrench" aria-hidden="true"></i><span>Tournevis si prévu</span></label></li>
+            <li><label><input type="checkbox"><i data-lucide="container" aria-hidden="true"></i><span>Coupelles de tri</span></label></li>
+            <li><label><input type="checkbox"><i data-lucide="layers-2" aria-hidden="true"></i><span>Chiffon microfibre</span></label></li>
+            <li><label><input type="checkbox"><i data-lucide="droplets" aria-hidden="true"></i><span>Eau + savon si autorisé</span></label></li>
+            <li><label><input type="checkbox"><i data-lucide="brush" aria-hidden="true"></i><span>Brosse ou cotons-tiges</span></label></li>
+            <li><label><input type="checkbox"><i data-lucide="pipette" aria-hidden="true"></i><span>Lubrifiant compatible</span></label></li>
+          </ul>
+          <p class="cm-kit-note">Le mécanisme du 4x4 est plus complexe que celui du 3x3. Consulte la notice de ton modèle et ne démonte pas plus profondément que nécessaire. Le temps indiqué est une estimation, hors séchage.</p>
+          <p class="cm-kit-note">Référence illustrée : <a href="https://www.cs.brandeis.edu/~storer/JimPuzzles/RUBIK/Rubik4x4x4/FurtherReading/Rubik4x4x4Mechanism.pdf" target="_blank" rel="noopener noreferrer">schéma de montage Rubik’s 4x4 (archive 2008)</a>. Le noyau sphérique montré appartient à cette ancienne version ; ne suppose pas que ton modèle actuel possède le même mécanisme.</p>
+        </section>
+
+        <nav class="cm-wizard-rail" aria-label="Étapes du nettoyage" data-step-navigation hidden>
+          <button class="cm-rail-step" type="button" data-step-index="0" aria-label="Étape 1 : Préparer le 4x4" aria-controls="etape-1"><span class="cm-rail-number">1</span><span>Repères</span></button>
+          <button class="cm-rail-step" type="button" data-step-index="1" aria-label="Étape 2 : Démonter progressivement les pièces" aria-controls="etape-2"><span class="cm-rail-number">2</span><span>Démontage</span></button>
+          <button class="cm-rail-step" type="button" data-step-index="2" aria-label="Étape 3 : Nettoyer et sécher les pièces" aria-controls="etape-3"><span class="cm-rail-number">3</span><span>Nettoyage</span></button>
+          <button class="cm-rail-step" type="button" data-step-index="3" aria-label="Étape 4 : Lubrifier les zones de friction" aria-controls="etape-4"><span class="cm-rail-number">4</span><span>Lubrifiant</span></button>
+          <button class="cm-rail-step" type="button" data-step-index="4" aria-label="Étape 5 : Remonter le 4x4" aria-controls="etape-5"><span class="cm-rail-number">5</span><span>Remontage</span></button>
+          <button class="cm-rail-step" type="button" data-step-index="5" aria-label="Étape 6 : Contrôler toutes les couches" aria-controls="etape-6"><span class="cm-rail-number">6</span><span>Contrôle</span></button>
+        </nav>
+
+        <div class="cm-wizard-host">
+          <article class="cm-workspace cm-phase-blue" id="etape-1" data-cleaning-step aria-labelledby="etape-1-titre">
+            <div class="cm-workspace-visual">
+              <figure class="cm-photo cm-photo-generated cm-photo-reference"><img src="../../assets/images/nettoyage/rubiks-4x4-preparation-v2.webp" alt="Illustration générée : 4x4 résolu, orange en haut, bleu devant et vert à droite, quatre rangées de quatre carrés par face ; les quatre centres orange sont entourés en bleu." width="1254" height="1254" loading="eager" decoding="async"><figcaption>Repérer les centres avant le démontage<span>Illustration générée · Référence Rubik’s 2008</span></figcaption></figure>
+            </div>
+            <div class="cm-workspace-copy">
+              <div class="cm-workspace-meta"><p class="cm-kicker">Étape 1 / 6</p><span>Le démontage</span></div>
+              <h2 id="etape-1-titre">Préparer le 4x4</h2>
+              <p class="cm-workspace-tools"><i data-lucide="camera" aria-hidden="true"></i> Photos de référence + coupelles de tri</p>
+              <div class="cm-step-copy"><p>Commence avec un cube résolu. Prends plusieurs photos de ses faces et note les réglages accessibles si la notice prévoit de les modifier.</p><p>Repère les coins, les éléments d’arêtes et les centres mobiles. Prépare des espaces séparés pour chaque famille de pièces.</p><aside class="cm-precaution"><i data-lucide="shield-check" aria-hidden="true"></i><p>N’applique pas automatiquement la méthode du 3x3. La position des couches et l’accès au mécanisme dépendent du modèle de 4x4.</p></aside></div>
+            </div>
+          </article>
+
+          <article class="cm-workspace cm-phase-blue" id="etape-2" data-cleaning-step aria-labelledby="etape-2-titre">
+            <div class="cm-workspace-visual">
+              <figure class="cm-photo cm-photo-generated cm-photo-reference"><img src="../../assets/images/nettoyage/rubiks-4x4-pieces-v2.webp" alt="Illustration générée : 4x4 ouvert, noyau sphérique fermé au-dessus de deux rangées bleues et vertes ; devant, un centre orange, une arête orange-bleue et un coin orange-bleu-vert séparés." width="1254" height="1254" loading="lazy" decoding="async"><figcaption>Centre, arête, coin : trois familles à trier<span>Illustration générée · Référence Rubik’s 2008</span></figcaption></figure>
+            </div>
+            <div class="cm-workspace-copy">
+              <div class="cm-workspace-meta"><p class="cm-kicker">Étape 2 / 6</p><span>Le démontage</span></div>
+              <h2 id="etape-2-titre">Démonter progressivement les pièces</h2>
+              <p class="cm-workspace-tools"><i data-lucide="container" aria-hidden="true"></i> Notice du modèle + coupelles</p>
+              <div class="cm-step-copy"><p>Place les couches comme indiqué dans la notice et retire délicatement la première pièce autorisée. Continue seulement avec les pièces accessibles.</p><p>Trie les familles : un centre porte un carré de couleur, un élément d’arête en porte deux et un coin en porte trois. Les trois pièces devant le noyau illustrent ce tri, pas l’ensemble des pièces du 4x4. Prends une photo avant de toucher aux éléments internes.</p><aside class="cm-precaution"><i data-lucide="shield-check" aria-hidden="true"></i><p>Ne retire pas une vis ou une pièce interne sans connaître son remontage. Si une pièce résiste, arrête-toi ; le nettoyage extérieur reste possible sans démontage.</p></aside></div>
+            </div>
+          </article>
+
+          <article class="cm-workspace cm-phase-green" id="etape-3" data-cleaning-step aria-labelledby="etape-3-titre">
+            <div class="cm-workspace-visual">
+              <figure class="cm-photo cm-photo-generated cm-photo-reference"><img src="../../assets/images/nettoyage/rubiks-4x4-nettoyage-v2.webp" alt="Illustration générée : centre orange, arête orange-bleue et coin orange-bleu-vert sur un chiffon, une brosse souple nettoyant à sec le plastique noir de l’arête." width="1254" height="1254" loading="lazy" decoding="async"><figcaption>Nettoyer les pièces sans les mélanger<span>Illustration générée · Référence Rubik’s 2008</span></figcaption></figure>
+            </div>
+            <div class="cm-workspace-copy">
+              <div class="cm-workspace-meta"><p class="cm-kicker">Étape 3 / 6</p><span>Le soin</span></div>
+              <h2 id="etape-3-titre">Nettoyer et sécher les pièces</h2>
+              <p class="cm-workspace-tools"><i data-lucide="brush" aria-hidden="true"></i> Chiffon microfibre + brosse souple</p>
+              <div class="cm-step-copy"><p>Enlève la poussière et les résidus de lubrifiant sur les coins, les arêtes et les centres avec un chiffon doux ou une brosse souple.</p><p>Pour les saletés tenaces, utilise un chiffon à peine humide avec un peu de savon doux seulement si la notice le permet. Garde les familles de pièces séparées.</p><p>Essuie les pièces, puis laisse-les sécher complètement avant le remontage. Nettoie les parties internes avec un chiffon sec ou un coton-tige.</p><aside class="cm-precaution"><i data-lucide="shield-check" aria-hidden="true"></i><p>Ne verse pas d’eau dans le mécanisme et ne trempe pas les pièces magnétiques. Les parties métalliques doivent rester au sec.</p></aside></div>
+            </div>
+          </article>
+
+          <article class="cm-workspace cm-phase-green" id="etape-4" data-cleaning-step aria-labelledby="etape-4-titre">
+            <div class="cm-workspace-visual">
+              <figure class="cm-photo cm-photo-generated cm-photo-reference"><img src="../../assets/images/nettoyage/rubiks-4x4-lubrifiant-v2.webp" alt="Illustration générée : centre, arête et coin du 4x4 propres et secs sur le chiffon, près d’un flacon compte-gouttes fermé ; aucun lubrifiant n’est appliqué." width="1254" height="1254" loading="lazy" decoding="async"><figcaption>Pièces sèches, produit compatible à vérifier<span>Illustration générée · Référence Rubik’s 2008</span></figcaption></figure>
+            </div>
+            <div class="cm-workspace-copy">
+              <div class="cm-workspace-meta"><p class="cm-kicker">Étape 4 / 6</p><span>Le soin</span></div>
+              <h2 id="etape-4-titre">Lubrifier les zones de friction</h2><span class="cm-optional">Facultatif</span>
+              <p class="cm-workspace-tools"><i data-lucide="pipette" aria-hidden="true"></i> Lubrifiant spécial cube compatible</p>
+              <div class="cm-step-copy"><p>Si nécessaire, sur des pièces propres et sèches, applique une petite quantité de lubrifiant spécial cube sur les surfaces de contact indiquées par le fabricant.</p><p>Vérifie sa compatibilité avec ton modèle et respecte le dosage du produit, sans remplir les espaces du mécanisme. Tu répartiras le lubrifiant en tournant les couches après le remontage.</p><aside class="cm-precaution"><i data-lucide="shield-check" aria-hidden="true"></i><p>N’utilise pas d’huile domestique ni de WD-40. Un excès de lubrifiant peut alourdir les mouvements et retenir la poussière.</p></aside></div>
+            </div>
+          </article>
+
+          <article class="cm-workspace cm-phase-yellow" id="etape-5" data-cleaning-step aria-labelledby="etape-5-titre">
+            <div class="cm-workspace-visual">
+              <figure class="cm-photo cm-photo-generated cm-photo-reference"><img src="../../assets/images/nettoyage/rubiks-4x4-remontage-v2.webp" alt="Illustration générée : remontage du 4x4 de référence, trois rangées inférieures de quatre carrés bleus et verts, partie haute du noyau sphérique visible avec un centre bleu incliné." width="1254" height="1254" loading="lazy" decoding="async"><figcaption>Remonter couche après couche<span>Illustration générée · Référence Rubik’s 2008</span></figcaption></figure>
+            </div>
+            <div class="cm-workspace-copy">
+              <div class="cm-workspace-meta"><p class="cm-kicker">Étape 5 / 6</p><span>La remise en route</span></div>
+              <h2 id="etape-5-titre">Remonter le 4x4</h2>
+              <p class="cm-workspace-tools"><i data-lucide="wrench" aria-hidden="true"></i> Pièces triées + photos de référence</p>
+              <div class="cm-step-copy"><p>Replace les pièces progressivement dans l’ordre prévu par la notice, en t’aidant des photos prises au démontage.</p><p>Vérifie l’emplacement et l’orientation des centres mobiles et des éléments d’arêtes. Reconstitue les faces de couleur du cube résolu et restaure les réglages modifiés.</p><aside class="cm-precaution"><i data-lucide="shield-check" aria-hidden="true"></i><p>Ne force pas les dernières pièces. Si une pièce ne rentre pas, vérifie sa famille, sa position et l’alignement des couches.</p></aside></div>
+            </div>
+          </article>
+
+          <article class="cm-workspace cm-phase-yellow" id="etape-6" data-cleaning-step aria-labelledby="etape-6-titre">
+            <div class="cm-workspace-visual">
+              <figure class="cm-photo cm-photo-generated cm-photo-reference"><img src="../../assets/images/nettoyage/rubiks-4x4-controle-v2.webp" alt="Illustration générée : 4x4 remonté tenu dans une main, quatre rangées de quatre carrés par face visible, orange en haut, bleu devant et vert à droite, toutes les couches alignées." width="1254" height="1254" loading="lazy" decoding="async"><figcaption>Le cube remonté, prêt au contrôle<span>Illustration générée · Référence Rubik’s 2008</span></figcaption></figure>
+            </div>
+            <div class="cm-workspace-copy">
+              <div class="cm-workspace-meta"><p class="cm-kicker">Étape 6 / 6</p><span>La remise en route</span></div>
+              <h2 id="etape-6-titre">Contrôler toutes les couches</h2>
+              <p class="cm-workspace-tools"><i data-lucide="rotate-3d" aria-hidden="true"></i> Ton 4x4 remonté</p>
+              <div class="cm-step-copy"><p>Tourne doucement chacune des faces, puis les couches internes du 4x4. Les mouvements répartissent aussi le lubrifiant.</p><p>Le cube doit fonctionner régulièrement, sans craquement, blocage ou jeu excessif. Ajuste un réglage uniquement selon la notice et par petites corrections.</p><aside class="cm-precaution"><i data-lucide="shield-check" aria-hidden="true"></i><p>Si une couche interne bloque, arrête-toi et vérifie le remontage. Ajouter du lubrifiant ne corrige pas une pièce mal placée.</p></aside></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="cm-wizard-controls" data-step-controls hidden>
+          <button class="cm-icon-button" type="button" data-direction="-1" title="Étape précédente" aria-label="Étape précédente" disabled><i data-lucide="arrow-left" aria-hidden="true"></i></button>
+          <button class="cm-next-button" type="button" data-direction="1"><span data-next-label>Étape suivante</span><i data-lucide="arrow-right" aria-hidden="true"></i></button>
+        </div>
+        <div class="cm-wizard-status" data-step-status hidden>
+          <p data-position-label role="status" aria-atomic="true">Étape 1 sur 6</p>
+          <progress max="6" value="1" aria-label="Position dans le guide" data-step-progress></progress>
+        </div>
+        <p class="cm-visual-note">Ces six vues sont des illustrations générées en validation, basées sur le 4x4 du schéma de montage Rubik’s archivé en 2008 : elles ne sont ni des photos réelles ni des plans techniques exacts. Le noyau reste assemblé ; la vue ne montre pas comment retirer la première pièce. Le contour bleu repère les centres, et le flacon fermé ne précise ni une zone d’application ni un dosage. Pour démonter et remonter ton cube, suis la notice de ton modèle et tes propres photos.</p>
+      </div>
+    </section>
+
+    <section class="cm-faq" id="faq" aria-labelledby="faq-titre">
+      <div class="container cm-faq-layout">
+        <div class="cm-faq-heading">
+          <i data-lucide="circle-help" aria-hidden="true"></i>
+          <p class="cm-kicker">Les bons réflexes</p>
+          <h2 id="faq-titre">Questions fréquentes sur le nettoyage du 4x4.</h2>
+          <p>Nettoyage, séchage et lubrification.</p>
+        </div>
+        <div class="cm-faq-list">
+          <details class="cm-faq-item" name="faq-nettoyage" open>
+            <summary><h3>Peut-on nettoyer un 4x4 sans le démonter ?</h3><i data-lucide="plus" aria-hidden="true"></i></summary>
+            <p>Oui, pour l’extérieur et la poussière accessible : utilise un chiffon microfibre et une brosse souple. Le démontage intérieur demande davantage de repères que sur un 3x3 ; suis la notice du modèle avant de retirer une pièce.</p>
+          </details>
+          <details class="cm-faq-item" name="faq-nettoyage">
+            <summary><h3>Comment organiser les pièces pendant le démontage du 4x4 ?</h3><i data-lucide="plus" aria-hidden="true"></i></summary>
+            <p>Prévois une coupelle par famille : centres à un carré de couleur, éléments d’arêtes à deux carrés et coins à trois carrés. Garde séparément les petites pièces internes que la notice autorise à retirer. Prends des photos à chaque étape pour retrouver les positions au remontage.</p>
+          </details>
+          <details class="cm-faq-item" name="faq-nettoyage">
+            <summary><h3>Peut-on utiliser de l’eau pour nettoyer un 4x4 ?</h3><i data-lucide="plus" aria-hidden="true"></i></summary>
+            <p>Ne trempe pas le cube assemblé ni son mécanisme. Si la notice l’autorise, passe un chiffon à peine humide sur le plastique et laisse les pièces sécher complètement. Garde les parties métalliques au sec et ne trempe pas les pièces contenant des aimants.</p>
+          </details>
+          <details class="cm-faq-item" name="faq-nettoyage">
+            <summary><h3>Quel lubrifiant utiliser pour les couches du 4x4 ?</h3><i data-lucide="plus" aria-hidden="true"></i></summary>
+            <p>Utilise un lubrifiant spécial cube compatible avec le modèle, en petite quantité sur les surfaces de contact prévues. Après remontage, fais tourner les couches externes et internes pour le répartir. Évite les huiles domestiques et le WD-40.</p>
+          </details>
+          <details class="cm-faq-item" name="faq-nettoyage">
+            <summary><h3>Pourquoi une couche interne du 4x4 bloque-t-elle ?</h3><i data-lucide="plus" aria-hidden="true"></i></summary>
+            <p>Une pièce mal engagée, un réglage modifié ou des résidus peuvent gêner la rotation. Arrête le mouvement, compare le montage à tes photos et consulte la notice. Ne force pas une couche et n’ajoute pas du lubrifiant pour masquer un défaut de remontage.</p>
+          </details>
+          <p class="cm-faq-sources">Références d’entretien général : <a href="https://speedcubeshop.com/a/blog/how-to-clean-a-rubiks-cube-expert-guide-for-peak-performance" target="_blank" rel="noopener noreferrer">nettoyage et précautions (SpeedCubeShop)</a>, <a href="https://speedcubeshop.com/a/blog/how-to-clean-your-speed-cube" target="_blank" rel="noopener noreferrer">entretien courant (SpeedCubeShop)</a> et <a href="https://www.gancube.com/blogs/gan_news/how-to-lube-a-speedcube" target="_blank" rel="noopener noreferrer">lubrification (GANCUBE)</a>. Pour le démontage et les réglages, la notice de ton modèle reste la référence.</p>
+        </div>
       </div>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <a class="brand brand-footer" href="../../index.html" aria-label="CubeMaster, accueil">
+          <picture>
+            <source srcset="../../assets/logo/Logo-cubemaster.webp" type="image/webp">
+            <img src="../../assets/logo/Logo-cubemaster.png" alt="" width="800" height="800">
+          </picture>
+          <span>Cube<span>Master</span></span>
+        </a>
+        <p>Des méthodes simples pour comprendre, résoudre et entretenir les cubes.</p>
+      </div>
+      <div class="footer-column">
+        <h2>Solutions</h2>
+        <a href="../../solution/2x2/index.html">Cube 2x2</a>
+        <a href="../../solution/3x3-debutant/index.html">Cube 3x3 débutant</a>
+        <a href="../../solution/3x3-avancee/index.html">Cube 3x3 avancée</a>
+        <a href="../../solution/4x4/index.html">Cube 4x4</a>
+        <a href="../../solution/5x5/index.html">Cube 5x5</a>
+      </div>
+      <div class="footer-column">
+        <h2>Nettoyage</h2>
+        <a href="../../nettoyage/2x2/index.html">Cube 2x2</a>
+        <a href="../../nettoyage/3x3/index.html">Cube 3x3</a>
+        <a href="../../nettoyage/pyraminx/index.html">Pyraminx</a>
+      </div>
+      <div class="footer-column">
+        <h2><a href="../../blog/index.html">Blog</a></h2>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="current-year">2026</span> CubeMaster</p>
+      <p>Apprendre, tourner, recommencer.</p>
+    </div>
+  </footer>
 </body>
 </html>
